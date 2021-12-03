@@ -1,0 +1,29 @@
+RICHIESTI:
+file elenco persone (codice persona;nome;caratteristiche separate da , (esempio:1;Gianni;capelli=corti,occhi=castani))
+file elenco domande	(codice domanda;domanda;caratteristica a cui si riferisce (esempio:1;ha i capelli corti?;capelli=corti))
+
+
+GENERICO:
+tipo messaggio(domanda, "domanda vincente"#, richiesta connessione, ecc...);risposta/domanda;info necessarie
+
+ESEMPI:
+connessione:
+	porta: 666
+	
+	mess richiesta: r;q;nome_giocatore
+	
+	mess conferma: r;a;y
+	mess rifiuto:  r;a;n
+	
+messaggi in game:
+	mess domanda:  d;q;*indice domanda*
+	mess risposta: a;a;y     oppure a;n
+	
+	mess vincente: v;q;*indice file persona*
+	mess risposta: v;a;
+
+Disconnessione
+	mess disconnessione:  l	
+	
+
+#domanda vincente si riferisce alle domande come: il tuo personaggio è Gianni?
