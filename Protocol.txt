@@ -1,7 +1,8 @@
 RICHIESTI:
 file elenco persone (codice persona;nome;caratteristiche separate da , (esempio:1;Gianni;capelli=corti,occhi=castani))
 file elenco domande	(codice domanda;domanda;caratteristica a cui si riferisce (esempio:1;ha i capelli corti?;capelli=corti))
-
+/* se riusciamo a realizzare il resto */
+file elenco aiuti (codice aiuto;frase(esempio:1;dimezza persone))
 
 GENERICO:
 tipo messaggio(domanda, "domanda vincente"#, richiesta connessione, ecc...);risposta/domanda;info necessarie
@@ -10,20 +11,32 @@ ESEMPI:
 connessione:
 	porta: 666
 	
-	mess richiesta: r;q;nome_giocatore
-	
-	mess conferma: r;a;y
-	mess rifiuto:  r;a;n
+	mess richiesta:           r;q;nome_giocatore								/* Richiesta di connessione */
+	mess risposta richiesta:  r;a;y	oppure n									/* conferma o rifiuto della connessione */
 	
 messaggi in game:
-	mess domanda:  d;q;*indice domanda*
-	mess risposta: a;a;y     oppure a;n
-	
-	mess vincente: v;q;*indice file persona*
-	mess risposta: v;a;
 
+	mess conferma scelta: c														/* l'utente manda la lettera c per Confermare di poter iniziare la partita, questa inizierà solo nel momento in cui il client ha sia ricevuto la c dall'altro utente e contemporaneamente inviato la propria in ordine casuale*/
+	
+	mess domanda:  d;q;*indice domanda*											/* l'utente che sta giocando in quel momento invia la sua Domanda */
+	mess risposta: d;a;y oppure n												/* l'utente che riceve la domanda manda questo come risposta */
+	
+	mess vincente: v;q;*indice file persona*									/* allo stesso modo riguardo la domanda specifica per indovinare la persona Vincente*/	
+	mess risposta: v;a;y oppure n												/* la risposta */
+	
+	/* se riusciamo a realizzare il resto */
+	mess domanda aiuto:  h;q;*codice aiuto*										/* il primo utente invia l'aiuto (Help)*/
+	mess risposta aiuto: h;a;*elenco codici persone da eliminare divisi da ,*	/* il secondo utente invia la risposta con l'elenco delle persone che il primo dovrà eliminare */
+	
 Disconnessione
-	mess disconnessione:  l	
+	mess disconnessione:  l						/* se l'altro client non riceve mess, quando lui reinvierà un pacchetto, rimando il messaggio (Left)*/
 	
 
 #domanda vincente si riferisce alle domande come: il tuo personaggio è Gianni?
+
+
+Altre implementazioni:
+	-realizzazione file per salvataggio login, punteggio (per creare un rank tra i giocatori) 
+	 (non bisogna realizzare un account ma all'inserimento di un nome: se questo già esiste sommerà 
+	 il punteggio ottenuto ai precedenti altrimenti creerà un nuovo utente)
+	-aiuti scritti su file (3 a partita)
