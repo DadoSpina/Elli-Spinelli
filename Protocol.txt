@@ -1,5 +1,5 @@
 RICHIESTI:
-file elenco persone (codice persona;nome;caratteristiche separate da , (esempio:1;Gianni;capelli=corti,occhi=castani))
+file elenco persone (codice persona;nome;caratteristiche separate da , (esempio:1;Gianni;capelliL=corti,occhi=castani) (capelliL-capelliC-occhi-carnagione-barba-nei-occhiali-lentiggini)) 
 file elenco domande	(codice domanda;domanda;caratteristica a cui si riferisce (esempio:1;ha i capelli corti?;capelli=corti))
 /* se riusciamo a realizzare il resto */
 file elenco aiuti (codice aiuto;frase(esempio:1;dimezza persone))
