@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,9 @@ namespace WpfGuessWho
         public MainWindow()
         {
             InitializeComponent();
+
+            /*Thread t = new Thread(ThreadServer.listen);
+            t.Start(c)*/
         }
     }
 }
