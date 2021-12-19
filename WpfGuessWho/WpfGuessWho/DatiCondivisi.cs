@@ -11,6 +11,7 @@ namespace WpfGuessWho
     {
         UdpClient peer;
         List<CPersona> listPersona;
+        List<CDomanda> listDomande;
 
         public void setPeer(string ip, int porta)
         {
@@ -20,6 +21,53 @@ namespace WpfGuessWho
         public void setListaPersona(List<CPersona> list)
         {
             listPersona = list;
+        }
+
+        public void setListaDomande(List<CDomanda> list)
+        {
+            listDomande = list;
+        }
+
+        public CDomanda findDomanda(String s)
+        {
+            CDomanda C = new CDomanda();
+            for(int i=0; i<listDomande.Count; i++)
+            {
+                if(listDomande[i].domanda == s)
+                {
+                    C = listDomande[i];
+                }
+            }
+            return C;
+        }
+
+        public int[] findPersona(String c, String r)
+        {
+            int[] vett = null;
+            int j = -1;
+            int caratteristica = findCaratteristica(c);
+            for (int i=0; i<listPersona.Count; i++)
+            {
+                if (listPersona[i].vetCaratteristiche[caratteristica] == r) //controllo se persona ha le stesse caratteristiche della domanda fatta se si metto in un vett indice persona per poi la grafica abbassare tale persona
+                {
+                    vett[j++] = i;
+                }
+            }
+            return vett;
+        }
+
+        public int findCaratteristica(String s)
+        {
+            int caratteristica = 0;
+            CPersona p = new CPersona();
+            for (int i=0; i<p.vetCaratteristiche.Length; i++)
+            {
+                if(p.vetCaratteristiche[i] == s)
+                {
+                    caratteristica = i;
+                }
+            }
+            return caratteristica;
         }
     }
 }

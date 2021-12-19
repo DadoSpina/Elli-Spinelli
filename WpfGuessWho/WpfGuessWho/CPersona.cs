@@ -12,6 +12,7 @@ namespace WpfGuessWho
          * capelliL-capelliC-occhi-carnagione-barba-nei-occhiali-lentiggini
          */
 
+        public String[] vetCaratteristiche { get; set; } = {"id", "nome", "capelliL", "capelliC", "occhi", "carnagione", "barba", "nei", "occhiali", "lentiggini" };
         public int id { get; set; }
         public string nome { get; set; }
         public string capelliL { get; set; }
@@ -42,11 +43,9 @@ namespace WpfGuessWho
                     case 0:
                         capelliL=s[1];
                         break;
-
                     case 1:
                         capelliC=s[1];
                         break;
-
                     case 2:
                         occhi=s[1];
                         break;

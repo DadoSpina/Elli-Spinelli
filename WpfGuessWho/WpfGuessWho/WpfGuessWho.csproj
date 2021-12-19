@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CDomanda.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Grafica.cs" />
     <Compile Include="ThreadServer.cs" />

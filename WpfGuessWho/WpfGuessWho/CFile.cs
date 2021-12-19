@@ -16,7 +16,12 @@ namespace WpfGuessWho
 			this.fileName = fileName;
 		}
 
-		public void toList()
+		public void setFileName(string fileName)
+        {
+			this.fileName = fileName;
+		}
+
+		public void toListPersona()
 		{
 			List<CPersona> lista = new List<CPersona>();
 			StreamReader FIN = new StreamReader(fileName);
@@ -27,12 +32,25 @@ namespace WpfGuessWho
 				string riga = FIN.ReadLine();
 				CPersona C = new CPersona(riga);
 				lista.Add(C);
-				dati.setListaPersona(lista);
 			}
-
+			dati.setListaPersona(lista);
 			FIN.Close();
 		}
 
+		public void toListDomande()
+		{
+			List<CDomanda> lista = new List<CDomanda>();
+			StreamReader FIN = new StreamReader(fileName);
 
+			FIN.ReadLine();
+			while (!FIN.EndOfStream)
+			{
+				string riga = FIN.ReadLine();
+				CDomanda C = new CDomanda(riga);
+				lista.Add(C);
+			}
+			dati.setListaDomande(lista);
+			FIN.Close();
+		}
 	}
 }
