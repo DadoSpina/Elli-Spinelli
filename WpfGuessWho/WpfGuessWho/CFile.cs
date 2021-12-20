@@ -10,7 +10,7 @@ namespace WpfGuessWho
     class CFile
     {
 		private string fileName;
-		private DatiCondivisi dati;
+        private DatiCondivisi dati;
 		public CFile(string fileName)
 		{
 			this.fileName = fileName;
@@ -25,13 +25,22 @@ namespace WpfGuessWho
 		{
 			List<CPersona> lista = new List<CPersona>();
 			StreamReader FIN = new StreamReader(fileName);
+			string riga = "";
+			int j = 0;
 
-			FIN.ReadLine();
-			while (!FIN.EndOfStream)
+			while ((riga = FIN.ReadLine()) != null)
 			{
-				string riga = FIN.ReadLine();
-				CPersona C = new CPersona(riga);
+				String[] caratteristica = new string[9];
+				String[] vett = riga.Split(';');
+				String[] campo = vett[2].Split(',');
+				for (int i = 0; i < campo.Length; i++)
+				{
+					String[] s = campo[i].Split('=');
+					caratteristica[i] = s[1];
+				}
+				CPersona C = new CPersona(int.Parse(vett[0]), vett[1], caratteristica[0], caratteristica[1], caratteristica[2], caratteristica[3], caratteristica[4], caratteristica[5], caratteristica[6], caratteristica[7]);
 				lista.Add(C);
+				j++;
 			}
 			dati.setListaPersona(lista);
 			FIN.Close();

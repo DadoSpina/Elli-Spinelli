@@ -29,7 +29,21 @@ namespace WpfGuessWho
 
         }
 
-        public CPersona(string riga)
+        public CPersona(int id, string nome, string capelliL, string capelliC, string occhi, string carnagione, string barba, string nei, string occhiali, string lentiggini)
+        {
+            this.id = id;
+            this.nome = nome;
+            this.capelliL = capelliL;
+            this.capelliC = capelliC;
+            this.occhi = occhi;
+            this.carnagione = carnagione;
+            this.barba = barba;
+            this.nei = nei;
+            this.occhiali = occhiali;
+            this.lentiggini = lentiggini;
+        }
+
+        /*public CPersona(string riga)
         {
             String[] vett = riga.Split(';');
             id = int.Parse(vett[0]);
@@ -66,20 +80,6 @@ namespace WpfGuessWho
                         break;
                 }
             }
-        }
-
-        /*public CPersona(int id, string nome, string capelliL, string capelliC, string occhi, string carnagione, string barba, string nei, string occhiali, string lentiggini)
-        {
-            this.id = id;
-            this.nome = nome;
-            this.capelliL = capelliL;
-            this.capelliC = capelliC;
-            this.occhi = occhi;
-            this.carnagione = carnagione;
-            this.barba = barba;
-            this.nei = nei;
-            this.occhiali = occhiali;
-            this.lentiggini = lentiggini;
         }*/
 
     }

@@ -10,8 +10,13 @@ namespace WpfGuessWho
     class DatiCondivisi
     {
         UdpClient peer;
-        List<CPersona> listPersona;
-        List<CDomanda> listDomande;
+        List<CPersona> listPersona = new List<CPersona>();
+        List<CDomanda> listDomande = new List<CDomanda>();
+
+        public DatiCondivisi()
+        {
+
+        }
 
         public void setPeer(string ip, int porta)
         {

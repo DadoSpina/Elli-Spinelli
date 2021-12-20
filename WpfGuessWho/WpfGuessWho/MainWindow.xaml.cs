@@ -27,6 +27,12 @@ namespace WpfGuessWho
 
             /*Thread t = new Thread(ThreadServer.listen);
             t.Start(c)*/
+
+            DatiCondivisi dati = new DatiCondivisi();
+            CPersona p = new CPersona();
+            CFile file = new CFile("filePersone.csv");
+            file.toListPersona();
+            txtBoxProva.Text = p.capelliL + p.capelliC + p.occhi + p.carnagione + p.barba + p.nei + p.occhiali + p.lentiggini;
         }
     }
 }
