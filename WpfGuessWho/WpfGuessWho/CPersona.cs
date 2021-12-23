@@ -43,44 +43,7 @@ namespace WpfGuessWho
             this.lentiggini = lentiggini;
         }
 
-        /*public CPersona(string riga)
-        {
-            String[] vett = riga.Split(';');
-            id = int.Parse(vett[0]);
-            nome = vett[1];
-            String[] campo = vett[2].Split(',');
-            for (int i=0; i<campo.Length; i++)
-            {
-                String[] s = campo[i].Split('=');
-                switch (i)
-                {
-                    case 0:
-                        capelliL=s[1];
-                        break;
-                    case 1:
-                        capelliC=s[1];
-                        break;
-                    case 2:
-                        occhi=s[1];
-                        break;
-                    case 3:
-                        carnagione = s[1];
-                        break;
-                    case 4:
-                        barba = s[1];
-                        break;
-                    case 5:
-                        nei = s[1];
-                        break;
-                    case 6:
-                        occhiali = s[1];
-                        break;
-                    case 7:
-                        lentiggini = s[1];
-                        break;
-                }
-            }
-        }*/
+        
 
     }
 }

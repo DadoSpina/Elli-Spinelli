@@ -59,30 +59,69 @@ namespace WpfGuessWho
         public int[] findPersona(String c, String r)
         {
             int[] vett = null;
-            int j = -1;
-            int caratteristica = findCaratteristica(c);
+            int j = 0;
             for (int i=0; i<listPersona.Count; i++)
             {
-                if (listPersona[i].vetCaratteristiche[caratteristica] == r) //controllo se persona ha le stesse caratteristiche della domanda fatta se si metto in un vett indice persona per poi la grafica abbassare tale persona
+                switch (c)
                 {
-                    vett[j++] = i;
+                    case "capelliL":
+                        if(listPersona[i].capelliL == r)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                        break;
+                    case "capelliC":
+                        if (listPersona[i].capelliC == r)
+                        {
+                            vett[j] = listPersona[i].id;
+                        }
+                        break;
+                    case "occhi":
+                        if (listPersona[i].occhi == r)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                        break;
+                    case "carnagione":
+                        if (listPersona[i].carnagione == r)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                        break;
+                    case "barba":
+                        if (listPersona[i].barba == r)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                        break;
+                    case "nei":
+                        if (listPersona[i].nei == r)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                        break;
+                    case "occhiali":
+                        if (listPersona[i].occhiali == r)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                        break;
+                    case "lentiggini":
+                        if (listPersona[i].lentiggini == r)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                        break;
                 }
             }
             return vett;
-        }
-
-        public int findCaratteristica(String s)
-        {
-            int caratteristica = 0;
-            CPersona p = new CPersona();
-            for (int i=0; i<p.vetCaratteristiche.Length; i++)
-            {
-                if(p.vetCaratteristiche[i] == s)
-                {
-                    caratteristica = i;
-                }
-            }
-            return caratteristica;
         }
     }
 }
