@@ -8,6 +8,6 @@ namespace WpfGuessWho
 {
     class ThreadServer
     {
-
+        
     }
 }

@@ -13,3 +13,18 @@ C:\Users\Elli Matteo\Documents\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\
 C:\Users\Elli Matteo\Documents\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.csproj.CoreCompileInputs.cache
 C:\Users\Elli Matteo\Documents\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.exe
 C:\Users\Elli Matteo\Documents\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.pdb
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\bin\Debug\WpfGuessWho.exe.config
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\bin\Debug\WpfGuessWho.exe
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\bin\Debug\WpfGuessWho.pdb
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.csprojAssemblyReference.cache
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\MainWindow.g.cs
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\App.g.cs
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho_MarkupCompile.cache
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho_MarkupCompile.lref
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\MainWindow.baml
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.g.resources
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.Properties.Resources.resources
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.csproj.GenerateResource.cache
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.csproj.CoreCompileInputs.cache
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.exe
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.pdb

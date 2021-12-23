@@ -39,18 +39,18 @@ namespace WpfGuessWho
             file.setFileName("fileDomande.csv");
             file.toListDomande();
 
-            listaD = dati.getListaDomanda();
-            listaP = dati.getListaPersona();
+            //listaD = dati.getListaDomanda();
+            //listaP = dati.getListaPersona();
             
-            for (int i = 0; i < listaP.Count; i++)
-            {
-                txtBoxProva.Text = listaP[i].capelliL + listaP[i].capelliC + listaP[i].occhi + listaP[i].carnagione + listaP[i].barba + listaP[i].nei + listaP[i].occhiali + listaP[i].lentiggini;
-            }
+            //for (int i = 0; i < listaP.Count; i++)
+            //{
+            //    txtBoxProva.Text = listaP[i].capelliL + listaP[i].capelliC + listaP[i].occhi + listaP[i].carnagione + listaP[i].barba + listaP[i].nei + listaP[i].occhiali + listaP[i].lentiggini;
+            //}
 
-            for (int i = 0; i < listaD.Count; i++)
-            {
-                txtBoxProva.Text += "\n" + listaP[i].capelliL + listaP[i].capelliC + listaP[i].occhi + listaP[i].carnagione + listaP[i].barba + listaP[i].nei + listaP[i].occhiali + listaP[i].lentiggini;
-            }
+            //for (int i = 0; i < listaD.Count; i++)
+            //{
+            //    txtBoxProva.Text += "\n" + listaP[i].capelliL + listaP[i].capelliC + listaP[i].occhi + listaP[i].carnagione + listaP[i].barba + listaP[i].nei + listaP[i].occhiali + listaP[i].lentiggini;
+            //}
 
         }
     }

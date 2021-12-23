@@ -5,9 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfGuessWho"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="375.661" Width="763.325" WindowState="Maximized">
+    <Window.Background>
+        <ImageBrush ImageSource="background.jpg"/>
+    </Window.Background>
     <Grid>
-        <TextBox x:Name="txtBoxProva" HorizontalAlignment="Left" Height="137" Margin="142,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309"/>
-
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Content="persona1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona2" HorizontalAlignment="Left" Margin="94,10,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona3" HorizontalAlignment="Left" Margin="178,10,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona4" HorizontalAlignment="Left" Margin="262,10,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona5" HorizontalAlignment="Left" Margin="346,10,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona6" HorizontalAlignment="Left" Margin="430,10,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona7" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona8" HorizontalAlignment="Left" Margin="94,57,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona9" HorizontalAlignment="Left" Margin="178,57,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona10" HorizontalAlignment="Left" Margin="262,57,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona11" HorizontalAlignment="Left" Margin="346,57,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona12" HorizontalAlignment="Left" Margin="430,57,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona13" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona14" HorizontalAlignment="Left" Margin="94,104,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona15" HorizontalAlignment="Left" Margin="178,104,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona16" HorizontalAlignment="Left" Margin="262,104,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona17" HorizontalAlignment="Left" Margin="346,104,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona18" HorizontalAlignment="Left" Margin="430,104,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona19" HorizontalAlignment="Left" Margin="10,151,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona20" HorizontalAlignment="Left" Margin="94,151,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona21" HorizontalAlignment="Left" Margin="178,151,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona22" HorizontalAlignment="Left" Margin="262,151,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona23" HorizontalAlignment="Left" Margin="346,151,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona24" HorizontalAlignment="Left" Margin="430,151,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona25" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona26" HorizontalAlignment="Left" Margin="94,198,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona27" HorizontalAlignment="Left" Margin="178,198,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona28" HorizontalAlignment="Left" Margin="262,198,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona29" HorizontalAlignment="Left" Margin="346,198,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Button Content="persona30" HorizontalAlignment="Left" Margin="430,198,0,0" VerticalAlignment="Top" Width="79" Height="42"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="230" Margin="513,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="236" Opacity="0.4"/>
+        <Image HorizontalAlignment="Left" Height="230" Margin="514,10,0,0" VerticalAlignment="Top" Width="236"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="34" Margin="94,245,0,0" Stroke="Black" VerticalAlignment="Top" Width="331" Opacity="0.4"/>
+        <Label x:Name="lblDomanda" Content="" HorizontalAlignment="Left" Margin="94,245,0,0" VerticalAlignment="Top" Height="34" Width="331"/>
+        <Button Content="&gt;" HorizontalAlignment="Left" Margin="430,245,0,0" VerticalAlignment="Top" Width="38" Height="34" Background="#FF6640B3" Foreground="White"/>
+        <Button Content="&lt;" HorizontalAlignment="Left" Margin="51,245,0,0" VerticalAlignment="Top" Width="38" Height="34" Background="#FF6640B3" Foreground="White"/>
+        <Button Content="conferma domanda" HorizontalAlignment="Left" Margin="94,284,0,0" VerticalAlignment="Top" Width="163" Background="#FF6640B3" Foreground="White"/>
+        <Button Content="indovina persona selezionata" HorizontalAlignment="Left" Margin="262,284,0,0" VerticalAlignment="Top" Width="163" Background="#FF6640B3" Foreground="White"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="27" Margin="94,309,0,0" Stroke="Black" VerticalAlignment="Top" Width="331" Opacity="0.4"/>
+        <Label x:Name="lblRisposta" Content="" HorizontalAlignment="Left" Margin="94,310,0,0" VerticalAlignment="Top" Width="331"/>
+        <Image x:Name="imgLogo" HorizontalAlignment="Left" Height="139" Margin="574,245,0,-39" VerticalAlignment="Top" Width="175" Source="logo.png"/>
     </Grid>
 </Window>
