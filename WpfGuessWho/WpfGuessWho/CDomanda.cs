@@ -19,6 +19,11 @@ namespace WpfGuessWho
 
         }
 
+		public CDomanda(DatiCondivisi dati)
+        {
+			this.dati = dati;
+        }
+
 		public CDomanda(String riga)
 		{
 			String[] vett = riga.Split(';');

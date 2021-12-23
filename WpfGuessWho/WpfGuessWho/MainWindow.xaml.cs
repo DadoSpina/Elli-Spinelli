@@ -28,11 +28,30 @@ namespace WpfGuessWho
             /*Thread t = new Thread(ThreadServer.listen);
             t.Start(c)*/
 
+            List<CPersona> listaP = new List<CPersona>();
+            List<CDomanda> listaD = new List<CDomanda>();
             DatiCondivisi dati = new DatiCondivisi();
-            CPersona p = new CPersona();
-            CFile file = new CFile("filePersone.csv");
+
+            CFile file = new CFile("filePersone.csv", dati);
             file.toListPersona();
-            txtBoxProva.Text = p.capelliL + p.capelliC + p.occhi + p.carnagione + p.barba + p.nei + p.occhiali + p.lentiggini;
+
+            CDomanda cdomanda = new CDomanda(dati);
+            file.setFileName("fileDomande.csv");
+            file.toListDomande();
+
+            listaD = dati.getListaDomanda();
+            listaP = dati.getListaPersona();
+            
+            for (int i = 0; i < listaP.Count; i++)
+            {
+                txtBoxProva.Text = listaP[i].capelliL + listaP[i].capelliC + listaP[i].occhi + listaP[i].carnagione + listaP[i].barba + listaP[i].nei + listaP[i].occhiali + listaP[i].lentiggini;
+            }
+
+            for (int i = 0; i < listaD.Count; i++)
+            {
+                txtBoxProva.Text += "\n" + listaP[i].capelliL + listaP[i].capelliC + listaP[i].occhi + listaP[i].carnagione + listaP[i].barba + listaP[i].nei + listaP[i].occhiali + listaP[i].lentiggini;
+            }
+
         }
     }
 }

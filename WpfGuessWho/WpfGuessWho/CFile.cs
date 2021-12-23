@@ -11,9 +11,10 @@ namespace WpfGuessWho
     {
 		private string fileName;
         private DatiCondivisi dati;
-		public CFile(string fileName)
+		public CFile(string fileName, DatiCondivisi dati)
 		{
 			this.fileName = fileName;
+			this.dati = dati;
 		}
 
 		public void setFileName(string fileName)

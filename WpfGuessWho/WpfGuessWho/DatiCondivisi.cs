@@ -28,9 +28,19 @@ namespace WpfGuessWho
             listPersona = list;
         }
 
+        public List<CPersona> getListaPersona()
+        {
+            return listPersona;
+        }
+
         public void setListaDomande(List<CDomanda> list)
         {
             listDomande = list;
+        }
+
+        public List<CDomanda> getListaDomanda()
+        {
+            return listDomande;
         }
 
         public CDomanda findDomanda(String s)
