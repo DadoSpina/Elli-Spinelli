@@ -8,5 +8,6 @@ namespace WpfGuessWho
 {
     class Client
     {
+
     }
 }

@@ -12,6 +12,8 @@ namespace WpfGuessWho
         UdpClient peer;
         List<CPersona> listPersona = new List<CPersona>();
         List<CDomanda> listDomande = new List<CDomanda>();
+        //lista che verrà usata dal client per capire quale domanda ha ricevuto
+        List<string> domandeRicevute = new List<string>();
 
         public DatiCondivisi()
         {
@@ -122,6 +124,17 @@ namespace WpfGuessWho
                 }
             }
             return vett;
+        }
+
+        //aggiunge alla lista che verrà usata dal client per capire quale domanda ha ricevuto
+        public void addDomandaServer(string domanda)
+        {
+            domandeRicevute.Add(domanda);
+        }
+
+        public string getLastDomandeRicevute()
+        {
+            return domandeRicevute[domandeRicevute.Count - 1];
         }
     }
 }
