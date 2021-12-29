@@ -9,7 +9,9 @@ namespace WpfGuessWho
 {
     class DatiCondivisi
     {
-        UdpClient peer;
+        //UdpClient peer;
+        string ip;
+        int porta;
         List<CPersona> listPersona = new List<CPersona>();
         List<CDomanda> listDomande = new List<CDomanda>();
         //lista che verrà usata dal client per capire quale domanda ha ricevuto
@@ -22,7 +24,18 @@ namespace WpfGuessWho
 
         public void setPeer(string ip, int porta)
         {
-            peer = new UdpClient(ip, porta);
+            this.ip = ip;
+            this.porta = porta;
+        }
+
+        public string getIp()
+        {
+            return ip;
+        }
+
+        public int getPorta()
+        {
+            return porta;
         }
 
         public void setListaPersona(List<CPersona> list)
@@ -45,12 +58,12 @@ namespace WpfGuessWho
             return listDomande;
         }
 
-        public CDomanda findDomanda(String s)
+        public CDomanda findDomanda(int s)
         {
             CDomanda C = new CDomanda();
             for(int i=0; i<listDomande.Count; i++)
             {
-                if(listDomande[i].domanda == s)
+                if(listDomande[i].indiceDomanda == s)
                 {
                     C = listDomande[i];
                 }

@@ -11,8 +11,8 @@ namespace WpfGuessWho
 		private DatiCondivisi dati;
 		public String domanda { get; set; }
 		public String risposta { get; set; }
-		private int indiceDomanda;
-		private String Selezionata;
+		public int indiceDomanda { get; set; }
+		private int indiceSelezionata;
 
 		public CDomanda()
         {
@@ -32,16 +32,16 @@ namespace WpfGuessWho
 			risposta = vett[2];
 		}
 
-		public void setSelezionata(String Selezionata)  //guarda quale domanda è stata selezionata
+		public void setSelezionata(int indiceSelezionata)  //guarda quale domanda è stata selezionata
 		{
-			this.Selezionata = Selezionata;
+			this.indiceSelezionata = indiceSelezionata;
 		}
 
 		public int[] check()    
 		{
 			CDomanda C;
 			int[] vettIndici;
-			C = dati.findDomanda(Selezionata);
+			C = dati.findDomanda(indiceSelezionata);
 			String[] campo = C.risposta.Split('=');
 			vettIndici = dati.findPersona(campo[0], campo[1]);
 			return vettIndici;
