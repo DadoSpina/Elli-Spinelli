@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfGuessWho
 {
-    class CDomanda
+    public class CDomanda
     {
 		private DatiCondivisi dati;
 		public String domanda { get; set; }

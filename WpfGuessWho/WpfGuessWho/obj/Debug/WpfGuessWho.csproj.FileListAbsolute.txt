@@ -28,3 +28,5 @@ C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\
 C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.csproj.CoreCompileInputs.cache
 C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.exe
 C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.pdb
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WStart.g.cs
+C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WStart.baml

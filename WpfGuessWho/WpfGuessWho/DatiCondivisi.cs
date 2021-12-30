@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WpfGuessWho
 {
-    class DatiCondivisi
+    public class DatiCondivisi
     {
         //UdpClient peer;
         string ip;
@@ -16,7 +16,9 @@ namespace WpfGuessWho
         List<CDomanda> listDomande = new List<CDomanda>();
         //lista che verrà usata dal client per capire quale domanda ha ricevuto
         List<string> domandeRicevute = new List<string>();
-
+        public string Utente { get; set; }
+        public bool connesso { get; set; }
+        public bool pronto { get; set; }
         public DatiCondivisi()
         {
 

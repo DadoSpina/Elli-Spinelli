@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfGuessWho
 {
-    class Client
+    public class Client
     {
         UdpClient client;
         byte[] data;
@@ -34,6 +34,8 @@ namespace WpfGuessWho
             client.Send(buffer, buffer.Length, dati.getIp(), dati.getPorta());
         }
 
-
+        /*Public void toCSV(string tipo messaggio, string QoA, string contenuti){
+            crea il pacchetto unendo le stringe e richiama inviaPacchetto()
+            }*/
     }
 }

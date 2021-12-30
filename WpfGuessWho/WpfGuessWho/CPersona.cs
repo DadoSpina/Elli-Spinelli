@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfGuessWho
 {
-    class CPersona
+    public class CPersona
     {
         /*
          * capelliL-capelliC-occhi-carnagione-barba-nei-occhiali-lentiggini

@@ -8,12 +8,14 @@ namespace WpfGuessWho
 {
     class CElaborazioneDati
     {
-        DatiCondivisi condi = new DatiCondivisi();
+        DatiCondivisi condi;
+        Client c;
         string[] domanda;
 
-        public CElaborazioneDati(DatiCondivisi condi)
+        public CElaborazioneDati(DatiCondivisi condi, Client c)
         {
             this.condi = condi;
+            this.c = c;
         }
 
         public void separate()
@@ -24,99 +26,87 @@ namespace WpfGuessWho
 
         public void valutaTipo()
         {
-            int DoA = checkDoA(domanda[1]);
             switch (domanda[0])
             {
                 case "r": //richiesta connessione
-                    switch (DoA)
+                    switch (domanda[1])
                     {
-                        case 0:
-                            //elabora una risposta
+                        case "q":
+                            if (!condi.connesso)
+                            {
+                                //c.toCSV("r", "a", "y");
+                            }
+                            else
+                            {
+                                //rifiuta la connessione
+                                //c.toCSV("r","a","n")
+                            }
                             break;
-                        case 1:
-                            //riceve la risposta
-                            break;
-                        case -1:
-                            //messaggio di errore
+                        case "a":
+                            if (domanda[2] == "n")
+                            {
+                                condi.connesso = true;
+                            }
+
                             break;
 
                     }
                     break;
-                case "d": //domanda "base"
-                    switch (DoA)
+                case "c":
+                    if (true)
                     {
-                        case 0:
+
+                    }
+                    break;
+                case "d": //domanda "base"
+                    switch (domanda[1])
+                    {
+                        case "q":
                             //elabora una risposta
                             break;
-                        case 1:
+                        case "a":
                             //riceve la risposta
-                            break;
-                        case -1:
-                            //messaggio di errore
                             break;
 
                     }
                     break;
                 case "v": //domanda "vincente"
-                    switch (DoA)
+                    switch (domanda[1])
                     {
-                        case 0:
+                        case "q":
                             //elabora una risposta
                             break;
-                        case 1:
+                        case "a":
                             //riceve la risposta
-                            break;
-                        case -1:
-                            //messaggio di errore
                             break;
 
                     }
                     break;
                 case "h": //eventuali aiuti
-                    switch (DoA)
+                    switch (domanda[1])
                     {
-                        case 0:
+                        case "q":
                             //elabora una risposta
                             break;
-                        case 1:
+                        case "a":
                             //riceve la risposta
-                            break;
-                        case -1:
-                            //messaggio di errore
                             break;
 
                     }
                     break;
                 case "l": //richiesta disconnessione
-                    switch (DoA)
+                    switch (domanda[1])
                     {
-                        case 0:
+                        case "q":
                             //elabora una risposta
                             break;
-                        case 1:
+                        case "a":
                             //riceve la risposta
-                            break;
-                        case -1:
-                            //messaggio di errore
                             break;
 
                     }
                     break;
             }
         }
-
-        private int checkDoA(string DoA)
-        {
-            if (domanda[1] == "q")
-            {
-                return 0;
-            }
-            else if (domanda[1] == "a")
-            {
-                return 1;
-            }
-            return -1;
-        }
-        //
     }
 }

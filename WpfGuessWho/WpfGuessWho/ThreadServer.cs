@@ -37,8 +37,11 @@ namespace WpfGuessWho
 
         public void addToCondi()
         {
-            string a = riceviPacchetto();
-            condi.addDomandaServer(a);
+            while (true)
+            {
+                string a = riceviPacchetto();
+                condi.addDomandaServer(a);
+            }
         }
     }
 }

@@ -21,16 +21,21 @@ namespace WpfGuessWho
     /// </summary>
     public partial class MainWindow : Window
     {
+        DatiCondivisi dati = new DatiCondivisi();
+        ThreadServer th = new ThreadServer();
         public MainWindow()
         {
-            InitializeComponent();
+            Thread t = new Thread(new ThreadStart(th.addToCondi));
 
-            /*Thread t = new Thread(ThreadServer.listen);
-            t.Start(c)*/
+            InitializeComponent();
+            WStart window = new WStart(dati);
+            Hide();
+            window.ShowDialog();
+            Show();
+
 
             List<CPersona> listaP = new List<CPersona>();
             List<CDomanda> listaD = new List<CDomanda>();
-            DatiCondivisi dati = new DatiCondivisi();
 
             CFile file = new CFile("filePersone.csv", dati);
             file.toListPersona();
@@ -38,20 +43,6 @@ namespace WpfGuessWho
             CDomanda cdomanda = new CDomanda(dati);
             file.setFileName("fileDomande.csv");
             file.toListDomande();
-
-            //listaD = dati.getListaDomanda();
-            //listaP = dati.getListaPersona();
-            
-            //for (int i = 0; i < listaP.Count; i++)
-            //{
-            //    txtBoxProva.Text = listaP[i].capelliL + listaP[i].capelliC + listaP[i].occhi + listaP[i].carnagione + listaP[i].barba + listaP[i].nei + listaP[i].occhiali + listaP[i].lentiggini;
-            //}
-
-            //for (int i = 0; i < listaD.Count; i++)
-            //{
-            //    txtBoxProva.Text += "\n" + listaP[i].capelliL + listaP[i].capelliC + listaP[i].occhi + listaP[i].carnagione + listaP[i].barba + listaP[i].nei + listaP[i].occhiali + listaP[i].lentiggini;
-            //}
-
         }
     }
 }
