@@ -29,8 +29,10 @@ namespace WpfGuessWho
 
             InitializeComponent();
             WStart window = new WStart(dati);
+            WAccetta window2 = new WAccetta(dati);
             Hide();
             window.ShowDialog();
+            window2.ShowDialog();
             Show();
 
 

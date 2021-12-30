@@ -60,6 +60,9 @@
     <Compile Include="Client.cs" />
     <Compile Include="Grafica.cs" />
     <Compile Include="ThreadServer.cs" />
+    <Compile Include="WAccetta.xaml.cs">
+      <DependentUpon>WAccetta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WStart.xaml.cs">
       <DependentUpon>WStart.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WAccetta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WStart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

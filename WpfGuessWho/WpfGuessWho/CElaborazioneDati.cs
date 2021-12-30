@@ -11,11 +11,14 @@ namespace WpfGuessWho
         DatiCondivisi condi;
         Client c;
         string[] domanda;
+        CDomanda dom;
+        int[] vett;
 
-        public CElaborazioneDati(DatiCondivisi condi, Client c)
+        public CElaborazioneDati(DatiCondivisi condi, Client c, CDomanda dom)
         {
             this.condi = condi;
             this.c = c;
+            this.dom = dom;
         }
 
         public void separate()
@@ -53,16 +56,16 @@ namespace WpfGuessWho
                     }
                     break;
                 case "c":
-                    if (true)
-                    {
-
+                    if (condi.pronto == false) { 
+                        condi.pronto = true;
                     }
                     break;
                 case "d": //domanda "base"
                     switch (domanda[1])
                     {
                         case "q":
-                            //elabora una risposta
+                            dom.setSelezionata(int.Parse(domanda[2]));
+                            //invia risposta
                             break;
                         case "a":
                             //riceve la risposta
@@ -103,7 +106,6 @@ namespace WpfGuessWho
                         case "a":
                             //riceve la risposta
                             break;
-
                     }
                     break;
             }
