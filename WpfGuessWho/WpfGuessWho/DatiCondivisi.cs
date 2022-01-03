@@ -19,6 +19,7 @@ namespace WpfGuessWho
         public string Utente { get; set; }
         public bool connesso { get; set; }
         public bool pronto { get; set; }
+        public Uri sourceOfTheImage { get; set; }
         public DatiCondivisi()
         {
 

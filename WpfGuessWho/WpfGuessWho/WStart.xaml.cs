@@ -20,17 +20,64 @@ namespace WpfGuessWho
     public partial class WStart : Window
     {
         DatiCondivisi condi;
+        public int valueImage { get; set; }
+        public Uri sourceOfTheImage { get; set; }
         public WStart(DatiCondivisi condi)
         {
+            sourceOfTheImage = new Uri("maleProfilePicture.jpg", UriKind.Relative);
             InitializeComponent();
+            valueImage = 1;
             this.condi = condi;
         }
 
         private void btnPartita_Click(object sender, RoutedEventArgs e)
         {
-            condi.Utente = txtUtente.Text;
-            //client.toCSV();
-            Close();
+            if (txtUtente.Text == "")
+            {
+                lblErrori.Content = "Inserire un nome utente";
+            }
+            else
+            {
+                lblErrori.Content = "";
+                condi.Utente = txtUtente.Text;
+                condi.sourceOfTheImage = sourceOfTheImage;
+                //client.toCSV(); /*invia il messaggio di richiesta connessione*/
+                Close();
+            }
+        }
+
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+            if (sourceOfTheImage == new Uri("maleProfilePicture.jpg", UriKind.Relative))
+            {
+                sourceOfTheImage = new Uri("femaleProfilePicture.jpg", UriKind.Relative);
+            }
+            else if (sourceOfTheImage == new Uri("femaleProfilePicture.jpg", UriKind.Relative))
+            {
+                sourceOfTheImage = new Uri("dogProfilePicture.jpg", UriKind.Relative);
+            }
+            else if (sourceOfTheImage == new Uri("dogProfilePicture.jpg", UriKind.Relative))
+            {
+                sourceOfTheImage = new Uri("catProfilePicture.jpg", UriKind.Relative);
+            }
+            imgProfilePicture.Source = new BitmapImage(sourceOfTheImage);
+        }
+
+        private void btnPrevious_Click(object sender, RoutedEventArgs e)
+        {
+            if (sourceOfTheImage == new Uri("catProfilePicture.jpg", UriKind.Relative))
+            {
+                sourceOfTheImage = new Uri("dogProfilePicture.jpg", UriKind.Relative);
+            }
+            else if (sourceOfTheImage == new Uri("dogProfilePicture.jpg", UriKind.Relative))
+            {
+                sourceOfTheImage = new Uri("femaleProfilePicture.jpg", UriKind.Relative);
+            }
+            else if (sourceOfTheImage == new Uri("femaleProfilePicture.jpg", UriKind.Relative))
+            {
+                sourceOfTheImage = new Uri("maleProfilePicture.jpg", UriKind.Relative);
+            }
+            imgProfilePicture.Source = new BitmapImage(sourceOfTheImage);
         }
     }
 }

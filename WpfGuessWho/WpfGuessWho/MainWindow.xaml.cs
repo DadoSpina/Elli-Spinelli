@@ -23,13 +23,14 @@ namespace WpfGuessWho
     {
         DatiCondivisi dati = new DatiCondivisi();
         ThreadServer th = new ThreadServer();
+        Client c = new Client();
         public MainWindow()
         {
             Thread t = new Thread(new ThreadStart(th.addToCondi));
 
             InitializeComponent();
             WStart window = new WStart(dati);
-            WAccetta window2 = new WAccetta(dati);
+            WAccetta window2 = new WAccetta(dati,c);
             Hide();
             window.ShowDialog();
             window2.ShowDialog();
@@ -45,6 +46,17 @@ namespace WpfGuessWho
             CDomanda cdomanda = new CDomanda(dati);
             file.setFileName("fileDomande.csv");
             file.toListDomande();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void imgUser_Loaded(object sender, RoutedEventArgs e)
+        {
+            imgUser.Source = new BitmapImage(dati.sourceOfTheImage);
+            //lblUserName.Content = "Benvenuto/a " + condi.Utente + "!";
         }
     }
 }
