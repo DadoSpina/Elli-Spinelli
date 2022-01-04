@@ -8,6 +8,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dogprofilepicture.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("1.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("10.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("11.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("12.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("13.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("14.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("15.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("16.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("17.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("18.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("19.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("20.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("21.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("22.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("23.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("24.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("3.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("4.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("5.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("6.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("7.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("8.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("9.jpg")]
 
 

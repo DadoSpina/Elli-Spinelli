@@ -10,50 +10,76 @@
         <ImageBrush ImageSource="background.jpg"/>
     </Window.Background>
     <Grid>
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="55" Margin="247,0,792,101" Stroke="Black" VerticalAlignment="Bottom" Width="884" Opacity="0.4"/>
-        <Label x:Name="lblDomanda" Content="" HorizontalAlignment="Center" Margin="247,0,792,101" VerticalAlignment="Bottom" Height="55" Width="884" FontSize="22"/>
-        <Button Content="&gt;" HorizontalAlignment="Center" Margin="1150,0,672,101" VerticalAlignment="Bottom" Width="101" Height="55" Background="#FF6640B3" Foreground="White" FontSize="24"/>
-        <Button Content="&lt;" HorizontalAlignment="Center" Margin="131,0,1691,101" VerticalAlignment="Bottom" Width="101" Height="55" Background="#FF6640B3" Foreground="White" FontSize="24"/>
-        <Button Content="conferma domanda" HorizontalAlignment="Center" Margin="247,0,1240,60" VerticalAlignment="Bottom" Width="436" Background="#FF6640B3" Foreground="White" Height="33" FontSize="22"/>
-        <Button Content="indovina persona selezionata" HorizontalAlignment="Center" Margin="695,0,792,60" VerticalAlignment="Bottom" Width="436" Background="#FF6640B3" Foreground="White" Click="Button_Click" Height="33" FontSize="22"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="43" Margin="247,0,792,9" Stroke="Black" VerticalAlignment="Bottom" Width="884" Opacity="0.4"/>
-        <Label x:Name="lblRisposta" Content="" HorizontalAlignment="Center" Margin="247,0,792,10" VerticalAlignment="Bottom" Width="884" Height="42" FontSize="22"/>
+        <Rectangle x:Name="rectDomanda" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="55" Margin="252,0,797,101" Stroke="Black" VerticalAlignment="Bottom" Width="884" Opacity="0.4"/>
+        <Label x:Name="lblDomanda" Content="" HorizontalAlignment="Center" Margin="252,0,797,101" VerticalAlignment="Bottom" Height="55" Width="884" FontSize="22"/>
+        <Button x:Name="btnForward" Content="&gt;" HorizontalAlignment="Center" Margin="1155,0,677,101" VerticalAlignment="Bottom" Width="101" Height="55" Background="#FF6640B3" Foreground="White" FontSize="24" Click="btnForward_Click"/>
+        <Button x:Name="btnBack" Content="&lt;" HorizontalAlignment="Center" Margin="136,0,1696,101" VerticalAlignment="Bottom" Width="101" Height="55" Background="#FF6640B3" Foreground="White" FontSize="24" Click="btnBack_Click"/>
+        <Button x:Name="btnConferma" Content="conferma domanda" HorizontalAlignment="Center" Margin="252,0,1245,60" VerticalAlignment="Bottom" Width="436" Background="#FF6640B3" Foreground="White" Height="33" FontSize="22" Click="btnConferma_Click"/>
+        <Button x:Name="btnIndovina" Content="indovina persona selezionata" HorizontalAlignment="Center" Margin="700,0,797,60" VerticalAlignment="Bottom" Width="436" Background="#FF6640B3" Foreground="White" Click="Button_Click" Height="33" FontSize="22"/>
+        <Rectangle x:Name="rectRisposta" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="43" Margin="252,0,797,9" Stroke="Black" VerticalAlignment="Bottom" Width="884" Opacity="0.4"/>
+        <Label x:Name="lblRisposta" Content="" HorizontalAlignment="Center" Margin="252,0,797,9" VerticalAlignment="Bottom" Width="884" Height="42" FontSize="22"/>
         <Image x:Name="imgLogo" Height="139" Margin="0,0,10,0" Width="174" Source="logo.png" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-        <Image x:Name="imgUser" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" Source="maleProfilePicture.jpg" Loaded="imgUser_Loaded"/>
-        <Button Content="persona1" HorizontalAlignment="Left" Margin="14,41,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona2" HorizontalAlignment="Left" Margin="231,42,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona3" HorizontalAlignment="Left" Margin="448,41,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona4" HorizontalAlignment="Left" Margin="665,41,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona5" HorizontalAlignment="Left" Margin="882,42,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona6" HorizontalAlignment="Left" Margin="1099,42,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona7" HorizontalAlignment="Left" Margin="14,198,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona8" HorizontalAlignment="Left" Margin="231,198,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona9" HorizontalAlignment="Left" Margin="448,199,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona10" HorizontalAlignment="Left" Margin="665,198,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona11" HorizontalAlignment="Left" Margin="882,199,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona12" HorizontalAlignment="Left" Margin="1099,199,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona13" HorizontalAlignment="Left" Margin="14,356,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona14" HorizontalAlignment="Left" Margin="231,356,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona15" HorizontalAlignment="Left" Margin="448,356,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona16" HorizontalAlignment="Left" Margin="665,356,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona17" HorizontalAlignment="Left" Margin="882,355,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona18" HorizontalAlignment="Left" Margin="1099,355,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona19" HorizontalAlignment="Left" Margin="14,513,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona20" HorizontalAlignment="Left" Margin="231,513,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona21" HorizontalAlignment="Left" Margin="448,513,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona22" HorizontalAlignment="Left" Margin="665,513,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona23" HorizontalAlignment="Left" Margin="882,513,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona24" HorizontalAlignment="Left" Margin="1099,513,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona25" HorizontalAlignment="Left" Margin="14,670,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona26" HorizontalAlignment="Left" Margin="231,670,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona27" HorizontalAlignment="Left" Margin="448,670,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona28" HorizontalAlignment="Left" Margin="665,670,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
-        <Button Content="persona29" HorizontalAlignment="Left" Margin="882,670,0,0" VerticalAlignment="Top" Width="212" Height="152" RenderTransformOrigin="1.646,-1.118"/>
-        <Button Content="persona30" HorizontalAlignment="Left" Margin="1099,670,0,0" VerticalAlignment="Top" Width="212" Height="152"/>
+        <Image x:Name="imgUser" HorizontalAlignment="Left" Height="84" VerticalAlignment="Top" Width="100" Source="maleProfilePicture.jpg" Loaded="imgUser_Loaded" Margin="10,952,0,0"/>
+        <Image x:Name="img1" HorizontalAlignment="Left" Height="195" Margin="14,42,0,0" VerticalAlignment="Top" Width="220" Source="1.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona1" HorizontalAlignment="Left" Margin="14,41,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Content="1" Opacity="0"/>
+        <Image x:Name="img2" HorizontalAlignment="Left" Height="195" Margin="240,41,0,0" VerticalAlignment="Top" Width="220" Source="2.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona2" Content="2" HorizontalAlignment="Left" Margin="239,42,0,0" VerticalAlignment="Top" Width="221" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img3" HorizontalAlignment="Left" Height="195" Margin="465,41,0,0" VerticalAlignment="Top" Width="220" Source="3.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona3" Content="3" HorizontalAlignment="Left" Margin="465,41,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img4" HorizontalAlignment="Left" Height="195" Margin="690,42,0,0" VerticalAlignment="Top" Width="220" Source="4.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona4" Content="4" HorizontalAlignment="Left" Margin="690,41,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img5" HorizontalAlignment="Left" Height="195" Margin="915,41,0,0" VerticalAlignment="Top" Width="220" Source="5.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona5" Content="5" HorizontalAlignment="Left" Margin="915,42,0,0" VerticalAlignment="Top" Width="221" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img6" HorizontalAlignment="Left" Height="195" Margin="1141,41,0,0" VerticalAlignment="Top" Width="220" Source="6.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona6" Content="6" HorizontalAlignment="Left" Margin="1141,42,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img7" HorizontalAlignment="Left" Height="195" Margin="14,243,0,0" VerticalAlignment="Top" Width="220" Source="7.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona7" Content="7" HorizontalAlignment="Left" Margin="14,242,0,0" VerticalAlignment="Top" Width="220" Height="196" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img8" HorizontalAlignment="Left" Height="195" Margin="240,241,0,0" VerticalAlignment="Top" Width="220" Source="8.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona8" Content="8" HorizontalAlignment="Left" Margin="239,242,0,0" VerticalAlignment="Top" Width="221" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img9" HorizontalAlignment="Left" Height="193" Margin="465,245,0,0" VerticalAlignment="Top" Width="220" Source="9.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona9" Content="9" HorizontalAlignment="Left" Margin="465,244,0,0" VerticalAlignment="Top" Width="220" Height="194" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img10" HorizontalAlignment="Left" Height="194" Margin="690,242,0,0" VerticalAlignment="Top" Width="220" Source="10.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona10" Content="10" HorizontalAlignment="Left" Margin="690,242,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img11" HorizontalAlignment="Left" Height="195" Margin="915,243,0,0" VerticalAlignment="Top" Width="220" Source="11.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona11" Content="11" HorizontalAlignment="Left" Margin="915,243,0,0" VerticalAlignment="Top" Width="221" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img12" HorizontalAlignment="Left" Height="195" Margin="1141,243,0,0" VerticalAlignment="Top" Width="220" Source="12.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona12" Content="12" HorizontalAlignment="Left" Margin="1141,243,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img13" HorizontalAlignment="Left" Height="195" Margin="14,445,0,0" VerticalAlignment="Top" Width="220" Source="13.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona113" Content="13" HorizontalAlignment="Left" Margin="14,445,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img14" HorizontalAlignment="Left" Height="195" Margin="240,445,0,0" VerticalAlignment="Top" Width="220" Source="14.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona14" Content="14" HorizontalAlignment="Left" Margin="239,445,0,0" VerticalAlignment="Top" Width="221" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img15" HorizontalAlignment="Left" Height="195" Margin="465,445,0,0" VerticalAlignment="Top" Width="220" Source="15.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona15" Content="15" HorizontalAlignment="Left" Margin="465,445,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img16" HorizontalAlignment="Left" Height="195" Margin="690,445,0,0" VerticalAlignment="Top" Width="220" Source="16.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona16" Content="16" HorizontalAlignment="Left" Margin="690,445,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img17" HorizontalAlignment="Left" Height="193" Margin="916,445,0,0" VerticalAlignment="Top" Width="220" Source="17.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona17" Content="17" HorizontalAlignment="Left" Margin="915,444,0,0" VerticalAlignment="Top" Width="221" Height="194" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img18" HorizontalAlignment="Left" Height="194" Margin="1141,444,0,0" VerticalAlignment="Top" Width="220" Source="18.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona18" Content="18" HorizontalAlignment="Left" Margin="1141,444,0,0" VerticalAlignment="Top" Width="220" Height="194" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img19" HorizontalAlignment="Left" Height="195" Margin="14,646,0,0" VerticalAlignment="Top" Width="220" Source="19.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona19" Content="19" HorizontalAlignment="Left" Margin="14,646,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img20" HorizontalAlignment="Left" Height="195" Margin="240,646,0,0" VerticalAlignment="Top" Width="220" Source="20.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona20" Content="20" HorizontalAlignment="Left" Margin="239,646,0,0" VerticalAlignment="Top" Width="221" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img21" HorizontalAlignment="Left" Height="195" Margin="465,646,0,0" VerticalAlignment="Top" Width="220" Source="21.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona21" Content="21" HorizontalAlignment="Left" Margin="465,646,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img22" HorizontalAlignment="Left" Height="195" Margin="690,646,0,0" VerticalAlignment="Top" Width="220" Source="22.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona22" Content="22" HorizontalAlignment="Left" Margin="690,646,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img23" HorizontalAlignment="Left" Height="195" Margin="916,646,0,0" VerticalAlignment="Top" Width="220" Source="23.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona23" Content="23" HorizontalAlignment="Left" Margin="915,646,0,0" VerticalAlignment="Top" Width="221" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Image x:Name="img24" HorizontalAlignment="Left" Height="195" Margin="1141,646,0,0" VerticalAlignment="Top" Width="220" Source="24.jpg" Stretch="Fill"/>
+        <Button x:Name="btnPersona24" Content="24" HorizontalAlignment="Left" Margin="1141,646,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="491" Margin="0,42,10,0" Stroke="Black" VerticalAlignment="Top" Width="537" Opacity="0.4"/>
-        <Image x:Name="imgSelectedPerson" HorizontalAlignment="Right" Height="491" Margin="0,42,10,0" VerticalAlignment="Top" Width="537"/>
+        <Image x:Name="imgSelectedPerson" HorizontalAlignment="Right" Height="491" Margin="0,42,10,0" VerticalAlignment="Top" Width="537" Stretch="Fill"/>
+        <Button x:Name="btnPronto" Content="Pronto" Margin="855,889,797,75" Width="281" Click="btnPronto_Click" Background="#FFEE0606" VerticalContentAlignment="Center" Height="81" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White"/>
+        <Image HorizontalAlignment="Right" Height="242" Margin="0,671,10,0" VerticalAlignment="Top" Width="252"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="332" Margin="0,581,10,0" Stroke="Black" VerticalAlignment="Top" Width="252" Opacity="0.4"/>
+        <Image x:Name="imgSelezionato" HorizontalAlignment="Right" Height="242" Margin="0,671,10,0" VerticalAlignment="Top" Width="252" Stretch="Fill"/>
+        <Label x:Name="lblSelectedCharacter" Content="Yuor Character" HorizontalAlignment="Right" Margin="0,581,10,0" VerticalAlignment="Top" Height="90" Width="252" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
     </Grid>
 </Window>

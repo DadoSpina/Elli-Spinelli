@@ -1,6 +1,6 @@
 RICHIESTI:
-file elenco persone (codice persona;nome;caratteristiche separate da , (esempio:1;Gianni;capelliL=corti,occhi=castani) (capelliL-capelliC-occhi-carnagione-barba-nei-occhiali-lentiggini)) 30 persone
-file elenco domande	(codice domanda;domanda;caratteristica a cui si riferisce (esempio:1;ha i capelli corti?;capelli=corti))
+file elenco persone (codice persona;nome;caratteristiche separate da , (esempio:1;Gianni;capelliL=corti,occhi=castani) (capelliL-capelliC-occhi-carnagione-barba-nei-occhiali-lentiggini)) 24 persone
+file elenco domande	(codice domanda;domanda (esempio:1;ha i capelli corti?))
 cartella che contiene le foto delle persone con nomi = 1,2,ecc... ad ogni persona sarà collegata la foto il cui nome è uguale al proprio ID
 /* se riusciamo a realizzare il resto */
 file elenco aiuti (codice aiuto;frase(esempio:1;dimezza persone))

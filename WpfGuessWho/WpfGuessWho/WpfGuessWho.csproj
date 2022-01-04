@@ -60,9 +60,6 @@
     <Compile Include="Client.cs" />
     <Compile Include="Grafica.cs" />
     <Compile Include="ThreadServer.cs" />
-    <Compile Include="WAccetta.xaml.cs">
-      <DependentUpon>WAccetta.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WStart.xaml.cs">
       <DependentUpon>WStart.xaml</DependentUpon>
     </Compile>
@@ -81,10 +78,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="WAccetta.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="WStart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +126,32 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="dogProfilePicture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="1.jpg" />
+    <Resource Include="10.jpg" />
+    <Resource Include="11.jpg" />
+    <Resource Include="12.jpg" />
+    <Resource Include="13.jpg" />
+    <Resource Include="14.jpg" />
+    <Resource Include="15.jpg" />
+    <Resource Include="16.jpg" />
+    <Resource Include="17.jpg" />
+    <Resource Include="18.jpg" />
+    <Resource Include="19.jpg" />
+    <Resource Include="2.jpg" />
+    <Resource Include="20.jpg" />
+    <Resource Include="21.jpg" />
+    <Resource Include="22.jpg" />
+    <Resource Include="23.jpg" />
+    <Resource Include="24.jpg" />
+    <Resource Include="3.jpg" />
+    <Resource Include="4.jpg" />
+    <Resource Include="5.jpg" />
+    <Resource Include="6.jpg" />
+    <Resource Include="7.jpg" />
+    <Resource Include="8.jpg" />
+    <Resource Include="9.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
