@@ -12,7 +12,6 @@ namespace WpfGuessWho
         Client c;
         string[] domanda;
         CDomanda dom;
-        int[] vett;
 
         public CElaborazioneDati(DatiCondivisi condi, Client c, CDomanda dom)
         {

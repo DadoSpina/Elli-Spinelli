@@ -25,7 +25,7 @@
         <Rectangle x:Name="rectRisposta" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="43" Margin="252,0,797,9" Stroke="Black" VerticalAlignment="Bottom" Width="884" Opacity="0.4"/>
         <Label x:Name="lblRisposta" Content="" HorizontalAlignment="Center" Margin="252,0,797,9" VerticalAlignment="Bottom" Width="884" Height="42" FontSize="22"/>
         <Image x:Name="imgLogo" Height="139" Margin="0,0,10,0" Width="174" Source="logo.png" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-        <Image x:Name="imgUser" HorizontalAlignment="Left" Height="84" VerticalAlignment="Top" Width="100" Source="maleProfilePicture.jpg" Loaded="imgUser_Loaded" Margin="10,952,0,0"/>
+        <Image x:Name="imgUser" HorizontalAlignment="Left" Height="84" VerticalAlignment="Top" Width="100" Source="maleProfilePicture.jpg" Margin="10,952,0,0"/>
         <Image x:Name="img1" HorizontalAlignment="Left" Height="195" Margin="14,42,0,0" VerticalAlignment="Top" Width="220" Source="1.jpg" Stretch="Fill"/>
         <Button x:Name="btnPersona1" HorizontalAlignment="Left" Margin="14,41,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Content="1" Opacity="0"/>
         <Image x:Name="img2" HorizontalAlignment="Left" Height="195" Margin="240,41,0,0" VerticalAlignment="Top" Width="220" Source="2.jpg" Stretch="Fill"/>
