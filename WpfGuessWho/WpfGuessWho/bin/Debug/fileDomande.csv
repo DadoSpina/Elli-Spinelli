@@ -1,0 +1,15 @@
+1;Ha gli occhiali?occhiali=true
+2;Ha la barba?barba=true
+3;Ha il cappello?cappello=true
+4;Ha i baffi? (senza barba);baffi=true
+5;Ha il naso grande?;nasoGrande=true
+6;Ha le guance rosse?;guanceRosse=true
+7;Ha i capelli?;capelli=true
+8;Ha i capelli biondi?;capelliColore=biondi
+9;Ha i capelli castani?;capelliColore=castani
+10;Ha i capelli neri?;capelliColore=neri
+11;Ha i capelli rossi?;capelliColore=rossi
+12;Ha i capelli bianchi?;capelliColore=bianchi
+13;Ha gli occhi azzurri?;occhiColore=azzurri
+14;Ha gli occhi marroni?;occhiColore=marroni
+15;Ha gli occhi verdi?;occhiColore=verdi

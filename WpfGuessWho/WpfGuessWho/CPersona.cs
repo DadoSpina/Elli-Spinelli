@@ -12,38 +12,39 @@ namespace WpfGuessWho
          * capelliL-capelliC-occhi-carnagione-barba-nei-occhiali-lentiggini
          */
 
-        public String[] vetCaratteristiche { get; set; } = {"id", "nome", "capelliL", "capelliC", "occhi", "carnagione", "barba", "nei", "occhiali", "lentiggini" };
+        public String[] vetCaratteristiche { get; set; } = {"id", "nome", "image", "occhiali", "capelli", "barba", "nasoGrande", "guanceRosse", "cappello", "coloreCapelli", "coloreOcchi" };
         public int id { get; set; }
         public string nome { get; set; }
-        public string capelliL { get; set; }
-        public string capelliC { get; set; }
-        public string occhi { get; set; }
-        public string carnagione { get; set; }
-        public string barba { get; set; }
-        public string nei { get; set; }
-        public string occhiali { get; set; }
-        public string lentiggini { get; set; }
+        public string image { get; set; }
+        public bool occhiali { get; set; }
+        public bool capelli { get; set; }
+        public bool barba { get; set; }
+        public bool baffi { get; set; }
+        public bool nasoGrande { get; set; }
+        public bool guanceRosse { get; set; }
+        public bool cappello { get; set; }
+        public string coloreCapelli { get; set; }
+        public string coloreOcchi { get; set; }
 
         public CPersona()
         {
 
         }
 
-        public CPersona(int id, string nome, string capelliL, string capelliC, string occhi, string carnagione, string barba, string nei, string occhiali, string lentiggini)
+        public CPersona(int id, string nome, string image, bool occhiali, bool capelli, bool barba, bool baffi, bool nasoGrande, bool guanceRosse, bool cappello, string coloreCapelli, string coloreOcchi)
         {
             this.id = id;
             this.nome = nome;
-            this.capelliL = capelliL;
-            this.capelliC = capelliC;
-            this.occhi = occhi;
-            this.carnagione = carnagione;
-            this.barba = barba;
-            this.nei = nei;
+            this.image = image;
             this.occhiali = occhiali;
-            this.lentiggini = lentiggini;
+            this.capelli = capelli;
+            this.barba = barba;
+            this.baffi = baffi;
+            this.nasoGrande = nasoGrande;
+            this.guanceRosse = guanceRosse;
+            this.cappello = cappello;
+            this.coloreCapelli = coloreCapelli;
+            this.coloreOcchi = coloreOcchi;
         }
-
-        
-
     }
 }

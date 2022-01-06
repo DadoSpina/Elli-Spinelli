@@ -27,21 +27,12 @@ namespace WpfGuessWho
 			List<CPersona> lista = new List<CPersona>();
 			StreamReader FIN = new StreamReader(fileName);
 			string riga = "";
-			int j = 0;
 
 			while ((riga = FIN.ReadLine()) != null)
 			{
-				String[] caratteristica = new string[9];
 				String[] vett = riga.Split(';');
-				String[] campo = vett[2].Split(',');
-				for (int i = 0; i < campo.Length; i++)
-				{
-					String[] s = campo[i].Split('=');
-					caratteristica[i] = s[1];
-				}
-				CPersona C = new CPersona(int.Parse(vett[0]), vett[1], caratteristica[0], caratteristica[1], caratteristica[2], caratteristica[3], caratteristica[4], caratteristica[5], caratteristica[6], caratteristica[7]);
+				CPersona C = new CPersona(int.Parse(vett[0]), vett[1], vett[2], bool.Parse(vett[3]), bool.Parse(vett[4]), bool.Parse(vett[5]), bool.Parse(vett[6]), bool.Parse(vett[7]), bool.Parse(vett[8]), bool.Parse(vett[9]), vett[10], vett[11]);
 				lista.Add(C);
-				j++;
 			}
 			dati.setListaPersona(lista);
 			FIN.Close();

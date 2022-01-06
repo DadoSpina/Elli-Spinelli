@@ -82,56 +82,63 @@ namespace WpfGuessWho
             {
                 switch (c)
                 {
-                    case "capelliL":
-                        if(listPersona[i].capelliL == r)
+                    case "occhiali":
+                        if(listPersona[i].occhiali == bool.Parse(r))
                         {
                             vett[j] = listPersona[i].id;
                             j++;
                         }
                         break;
-                    case "capelliC":
-                        if (listPersona[i].capelliC == r)
+                    case "capelli":
+                        if (listPersona[i].capelli == bool.Parse(r))
                         {
                             vett[j] = listPersona[i].id;
-                        }
-                        break;
-                    case "occhi":
-                        if (listPersona[i].occhi == r)
-                        {
-                            vett[j] = listPersona[i].id;
-                            j++;
-                        }
-                        break;
-                    case "carnagione":
-                        if (listPersona[i].carnagione == r)
-                        {
-                            vett[j] = listPersona[i].id;
-                            j++;
                         }
                         break;
                     case "barba":
-                        if (listPersona[i].barba == r)
+                        if (listPersona[i].barba == bool.Parse(r))
                         {
                             vett[j] = listPersona[i].id;
                             j++;
                         }
                         break;
-                    case "nei":
-                        if (listPersona[i].nei == r)
+                    case "baffi":
+                        if (listPersona[i].baffi == bool.Parse(r))
                         {
                             vett[j] = listPersona[i].id;
                             j++;
                         }
                         break;
-                    case "occhiali":
-                        if (listPersona[i].occhiali == r)
+                    case "nasoGrande":
+                        if (listPersona[i].nasoGrande == bool.Parse(r))
                         {
                             vett[j] = listPersona[i].id;
                             j++;
                         }
                         break;
-                    case "lentiggini":
-                        if (listPersona[i].lentiggini == r)
+                    case "guanceRosse":
+                        if (listPersona[i].guanceRosse == bool.Parse(r))
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                        break;
+                    case "cappello":
+                        if (listPersona[i].cappello == bool.Parse(r))
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                        break;
+                    case "coloreCapelli":
+                        if (listPersona[i].coloreCapelli == r)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                        break;
+                    case "coloreOcchi":
+                        if (listPersona[i].coloreCapelli == r)
                         {
                             vett[j] = listPersona[i].id;
                             j++;

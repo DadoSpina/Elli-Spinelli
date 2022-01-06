@@ -30,3 +30,5 @@ C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\
 C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WStart.g.cs
 C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WStart.baml
 C:\Users\utente\OneDrive\Documenti\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WpfGuessWho.csprojAssemblyReference.cache
+C:\Users\Elli Matteo\Documents\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WStart.g.cs
+C:\Users\Elli Matteo\Documents\GitHub\Elli-Spinelli\WpfGuessWho\WpfGuessWho\obj\Debug\WStart.baml
