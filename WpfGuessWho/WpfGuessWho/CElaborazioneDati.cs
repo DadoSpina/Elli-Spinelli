@@ -64,7 +64,7 @@ namespace WpfGuessWho
                             //invia risposta
                             break;
                         case "a":
-                            //riceve la risposta
+                            condi.risposta = domanda[2];
                             break;
 
                     }

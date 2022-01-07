@@ -21,6 +21,7 @@ namespace WpfGuessWho
     /// </summary>
     public partial class MainWindow : Window
     {
+        Random rand = new Random();
         DatiCondivisi dati = new DatiCondivisi();
         ThreadServer th = new ThreadServer();
         Client c = new Client();
@@ -61,7 +62,7 @@ namespace WpfGuessWho
             CDomanda cdomanda = new CDomanda(dati);
             file.setFileName("fileDomande.csv");
             file.toListDomande();
-            lblDomanda.Content = dati.listDomande[0].domanda;
+            lblDomanda.Content = "il tuo personaggio " + dati.listDomande[0].domanda;
             elab = new CElaborazioneDati(dati, c, cdomanda);
             Thread t2 = new Thread(new ThreadStart(elab.valutaTipo));
         }
@@ -73,10 +74,15 @@ namespace WpfGuessWho
                 imgSelezionato.Source = imgSelectedPerson.Source;
                 c.toCSV("c", "", "");
                 btnPronto.Background = new SolidColorBrush(Color.FromArgb(255, 15, 193, 15));
-                
 
                 while (!dati.pronto)
                 {
+                    //random temporaneo da rimuovere appena sia possibile ricevere i messaggi
+                    int r = rand.Next(1000);
+                    if (r == 1)
+                    {
+                        dati.pronto = true;
+                    }
                 }
 
                 //change buttons
@@ -106,10 +112,11 @@ namespace WpfGuessWho
 
         private void btnForward_Click(object sender, RoutedEventArgs e)
         {
+            lblDomanda.Content = "il tuo personaggio ";
             if (domSelezionata < dati.listDomande.Count - 1)
             {
                 domSelezionata++;
-                lblDomanda.Content = dati.listDomande[domSelezionata].domanda;
+                lblDomanda.Content += dati.listDomande[domSelezionata].domanda;
             }
             else
             {
@@ -120,26 +127,56 @@ namespace WpfGuessWho
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
+            lblDomanda.Content = "il tuo personaggio ";
             if (domSelezionata > 0)
             {
                 domSelezionata--;
-                lblDomanda.Content = dati.listDomande[domSelezionata].domanda;
+                lblDomanda.Content += dati.listDomande[domSelezionata].domanda;
             }
             else
             {
                 domSelezionata = dati.listDomande.Count - 1;
-                lblDomanda.Content = dati.listDomande[domSelezionata].domanda;
+                lblDomanda.Content += dati.listDomande[domSelezionata].domanda;
             }
         }
 
         private void btnConferma_Click(object sender, RoutedEventArgs e)
         {
-
+            c.toCSV("d","q",domSelezionata.ToString());
+            
+            if (dati.risposta == "y")
+            {
+                lblRisposta.Content = "Esatto!";
+            }
+            else
+            {
+                lblRisposta.Content = "Sbagliato";
+            }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnIndovina_Click(object sender, RoutedEventArgs e)
         {
+            if (selected != 0)
+            {
+                c.toCSV("v", "q", selected.ToString());
+                
+                if (dati.risposta == "y")
+                {
+                    lblRisposta.Content = "HAI VINTO!!";
+                    c.toCSV("l","","");
+                    //calcolo punteggio
+                    pacco();
+                }
+                else
+                {
+                    lblRisposta.Content = "Sbagliato";
+                    //calcolo punteggio
+                }
+            }
+            else
+            {
 
+            }
         }
     }
 }

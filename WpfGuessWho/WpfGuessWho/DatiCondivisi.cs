@@ -9,6 +9,8 @@ namespace WpfGuessWho
 {
     public class DatiCondivisi
     {
+        public string risposta { get; set; }
+
         public string ip { get; set; }
         public int porta { get; set; }
         public List<CPersona> listPersona { get; set; }
