@@ -29,7 +29,6 @@ namespace WpfGuessWho
 			String[] vett = riga.Split(';');
 			indiceDomanda = int.Parse(vett[0]);
 			domanda = vett[1];
-			risposta = vett[2];
 		}
 
 		public void setSelezionata(int indiceSelezionata)  //guarda quale domanda è stata selezionata
@@ -39,11 +38,8 @@ namespace WpfGuessWho
 
 		public int[] check()    
 		{
-			CDomanda C;
 			int[] vettIndici;
-			C = dati.findDomanda(indiceSelezionata);
-			String[] campo = C.risposta.Split('=');
-			vettIndici = dati.findPersona(campo[0], campo[1]);
+			vettIndici = dati.findDomanda(indiceSelezionata);
 			return vettIndici;
 		}
 	}
