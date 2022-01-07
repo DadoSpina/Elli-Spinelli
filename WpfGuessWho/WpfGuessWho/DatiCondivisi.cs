@@ -9,58 +9,28 @@ namespace WpfGuessWho
 {
     public class DatiCondivisi
     {
-        //UdpClient peer;
-        string ip;
-        int porta;
-        List<CPersona> listPersona = new List<CPersona>();
-        List<CDomanda> listDomande = new List<CDomanda>();
+        public string ip { get; set; }
+        public int porta { get; set; }
+        public List<CPersona> listPersona { get; set; }
+        public List<CDomanda> listDomande { get; set; }
+
         //lista che verrà usata dal client per capire quale domanda ha ricevuto
-        List<string> domandeRicevute = new List<string>();
+        public List<string> domandeRicevute { get; set; }
         public string Utente { get; set; }
         public bool connesso { get; set; }
         public bool pronto { get; set; }
         public Uri sourceOfTheImage { get; set; }
         public DatiCondivisi()
         {
-
+            listPersona = new List<CPersona>();
+            listDomande = new List<CDomanda>();
+            domandeRicevute = new List<string>();
+            Utente = "";
+            connesso = false;
+            pronto = false;
+            ip = "localhost";
+            porta = 666;
         }
-
-        public void setPeer(string ip, int porta)
-        {
-            this.ip = ip;
-            this.porta = porta;
-        }
-
-        public string getIp()
-        {
-            return ip;
-        }
-
-        public int getPorta()
-        {
-            return porta;
-        }
-
-        public void setListaPersona(List<CPersona> list)
-        {
-            listPersona = list;
-        }
-
-        public List<CPersona> getListaPersona()
-        {
-            return listPersona;
-        }
-
-        public void setListaDomande(List<CDomanda> list)
-        {
-            listDomande = list;
-        }
-
-        public List<CDomanda> getListaDomanda()
-        {
-            return listDomande;
-        }
-
         public int[] findDomanda(int s)
         {
             int[] vett = new int[25];
@@ -220,83 +190,6 @@ namespace WpfGuessWho
             }
             return vett;
         }
-
-        /*public int[] findPersona(String c, String r)
-        {
-            int[] vett = null;
-            int j = 0;
-            for (int i=0; i<listPersona.Count; i++)
-            {
-                switch (c)
-                {
-                    case "occhiali":
-                        if(listPersona[i].occhiali == bool.Parse(r))
-                        {
-                            vett[j] = listPersona[i].id;
-                            j++;
-                        }
-                        break;
-                    case "capelli":
-                        if (listPersona[i].capelli == bool.Parse(r))
-                        {
-                            vett[j] = listPersona[i].id;
-                        }
-                        break;
-                    case "barba":
-                        if (listPersona[i].barba == bool.Parse(r))
-                        {
-                            vett[j] = listPersona[i].id;
-                            j++;
-                        }
-                        break;
-                    case "baffi":
-                        if (listPersona[i].baffi == bool.Parse(r))
-                        {
-                            vett[j] = listPersona[i].id;
-                            j++;
-                        }
-                        break;
-                    case "nasoGrande":
-                        if (listPersona[i].nasoGrande == bool.Parse(r))
-                        {
-                            vett[j] = listPersona[i].id;
-                            j++;
-                        }
-                        break;
-                    case "guanceRosse":
-                        if (listPersona[i].guanceRosse == bool.Parse(r))
-                        {
-                            vett[j] = listPersona[i].id;
-                            j++;
-                        }
-                        break;
-                    case "cappello":
-                        if (listPersona[i].cappello == bool.Parse(r))
-                        {
-                            vett[j] = listPersona[i].id;
-                            j++;
-                        }
-                        break;
-                    case "coloreCapelli":
-                        if (listPersona[i].coloreCapelli == r)
-                        {
-                            vett[j] = listPersona[i].id;
-                            j++;
-                        }
-                        break;
-                    case "coloreOcchi":
-                        if (listPersona[i].coloreCapelli == r)
-                        {
-                            vett[j] = listPersona[i].id;
-                            j++;
-                        }
-                        break;
-                }
-            }
-            return vett;
-        }*/
-
-        //aggiunge alla lista che verrà usata dal client per capire quale domanda ha ricevuto
         public void addDomandaServer(string domanda)
         {
             domandeRicevute.Add(domanda);

@@ -17,7 +17,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Rectangle x:Name="rectDomanda" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="55" Margin="252,0,797,101" Stroke="Black" VerticalAlignment="Bottom" Width="884" Opacity="0.4"/>
-        <Label x:Name="lblDomanda" Content="" HorizontalAlignment="Center" Margin="252,0,797,101" VerticalAlignment="Bottom" Height="55" Width="884" FontSize="22"/>
+        <Label x:Name="lblDomanda" Content="" HorizontalAlignment="Center" Margin="252,0,797,101" VerticalAlignment="Bottom" Height="55" Width="884" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Button x:Name="btnForward" Content="&gt;" HorizontalAlignment="Center" Margin="1155,0,677,101" VerticalAlignment="Bottom" Width="101" Height="55" Background="#FF6640B3" Foreground="White" FontSize="24" Click="btnForward_Click"/>
         <Button x:Name="btnBack" Content="&lt;" HorizontalAlignment="Center" Margin="136,0,1696,101" VerticalAlignment="Bottom" Width="101" Height="55" Background="#FF6640B3" Foreground="White" FontSize="24" Click="btnBack_Click"/>
         <Button x:Name="btnConferma" Content="conferma domanda" HorizontalAlignment="Center" Margin="252,0,1245,60" VerticalAlignment="Bottom" Width="436" Background="#FF6640B3" Foreground="White" Height="33" FontSize="22" Click="btnConferma_Click"/>

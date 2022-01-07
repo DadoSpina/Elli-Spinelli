@@ -31,11 +31,20 @@ namespace WpfGuessWho
         private void inviaPacchetto(UdpClient client, string s)
         {
             byte[] buffer = Encoding.ASCII.GetBytes(s);
-            client.Send(buffer, buffer.Length, dati.getIp(), dati.getPorta());
+            client.Send(buffer, buffer.Length, dati.ip, dati.porta);
         }
 
-        /*Public void toCSV(string tipo messaggio, string QoA, string contenuti){
-            crea il pacchetto unendo le stringe e richiama inviaPacchetto()
-            }*/
+        public void toCSV(string tipoMess, string QoA, string contenuti){
+            string messaggio = "";
+            if (QoA != "")
+            {
+                messaggio = tipoMess + ";" + QoA + ";" + contenuti;
+            }
+            else
+            {
+                messaggio = tipoMess;
+            }
+            inviaPacchetto(client, messaggio);
+        }
     }
 }

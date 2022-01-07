@@ -20,6 +20,7 @@ namespace WpfGuessWho
             client = new UdpClient();
             data = Encoding.ASCII.GetBytes("");
             riceveEP = new IPEndPoint(IPAddress.Any, 0);
+            client.Client.Bind(new IPEndPoint(IPAddress.Any, 11000));
             condi = new DatiCondivisi();
         }
 
@@ -28,20 +29,12 @@ namespace WpfGuessWho
             this.condi = condi;
         }
 
-        private string riceviPacchetto()
+
+        public void riceviPacchetto()
         {
             byte[] dataReceived = client.Receive(ref riceveEP);
             String risposta = Encoding.ASCII.GetString(dataReceived);
-            return risposta;
-        }
-
-        public void addToCondi()
-        {
-            while (true)
-            {
-                string a = riceviPacchetto();
-                condi.addDomandaServer(a);
-            }
+            condi.addDomandaServer(risposta);
         }
     }
 }

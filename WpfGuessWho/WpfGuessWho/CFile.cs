@@ -34,7 +34,7 @@ namespace WpfGuessWho
 				CPersona C = new CPersona(int.Parse(vett[0]), vett[1], vett[2], bool.Parse(vett[3]), bool.Parse(vett[4]), bool.Parse(vett[5]), bool.Parse(vett[6]), bool.Parse(vett[7]), bool.Parse(vett[8]), bool.Parse(vett[9]), vett[10], vett[11]);
 				lista.Add(C);
 			}
-			dati.setListaPersona(lista);
+			dati.listPersona = lista;
 			FIN.Close();
 		}
 
@@ -50,7 +50,7 @@ namespace WpfGuessWho
 				CDomanda C = new CDomanda(riga);
 				lista.Add(C);
 			}
-			dati.setListaDomande(lista);
+			dati.listDomande = lista;
 			FIN.Close();
 		}
 	}

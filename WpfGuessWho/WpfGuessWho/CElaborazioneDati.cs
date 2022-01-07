@@ -20,14 +20,11 @@ namespace WpfGuessWho
             this.dom = dom;
         }
 
-        public void separate()
+        public void valutaTipo()
         {
             string a = condi.getLastDomandeRicevute();
             domanda = a.Split(';');
-        }
 
-        public void valutaTipo()
-        {
             switch (domanda[0])
             {
                 case "r": //richiesta connessione
@@ -36,12 +33,12 @@ namespace WpfGuessWho
                         case "q":
                             if (!condi.connesso)
                             {
-                                //c.toCSV("r", "a", "y");
+                                c.toCSV("r", "a", "y");
                             }
                             else
                             {
                                 //rifiuta la connessione
-                                //c.toCSV("r","a","n")
+                                c.toCSV("r", "a", "n");
                             }
                             break;
                         case "a":

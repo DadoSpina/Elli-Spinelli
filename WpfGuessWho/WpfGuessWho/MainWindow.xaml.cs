@@ -24,12 +24,13 @@ namespace WpfGuessWho
         DatiCondivisi dati = new DatiCondivisi();
         ThreadServer th = new ThreadServer();
         Client c = new Client();
-        Random rand = new Random();
+        CElaborazioneDati elab;
         int selected = 0;
+        int domSelezionata = 0;
         public MainWindow()
         {
-            Thread t = new Thread(new ThreadStart(th.addToCondi));
-
+            Thread t1 = new Thread(new ThreadStart(th.riceviPacchetto));
+            
             InitializeComponent();
             btnBack.Visibility = Visibility.Hidden;
             btnConferma.Visibility = Visibility.Hidden;
@@ -42,6 +43,11 @@ namespace WpfGuessWho
             WStart window = new WStart(dati);
             Hide();
             window.ShowDialog();
+            if (dati.Utente == "")
+            {
+                Close();
+                return;
+            }
             Show();
             MessageBox.Show("Choose your character");
             imgUser.Source = new BitmapImage(dati.sourceOfTheImage);
@@ -55,6 +61,9 @@ namespace WpfGuessWho
             CDomanda cdomanda = new CDomanda(dati);
             file.setFileName("fileDomande.csv");
             file.toListDomande();
+            lblDomanda.Content = dati.listDomande[0].domanda;
+            elab = new CElaborazioneDati(dati, c, cdomanda);
+            Thread t2 = new Thread(new ThreadStart(elab.valutaTipo));
         }
 
         private void btnPronto_Click(object sender, RoutedEventArgs e)
@@ -62,19 +71,12 @@ namespace WpfGuessWho
             if (selected != 0)
             {
                 imgSelezionato.Source = imgSelectedPerson.Source;
-                //c.toCSV("c","","")
+                c.toCSV("c", "", "");
                 btnPronto.Background = new SolidColorBrush(Color.FromArgb(255, 15, 193, 15));
+                
 
-
-                //Aspetta che il valore condi.pronto = true e poi si chiude
                 while (!dati.pronto)
                 {
-                    //genera numero casuale di prova per testare while fino a implementazione metodo "c.toCSV("c","","")", dovrà poi essere eliminato
-                    int n = rand.Next(100000000);
-                    if (n == 1)
-                    {
-                        dati.pronto = true;
-                    }
                 }
 
                 //change buttons
@@ -104,12 +106,30 @@ namespace WpfGuessWho
 
         private void btnForward_Click(object sender, RoutedEventArgs e)
         {
-
+            if (domSelezionata < dati.listDomande.Count - 1)
+            {
+                domSelezionata++;
+                lblDomanda.Content = dati.listDomande[domSelezionata].domanda;
+            }
+            else
+            {
+                domSelezionata=0;
+                lblDomanda.Content = dati.listDomande[domSelezionata].domanda;
+            }
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            if (domSelezionata > 0)
+            {
+                domSelezionata--;
+                lblDomanda.Content = dati.listDomande[domSelezionata].domanda;
+            }
+            else
+            {
+                domSelezionata = dati.listDomande.Count - 1;
+                lblDomanda.Content = dati.listDomande[domSelezionata].domanda;
+            }
         }
 
         private void btnConferma_Click(object sender, RoutedEventArgs e)
