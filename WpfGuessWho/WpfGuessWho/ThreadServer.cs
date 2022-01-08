@@ -32,9 +32,12 @@ namespace WpfGuessWho
 
         public void riceviPacchetto()
         {
-            byte[] dataReceived = client.Receive(ref riceveEP);
-            String risposta = Encoding.ASCII.GetString(dataReceived);
-            condi.addDomandaServer(risposta);
+            while (true)
+            {
+                byte[] dataReceived = client.Receive(ref riceveEP);
+                String risposta = Encoding.ASCII.GetString(dataReceived);
+                condi.addDomandaServer(risposta);
+            }
         }
     }
 }

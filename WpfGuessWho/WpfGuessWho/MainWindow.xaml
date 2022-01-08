@@ -24,7 +24,8 @@
         <Button x:Name="btnIndovina" Content="indovina persona selezionata" HorizontalAlignment="Center" Margin="700,0,797,60" VerticalAlignment="Bottom" Width="436" Background="#FF6640B3" Foreground="White" Height="33" FontSize="22" Click="btnIndovina_Click"/>
         <Rectangle x:Name="rectRisposta" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="43" Margin="252,0,797,9" Stroke="Black" VerticalAlignment="Bottom" Width="884" Opacity="0.4"/>
         <Label x:Name="lblRisposta" Content="" HorizontalAlignment="Center" Margin="252,0,797,9" VerticalAlignment="Bottom" Width="884" Height="42" FontSize="22"/>
-        <Image x:Name="imgLogo" Height="139" Margin="0,0,10,0" Width="174" Source="logo.png" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="134" Margin="1739,911,0,0" Stroke="Black" VerticalAlignment="Top" Width="194"/>
+        <Image x:Name="imgLogo" Height="139" Margin="0,0,10,10" Width="174" Source="logo.png" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         <Image x:Name="imgUser" HorizontalAlignment="Left" Height="84" VerticalAlignment="Top" Width="100" Source="maleProfilePicture.jpg" Margin="10,952,0,0"/>
         <Image x:Name="img1" HorizontalAlignment="Left" Height="195" Margin="14,42,0,0" VerticalAlignment="Top" Width="220" Source="1.jpg" Stretch="Fill"/>
         <Button x:Name="btnPersona1" HorizontalAlignment="Left" Margin="14,41,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Content="1" Opacity="0"/>
@@ -80,6 +81,7 @@
         <Image HorizontalAlignment="Right" Height="242" Margin="0,671,10,0" VerticalAlignment="Top" Width="252"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="332" Margin="0,581,10,0" Stroke="Black" VerticalAlignment="Top" Width="252" Opacity="0.4"/>
         <Image x:Name="imgSelezionato" HorizontalAlignment="Right" Height="242" Margin="0,671,10,0" VerticalAlignment="Top" Width="252" Stretch="Fill"/>
-        <Label x:Name="lblSelectedCharacter" Content="Yuor Character" HorizontalAlignment="Right" Margin="0,581,10,0" VerticalAlignment="Top" Height="90" Width="252" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
+        <Label x:Name="lblSelectedCharacter" Content="Your Character" HorizontalAlignment="Right" Margin="0,581,10,0" VerticalAlignment="Top" Height="90" Width="252" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
+        
     </Grid>
 </Window>

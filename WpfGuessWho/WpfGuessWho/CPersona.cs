@@ -8,14 +8,8 @@ namespace WpfGuessWho
 {
     public class CPersona
     {
-        /*
-         * capelliL-capelliC-occhi-carnagione-barba-nei-occhiali-lentiggini
-         */
-
-        public String[] vetCaratteristiche { get; set; } = {"id", "nome", "image", "occhiali", "capelli", "barba", "nasoGrande", "guanceRosse", "cappello", "coloreCapelli", "coloreOcchi" };
         public int id { get; set; }
         public string nome { get; set; }
-        public string image { get; set; }
         public bool occhiali { get; set; }
         public bool capelli { get; set; }
         public bool barba { get; set; }
@@ -26,16 +20,10 @@ namespace WpfGuessWho
         public string coloreCapelli { get; set; }
         public string coloreOcchi { get; set; }
 
-        public CPersona()
-        {
-
-        }
-
-        public CPersona(int id, string nome, string image, bool occhiali, bool capelli, bool barba, bool baffi, bool nasoGrande, bool guanceRosse, bool cappello, string coloreCapelli, string coloreOcchi)
+        public CPersona(int id, string nome, bool occhiali, bool capelli, bool barba, bool baffi, bool nasoGrande, bool guanceRosse, bool cappello, string coloreCapelli, string coloreOcchi)
         {
             this.id = id;
             this.nome = nome;
-            this.image = image;
             this.occhiali = occhiali;
             this.capelli = capelli;
             this.barba = barba;

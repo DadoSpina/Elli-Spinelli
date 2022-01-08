@@ -1,43 +1,22 @@
-RICHIESTI:
-file elenco persone (codice persona;nome;caratteristiche separate da , (esempio:1;Gianni;capelliL=corti,occhi=castani) (capelliL-capelliC-occhi-carnagione-barba-nei-occhiali-lentiggini)) 24 persone
-file elenco domande	(codice domanda;domanda (esempio:1;ha i capelli corti?))
-cartella che contiene le foto delle persone con nomi = 1,2,ecc... ad ogni persona sarà collegata la foto il cui nome è uguale al proprio ID
-/* se riusciamo a realizzare il resto */
-file elenco aiuti (codice aiuto;frase(esempio:1;dimezza persone))
-
-GENERICO:
-tipo messaggio(domanda, "domanda vincente"#, richiesta connessione, ecc...);risposta/domanda;info necessarie
-
 ESEMPI:
 connessione:
 	porta: 666
 	
-	mess richiesta:           r;q;nome_giocatore								/* Richiesta di connessione */
-	mess risposta richiesta:  r;a;y	oppure n									/* conferma o rifiuto della connessione */
+	mess richiesta:           r;nome_giocatore
+	mess risposta richiesta:  r;Y oppure N
 	
 messaggi in game:
 
-	mess conferma scelta: c														/* l'utente manda la lettera c per Confermare di poter iniziare la partita, questa inizierà solo nel momento in cui il client ha sia ricevuto la c dall'altro utente e contemporaneamente inviato la propria in ordine casuale*/
+	mess conferma scelta: c													/* l'utente manda la lettera c per Confermare di poter iniziare la partita, questa inizierà solo nel momento in cui il client ha sia ricevuto la c dall'altro utente e contemporaneamente inviato la propria in ordine casuale*/
 	
-	mess domanda:  d;q;*indice domanda*											/* l'utente che sta giocando in quel momento invia la sua Domanda */
-	mess risposta: d;a;y oppure n												/* l'utente che riceve la domanda manda questo come risposta */
+	indice;domanda
+	indice;Y o N
 	
-	mess vincente: v;q;*indice file persona*									/* allo stesso modo riguardo la domanda specifica per indovinare la persona Vincente*/	
-	mess risposta: v;a;y oppure n												/* la risposta */
 	
-	/* se riusciamo a realizzare il resto */
-	mess domanda aiuto:  h;q;*codice aiuto*										/* il primo utente invia l'aiuto (Help)*/
-	mess risposta aiuto: h;a;*elenco codici persone da eliminare divisi da ,*	/* il secondo utente invia la risposta con l'elenco delle persone che il primo dovrà eliminare */
+	mess vincente: v;nome
 	
 Disconnessione
-	mess disconnessione:  l						/* se l'altro client non riceve mess, quando lui reinvierà un pacchetto, rimando il messaggio (Left)*/
+	mess disconnessione:  d
 	
 
 #domanda vincente si riferisce alle domande come: il tuo personaggio è Gianni?
-
-
-Altre implementazioni:
-	-realizzazione file per salvataggio login, punteggio (per creare un rank tra i giocatori) 
-	 (non bisogna realizzare un account ma all'inserimento di un nome: se questo già esiste sommerà 
-	 il punteggio ottenuto ai precedenti altrimenti creerà un nuovo utente)
-	-aiuti scritti su file (3 a partita)

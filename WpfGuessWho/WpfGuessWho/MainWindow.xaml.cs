@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace WpfGuessWho
 {
-    /// <summary>
-    /// Logica di interazione per MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         Random rand = new Random();
@@ -28,6 +25,8 @@ namespace WpfGuessWho
         CElaborazioneDati elab;
         int selected = 0;
         int domSelezionata = 0;
+        CFile file;
+        CDomanda cdomanda;
         public MainWindow()
         {
             Thread t1 = new Thread(new ThreadStart(th.riceviPacchetto));
@@ -41,7 +40,7 @@ namespace WpfGuessWho
             lblRisposta.Visibility = Visibility.Hidden;
             rectDomanda.Visibility = Visibility.Hidden;
             rectRisposta.Visibility = Visibility.Hidden;
-            WStart window = new WStart(dati);
+            WStart window = new WStart(dati,c);
             Hide();
             window.ShowDialog();
             if (dati.Utente == "")
@@ -50,21 +49,18 @@ namespace WpfGuessWho
                 return;
             }
             Show();
-            MessageBox.Show("Choose your character");
             imgUser.Source = new BitmapImage(dati.sourceOfTheImage);
 
-            List<CPersona> listaP = new List<CPersona>();
-            List<CDomanda> listaD = new List<CDomanda>();
-
-            CFile file = new CFile("filePersone.csv", dati);
+            file = new CFile("filePersone.csv", dati);
             file.toListPersona();
 
-            CDomanda cdomanda = new CDomanda(dati);
+            cdomanda = new CDomanda(dati);
             file.setFileName("fileDomande.csv");
             file.toListDomande();
             lblDomanda.Content = "il tuo personaggio " + dati.listDomande[0].domanda;
             elab = new CElaborazioneDati(dati, c, cdomanda);
             Thread t2 = new Thread(new ThreadStart(elab.valutaTipo));
+            MessageBox.Show("Choose your character");
         }
 
         private void btnPronto_Click(object sender, RoutedEventArgs e)
@@ -72,7 +68,8 @@ namespace WpfGuessWho
             if (selected != 0)
             {
                 imgSelezionato.Source = imgSelectedPerson.Source;
-                c.toCSV("c", "", "");
+                dati.tuoPersonaggio = dati.listPersona[selected-1].nome;
+                //c.toCSV("c", "", "");
                 btnPronto.Background = new SolidColorBrush(Color.FromArgb(255, 15, 193, 15));
 
                 while (!dati.pronto)
@@ -112,7 +109,7 @@ namespace WpfGuessWho
 
         private void btnForward_Click(object sender, RoutedEventArgs e)
         {
-            lblDomanda.Content = "il tuo personaggio ";
+            lblDomanda.Content = "Your Character ";
             if (domSelezionata < dati.listDomande.Count - 1)
             {
                 domSelezionata++;
@@ -127,7 +124,7 @@ namespace WpfGuessWho
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            lblDomanda.Content = "il tuo personaggio ";
+            lblDomanda.Content = "Your Character ";
             if (domSelezionata > 0)
             {
                 domSelezionata--;
@@ -142,7 +139,7 @@ namespace WpfGuessWho
 
         private void btnConferma_Click(object sender, RoutedEventArgs e)
         {
-            c.toCSV("d","q",domSelezionata.ToString());
+            //c.toCSV("d","q",domSelezionata.ToString());
             
             if (dati.risposta == "y")
             {
@@ -158,14 +155,13 @@ namespace WpfGuessWho
         {
             if (selected != 0)
             {
-                c.toCSV("v", "q", selected.ToString());
+                //c.toCSV("v", "q", selected.ToString());
                 
                 if (dati.risposta == "y")
                 {
                     lblRisposta.Content = "HAI VINTO!!";
-                    c.toCSV("l","","");
+                    //c.toCSV("l","","");
                     //calcolo punteggio
-                    pacco();
                 }
                 else
                 {

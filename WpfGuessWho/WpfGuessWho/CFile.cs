@@ -31,7 +31,7 @@ namespace WpfGuessWho
 			while ((riga = FIN.ReadLine()) != null)
 			{
 				String[] vett = riga.Split(';');
-				CPersona C = new CPersona(int.Parse(vett[0]), vett[1], vett[2], bool.Parse(vett[3]), bool.Parse(vett[4]), bool.Parse(vett[5]), bool.Parse(vett[6]), bool.Parse(vett[7]), bool.Parse(vett[8]), bool.Parse(vett[9]), vett[10], vett[11]);
+				CPersona C = new CPersona(int.Parse(vett[0]), vett[1], bool.Parse(vett[2]), bool.Parse(vett[3]), bool.Parse(vett[4]), bool.Parse(vett[5]), bool.Parse(vett[6]), bool.Parse(vett[7]), bool.Parse(vett[8]), vett[9], vett[10]);
 				lista.Add(C);
 			}
 			dati.listPersona = lista;

@@ -10,7 +10,8 @@ namespace WpfGuessWho
     public class DatiCondivisi
     {
         public string risposta { get; set; }
-
+        public int vinto { get; set; }
+        public string tuoPersonaggio { get; set; }
         public string ip { get; set; }
         public int porta { get; set; }
         public List<CPersona> listPersona { get; set; }
@@ -24,6 +25,7 @@ namespace WpfGuessWho
         public Uri sourceOfTheImage { get; set; }
         public DatiCondivisi()
         {
+            vinto = -1;
             listPersona = new List<CPersona>();
             listDomande = new List<CDomanda>();
             domandeRicevute = new List<string>();
@@ -32,6 +34,7 @@ namespace WpfGuessWho
             pronto = false;
             ip = "localhost";
             porta = 666;
+            tuoPersonaggio = "";
         }
         public int[] findDomanda(int s)
         {

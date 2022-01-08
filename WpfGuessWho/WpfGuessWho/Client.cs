@@ -34,11 +34,11 @@ namespace WpfGuessWho
             client.Send(buffer, buffer.Length, dati.ip, dati.porta);
         }
 
-        public void toCSV(string tipoMess, string QoA, string contenuti){
+        public void toCSV(string tipoMess, string contenuti){
             string messaggio = "";
-            if (QoA != "")
+            if (contenuti != "")
             {
-                messaggio = tipoMess + ";" + QoA + ";" + contenuti;
+                messaggio = tipoMess + ";" + contenuti;
             }
             else
             {

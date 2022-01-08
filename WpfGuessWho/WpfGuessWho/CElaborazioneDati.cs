@@ -30,33 +30,29 @@ namespace WpfGuessWho
                 case "r": //richiesta connessione
                     switch (domanda[1])
                     {
-                        case "q":
-                            if (!condi.connesso)
+                        default:
+                            if (condi.connesso)
                             {
-                                c.toCSV("r", "a", "y");
+                                c.toCSV("r","N");
                             }
                             else
                             {
-                                //rifiuta la connessione
-                                c.toCSV("r", "a", "n");
-                            }
-                            break;
-                        case "a":
-                            if (domanda[2] == "n")
-                            {
+                                c.toCSV("r", "Y");
                                 condi.connesso = true;
                             }
-
+                            break;
+                        case "Y":
+                            condi.connesso = true;
+                            break;
+                        case "N":
                             break;
 
                     }
                     break;
-                case "c":
-                    if (condi.pronto == false) { 
+                case "c": 
                         condi.pronto = true;
-                    }
                     break;
-                case "d": //domanda "base"
+                default: //domanda "base"
                     switch (domanda[1])
                     {
                         case "q":
@@ -72,37 +68,30 @@ namespace WpfGuessWho
                 case "v": //domanda "vincente"
                     switch (domanda[1])
                     {
-                        case "q":
-                            //elabora una risposta
+                        default:
+                            if (domanda[1] == condi.tuoPersonaggio)
+                            {
+                                c.toCSV("v","Y");
+                                condi.vinto = 0;
+                                c.toCSV("d", "");
+                            }
+                            else
+                            {
+                                c.toCSV("v", "N");
+                            }
                             break;
-                        case "a":
-                            //riceve la risposta
+                        case "Y":
+                            condi.vinto = 1;
+                            c.toCSV("d","");
                             break;
-
+                        case "N":
+                            condi.vinto = -1;
+                            break;
                     }
                     break;
-                case "h": //eventuali aiuti
-                    switch (domanda[1])
-                    {
-                        case "q":
-                            //elabora una risposta
-                            break;
-                        case "a":
-                            //riceve la risposta
-                            break;
-
-                    }
-                    break;
-                case "l": //richiesta disconnessione
-                    switch (domanda[1])
-                    {
-                        case "q":
-                            //elabora una risposta
-                            break;
-                        case "a":
-                            //riceve la risposta
-                            break;
-                    }
+                case "d": //richiesta disconnessione
+                    condi.connesso = false;
+                    condi.pronto = false;
                     break;
             }
         }

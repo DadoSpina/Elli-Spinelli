@@ -42,7 +42,5 @@ namespace WpfGuessWho
 			vettIndici = dati.findDomanda(indiceSelezionata);
 			return vettIndici;
 		}
-
-
 	}
 }

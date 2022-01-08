@@ -14,20 +14,19 @@ using System.Windows.Shapes;
 
 namespace WpfGuessWho
 {
-    /// <summary>
-    /// Logica di interazione per WStart.xaml
-    /// </summary>
     public partial class WStart : Window
     {
         DatiCondivisi condi;
+        Client c;
         public int valueImage { get; set; }
         public Uri sourceOfTheImage { get; set; }
-        public WStart(DatiCondivisi condi)
+        public WStart(DatiCondivisi condi, Client c)
         {
             sourceOfTheImage = new Uri("maleProfilePicture.jpg", UriKind.Relative);
             InitializeComponent();
             valueImage = 1;
             this.condi = condi;
+            this.c = c;
         }
 
         private void btnPartita_Click(object sender, RoutedEventArgs e)
@@ -41,7 +40,7 @@ namespace WpfGuessWho
                 lblErrori.Content = "";
                 condi.Utente = txtUtente.Text;
                 condi.sourceOfTheImage = sourceOfTheImage;
-                //client.toCSV(); /*invia il messaggio di richiesta connessione*/
+                c.toCSV("r", txtUtente.Text); /*invia il messaggio di richiesta connessione*/
                 Close();
             }
         }
