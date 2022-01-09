@@ -10,34 +10,49 @@ namespace WpfGuessWho
 {
     class ThreadServer
     {
-        UdpClient client;
+        UdpClient server;
         byte[] data;
         IPEndPoint riceveEP;
         DatiCondivisi condi;
 
         public ThreadServer()
         {
-            client = new UdpClient();
+            server = new UdpClient(666);
             data = Encoding.ASCII.GetBytes("");
             riceveEP = new IPEndPoint(IPAddress.Any, 0);
-            client.Client.Bind(new IPEndPoint(IPAddress.Any, 11000));
             condi = new DatiCondivisi();
         }
 
         public ThreadServer(DatiCondivisi condi)
         {
+            server = new UdpClient(666);
+            server.Client.ReceiveTimeout = 2000;
+            data = Encoding.ASCII.GetBytes("");
+            riceveEP = new IPEndPoint(IPAddress.Any, 0);
             this.condi = condi;
         }
 
 
         public void riceviPacchetto()
         {
-            while (true)
+            while (!condi.closeThread)
             {
-                byte[] dataReceived = client.Receive(ref riceveEP);
-                String risposta = Encoding.ASCII.GetString(dataReceived);
-                condi.addDomandaServer(risposta);
+                try
+                {
+
+                    byte[] dataReceived = server.Receive(ref riceveEP);
+                    String risposta = Encoding.ASCII.GetString(dataReceived);
+                    if (risposta == "")
+                    {
+                        continue;
+                    }
+                    condi.addDomandaServer(risposta);
+                }
+                catch (Exception)
+                {
+                }
             }
+            return;
         }
     }
 }

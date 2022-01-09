@@ -27,14 +27,8 @@ namespace WpfGuessWho
         {
             this.dati = dati;
         }
-
-        private void inviaPacchetto(UdpClient client, string s)
+        public void toCSV(string tipoMess, string contenuti)
         {
-            byte[] buffer = Encoding.ASCII.GetBytes(s);
-            client.Send(buffer, buffer.Length, dati.ip, dati.porta);
-        }
-
-        public void toCSV(string tipoMess, string contenuti){
             string messaggio = "";
             if (contenuti != "")
             {
@@ -46,5 +40,11 @@ namespace WpfGuessWho
             }
             inviaPacchetto(client, messaggio);
         }
+
+        private void inviaPacchetto(UdpClient client, string s)
+        {
+            byte[] buffer = Encoding.ASCII.GetBytes(s);
+            client.Send(buffer, buffer.Length, dati.ip, dati.porta);
+        } 
     }
 }

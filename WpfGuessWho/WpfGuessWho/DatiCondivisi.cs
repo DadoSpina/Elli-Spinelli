@@ -9,7 +9,9 @@ namespace WpfGuessWho
 {
     public class DatiCondivisi
     {
+        public string nomeAvversario { get; set; }
         public string risposta { get; set; }
+        public List<string[]> vettRisposte { get; set; }
         public int vinto { get; set; }
         public string tuoPersonaggio { get; set; }
         public string ip { get; set; }
@@ -20,8 +22,9 @@ namespace WpfGuessWho
         //lista che verrà usata dal client per capire quale domanda ha ricevuto
         public List<string> domandeRicevute { get; set; }
         public string Utente { get; set; }
-        public bool connesso { get; set; }
+        public int connesso { get; set; }
         public bool pronto { get; set; }
+        public bool closeThread { get; set; }
         public Uri sourceOfTheImage { get; set; }
         public DatiCondivisi()
         {
@@ -30,11 +33,12 @@ namespace WpfGuessWho
             listDomande = new List<CDomanda>();
             domandeRicevute = new List<string>();
             Utente = "";
-            connesso = false;
+            connesso = 0;
             pronto = false;
-            ip = "localhost";
+            ip = "192.168.1.2";
             porta = 666;
             tuoPersonaggio = "";
+            closeThread = false;
         }
         public int[] findDomanda(int s)
         {
@@ -202,7 +206,11 @@ namespace WpfGuessWho
 
         public string getLastDomandeRicevute()
         {
-            return domandeRicevute[domandeRicevute.Count - 1];
+            if (domandeRicevute.Count > 0)
+            {
+                return domandeRicevute[domandeRicevute.Count - 1];
+            }
+            return "";
         }
     }
 }

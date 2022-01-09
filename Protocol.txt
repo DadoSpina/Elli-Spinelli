@@ -7,7 +7,11 @@ connessione:
 	
 messaggi in game:
 
-	mess conferma scelta: c													/* l'utente manda la lettera c per Confermare di poter iniziare la partita, questa inizierà solo nel momento in cui il client ha sia ricevuto la c dall'altro utente e contemporaneamente inviato la propria in ordine casuale*/
+	mess conferma scelta: c;nome_giocatore		/* l'utente manda la lettera c per Confermare di poter iniziare la partita, 
+												questa inizierà solo nel momento in cui il client ha sia ricevuto la c dall'altro 
+												utente e contemporaneamente inviato la propria in ordine casuale.
+												reinviare il nome crea ridondanza per chi inizialmente ha ricevuto la richiesta di connessione
+												MA permette anche all'altro utente di ricevere il nome*/
 	
 	indice;domanda
 	indice;Y o N

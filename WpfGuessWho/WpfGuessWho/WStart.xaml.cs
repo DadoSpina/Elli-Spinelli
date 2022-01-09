@@ -20,6 +20,7 @@ namespace WpfGuessWho
         Client c;
         public int valueImage { get; set; }
         public Uri sourceOfTheImage { get; set; }
+        Random rand = new Random();
         public WStart(DatiCondivisi condi, Client c)
         {
             sourceOfTheImage = new Uri("maleProfilePicture.jpg", UriKind.Relative);
@@ -33,15 +34,29 @@ namespace WpfGuessWho
         {
             if (txtUtente.Text == "")
             {
-                lblErrori.Content = "Inserire un nome utente";
+                MessageBox.Show("Invalid username", "ATTENTION");
             }
             else
             {
-                lblErrori.Content = "";
-                condi.Utente = txtUtente.Text;
-                condi.sourceOfTheImage = sourceOfTheImage;
-                c.toCSV("r", txtUtente.Text); /*invia il messaggio di richiesta connessione*/
-                Close();
+                condi.ip = txtIP.Text;
+                    condi.Utente = txtUtente.Text;
+                    condi.sourceOfTheImage = sourceOfTheImage;
+                    c.toCSV("r", txtUtente.Text); /*invia il messaggio di richiesta connessione*/
+                    while (condi.connesso == 0)
+                    {
+                    }
+                    if (condi.connesso == 1)
+                    {
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("CONNECTION FAILED", "ERROR");
+                        condi.connesso = 0;
+                        condi.Utente = "";
+                        condi.sourceOfTheImage = new Uri("", UriKind.Relative);
+                    
+                }
             }
         }
 

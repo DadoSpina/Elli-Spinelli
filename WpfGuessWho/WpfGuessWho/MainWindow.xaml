@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfGuessWho"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1075.661" Width="1941.325" WindowState="Maximized">
+        Title="MainWindow" Height="1075.661" Width="1941.325" WindowState="Maximized" Closing="Window_Closing">
     <Window.Background>
         <ImageBrush ImageSource="background.jpg"/>
     </Window.Background>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
@@ -82,6 +85,6 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="332" Margin="0,581,10,0" Stroke="Black" VerticalAlignment="Top" Width="252" Opacity="0.4"/>
         <Image x:Name="imgSelezionato" HorizontalAlignment="Right" Height="242" Margin="0,671,10,0" VerticalAlignment="Top" Width="252" Stretch="Fill"/>
         <Label x:Name="lblSelectedCharacter" Content="Your Character" HorizontalAlignment="Right" Margin="0,581,10,0" VerticalAlignment="Top" Height="90" Width="252" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
-        
+
     </Grid>
 </Window>

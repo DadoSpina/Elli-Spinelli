@@ -22,78 +22,87 @@ namespace WpfGuessWho
 
         public void valutaTipo()
         {
-            string a = condi.getLastDomandeRicevute();
-            domanda = a.Split(';');
-
-            switch (domanda[0])
+            while (!condi.closeThread)
             {
-                case "r": //richiesta connessione
-                    switch (domanda[1])
-                    {
-                        default:
-                            if (condi.connesso)
-                            {
-                                c.toCSV("r","N");
-                            }
-                            else
-                            {
-                                c.toCSV("r", "Y");
-                                condi.connesso = true;
-                            }
-                            break;
-                        case "Y":
-                            condi.connesso = true;
-                            break;
-                        case "N":
-                            break;
+                string a = condi.getLastDomandeRicevute();
+                if (a != "")
+                {
+                    domanda = a.Split(';');
 
-                    }
-                    break;
-                case "c": 
-                        condi.pronto = true;
-                    break;
-                default: //domanda "base"
-                    switch (domanda[1])
+                    switch (domanda[0])
                     {
-                        case "q":
-                            dom.setSelezionata(int.Parse(domanda[2]));
-                            //invia risposta
-                            break;
-                        case "a":
-                            condi.risposta = domanda[2];
-                            break;
+                        case "r": //richiesta connessione
+                            switch (domanda[1])
+                            {
+                                default:
+                                    if (condi.connesso == 1)
+                                    {
+                                        c.toCSV("r", "N");
+                                    }
+                                    else
+                                    {
+                                        c.toCSV("r", "Y");
+                                        condi.connesso = 1;
+                                    }
+                                    break;
+                                case "Y":
+                                    condi.connesso = 1;
+                                    break;
+                                case "N":
+                                    condi.connesso = -1;
+                                    break;
 
-                    }
-                    break;
-                case "v": //domanda "vincente"
-                    switch (domanda[1])
-                    {
-                        default:
-                            if (domanda[1] == condi.tuoPersonaggio)
-                            {
-                                c.toCSV("v","Y");
-                                condi.vinto = 0;
-                                c.toCSV("d", "");
-                            }
-                            else
-                            {
-                                c.toCSV("v", "N");
                             }
                             break;
-                        case "Y":
-                            condi.vinto = 1;
-                            c.toCSV("d","");
+                        case "c":
+                            condi.pronto = true;
+                            condi.nomeAvversario = domanda[1];
                             break;
-                        case "N":
-                            condi.vinto = -1;
+                        default: //domanda "base"
+                            switch (domanda[1])
+                            {
+                                case "q":
+                                    dom.setSelezionata(int.Parse(domanda[2]));
+                                    //invia risposta
+                                    break;
+                                case "a":
+                                    condi.risposta = domanda[2];
+                                    break;
+
+                            }
+                            break;
+                        case "v": //domanda "vincente"
+                            switch (domanda[1])
+                            {
+                                default:
+                                    if (domanda[1] == condi.tuoPersonaggio)
+                                    {
+                                        c.toCSV("v", "Y");
+                                        condi.vinto = 0;
+                                        c.toCSV("d", "");
+                                    }
+                                    else
+                                    {
+                                        c.toCSV("v", "N");
+                                    }
+                                    break;
+                                case "Y":
+                                    condi.vinto = 1;
+                                    c.toCSV("d", "");
+                                    break;
+                                case "N":
+                                    condi.vinto = -1;
+                                    break;
+                            }
+                            break;
+                        case "d": //richiesta disconnessione
+                            condi.connesso = 0;
+                            condi.pronto = false;
                             break;
                     }
-                    break;
-                case "d": //richiesta disconnessione
-                    condi.connesso = false;
-                    condi.pronto = false;
-                    break;
+                }
             }
+            return;
         }
     }
 }

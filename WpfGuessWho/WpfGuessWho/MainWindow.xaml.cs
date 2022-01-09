@@ -19,18 +19,31 @@ namespace WpfGuessWho
     public partial class MainWindow : Window
     {
         Random rand = new Random();
-        DatiCondivisi dati = new DatiCondivisi();
-        ThreadServer th = new ThreadServer();
+        DatiCondivisi dati;
         Client c = new Client();
         CElaborazioneDati elab;
         int selected = 0;
         int domSelezionata = 0;
         CFile file;
         CDomanda cdomanda;
+        ThreadServer th;
+        Thread t1;
+        Thread t2;
+
         public MainWindow()
         {
-            Thread t1 = new Thread(new ThreadStart(th.riceviPacchetto));
-            
+            dati = new DatiCondivisi();
+            file = new CFile("filePersone.csv", dati);
+            file.toListPersona();
+            th = new ThreadServer(dati);
+            cdomanda = new CDomanda(dati);
+            elab = new CElaborazioneDati(dati, c, cdomanda);
+
+            t1 = new Thread(th.riceviPacchetto);
+            t2 = new Thread(elab.valutaTipo);
+            t1.Start();
+            t2.Start();
+
             InitializeComponent();
             btnBack.Visibility = Visibility.Hidden;
             btnConferma.Visibility = Visibility.Hidden;
@@ -45,22 +58,18 @@ namespace WpfGuessWho
             window.ShowDialog();
             if (dati.Utente == "")
             {
+                dati.closeThread = true;
                 Close();
                 return;
             }
             Show();
             imgUser.Source = new BitmapImage(dati.sourceOfTheImage);
 
-            file = new CFile("filePersone.csv", dati);
-            file.toListPersona();
 
-            cdomanda = new CDomanda(dati);
             file.setFileName("fileDomande.csv");
             file.toListDomande();
             lblDomanda.Content = "il tuo personaggio " + dati.listDomande[0].domanda;
-            elab = new CElaborazioneDati(dati, c, cdomanda);
-            Thread t2 = new Thread(new ThreadStart(elab.valutaTipo));
-            MessageBox.Show("Choose your character");
+            message("Choose your character", "ATTENTION");
         }
 
         private void btnPronto_Click(object sender, RoutedEventArgs e)
@@ -69,17 +78,20 @@ namespace WpfGuessWho
             {
                 imgSelezionato.Source = imgSelectedPerson.Source;
                 dati.tuoPersonaggio = dati.listPersona[selected-1].nome;
-                //c.toCSV("c", "", "");
+                selected = 0;
+                c.toCSV("c", dati.Utente);
                 btnPronto.Background = new SolidColorBrush(Color.FromArgb(255, 15, 193, 15));
 
                 while (!dati.pronto)
                 {
-                    //random temporaneo da rimuovere appena sia possibile ricevere i messaggi
+                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    //random di DEBUG da rimuovere appena sia possibile ricevere i messaggi
                     int r = rand.Next(1000);
                     if (r == 1)
                     {
                         dati.pronto = true;
                     }
+                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 }
 
                 //change buttons
@@ -96,7 +108,7 @@ namespace WpfGuessWho
             }
             else
             {
-                MessageBox.Show("Choose your character");
+                message("Choose your character", "ATTENTION");
             }
         }
 
@@ -139,7 +151,7 @@ namespace WpfGuessWho
 
         private void btnConferma_Click(object sender, RoutedEventArgs e)
         {
-            //c.toCSV("d","q",domSelezionata.ToString());
+            c.toCSV(domSelezionata.ToString(),dati.listDomande[domSelezionata].domanda);
             
             if (dati.risposta == "y")
             {
@@ -155,12 +167,14 @@ namespace WpfGuessWho
         {
             if (selected != 0)
             {
-                //c.toCSV("v", "q", selected.ToString());
+                c.toCSV("v",dati.listPersona[selected-1].nome);
                 
+
+                //modificare questo if + "dati.risposta" per adattarsi al nuovo protocollo (la risposta si deve trovare in corrispondenza della lettera v cosicchè il programma sappia sia quella giusta per lui)
                 if (dati.risposta == "y")
                 {
                     lblRisposta.Content = "HAI VINTO!!";
-                    //c.toCSV("l","","");
+                    c.toCSV("d","");
                     //calcolo punteggio
                 }
                 else
@@ -171,8 +185,18 @@ namespace WpfGuessWho
             }
             else
             {
-
+                message("select who you want to guess first", "ATTENTION");
             }
+        }
+
+        private void message(string content, string name)
+        {
+            MessageBox.Show(content,name);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            dati.closeThread = true;
         }
     }
 }
