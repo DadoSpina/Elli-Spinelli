@@ -9,11 +9,13 @@ namespace WpfGuessWho
 {
     public class DatiCondivisi
     {
+        public int Utility { get; set; }
         public string nomeAvversario { get; set; }
         public string risposta { get; set; }
         public List<string[]> vettRisposte { get; set; }
         public int vinto { get; set; }
         public string tuoPersonaggio { get; set; }
+        public int IDtuoPersonaggio { get; set; }
         public string ip { get; set; }
         public int porta { get; set; }
         public List<CPersona> listPersona { get; set; }
@@ -26,8 +28,10 @@ namespace WpfGuessWho
         public bool pronto { get; set; }
         public bool closeThread { get; set; }
         public Uri sourceOfTheImage { get; set; }
+        public int indiceSelezionata { get; set; }
         public DatiCondivisi()
         {
+            Utility = 0;
             vinto = -1;
             listPersona = new List<CPersona>();
             listDomande = new List<CDomanda>();
@@ -40,7 +44,7 @@ namespace WpfGuessWho
             tuoPersonaggio = "";
             closeThread = false;
         }
-        public int[] findDomanda(int s)
+        public int[] findDomandaSbagliata(int s)
         {
             int[] vett = new int[25];
             int j = 0;
@@ -49,7 +53,7 @@ namespace WpfGuessWho
                 case 1:
                     for(int i=0; i<listPersona.Count; i++)
                     {
-                        if (listPersona[i].occhiali == true)
+                        if (!listPersona[i].occhiali)
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -59,7 +63,7 @@ namespace WpfGuessWho
                 case 2:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].barba == true)
+                        if (!listPersona[i].barba)
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -69,7 +73,7 @@ namespace WpfGuessWho
                 case 3:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].cappello == true)
+                        if (!listPersona[i].cappello)
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -79,7 +83,7 @@ namespace WpfGuessWho
                 case 4:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].baffi == true && listPersona[i].barba == false)
+                        if (!listPersona[i].baffi || (listPersona[i].baffi && listPersona[i].barba))
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -89,7 +93,7 @@ namespace WpfGuessWho
                 case 5:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].nasoGrande == true)
+                        if (!listPersona[i].nasoGrande)
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -99,7 +103,7 @@ namespace WpfGuessWho
                 case 6:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].guanceRosse == true)
+                        if (!listPersona[i].guanceRosse)
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -109,7 +113,7 @@ namespace WpfGuessWho
                 case 7:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].capelli == true)
+                        if (!listPersona[i].capelli)
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -119,7 +123,7 @@ namespace WpfGuessWho
                 case 8:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli == "biondi")
+                        if (listPersona[i].coloreCapelli != "biondi")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -129,7 +133,7 @@ namespace WpfGuessWho
                 case 9:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli == "castani")
+                        if (listPersona[i].coloreCapelli != "castani")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -139,7 +143,7 @@ namespace WpfGuessWho
                 case 10:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli == "neri")
+                        if (listPersona[i].coloreCapelli != "neri")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -149,7 +153,7 @@ namespace WpfGuessWho
                 case 11:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli == "rossi")
+                        if (listPersona[i].coloreCapelli != "rossi")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -159,7 +163,7 @@ namespace WpfGuessWho
                 case 12:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli == "bianchi")
+                        if (listPersona[i].coloreCapelli != "bianchi")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -169,7 +173,7 @@ namespace WpfGuessWho
                 case 13:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreOcchi == "azzurri")
+                        if (listPersona[i].coloreOcchi != "azzurri")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -179,7 +183,7 @@ namespace WpfGuessWho
                 case 14:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreOcchi == "marroni")
+                        if (listPersona[i].coloreOcchi != "marroni")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -189,7 +193,7 @@ namespace WpfGuessWho
                 case 15:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreOcchi == "verdi")
+                        if (listPersona[i].coloreOcchi != "verdi")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -208,7 +212,152 @@ namespace WpfGuessWho
         {
             if (domandeRicevute.Count > 0)
             {
-                return domandeRicevute[domandeRicevute.Count - 1];
+                string a = domandeRicevute[domandeRicevute.Count - 1];
+                domandeRicevute.RemoveAt(domandeRicevute.Count - 1);
+                return a;
+            }
+            return "";
+        }
+
+        public string y_n()
+        {
+            switch (listDomande[indiceSelezionata].ID)
+            {
+                case 1:
+                    if (listPersona[IDtuoPersonaggio - 1].occhiali)
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 2:
+                    if (listPersona[IDtuoPersonaggio - 1].barba)
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 3:
+                    if (listPersona[IDtuoPersonaggio - 1].cappello)
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 4:
+                    if (listPersona[IDtuoPersonaggio - 1].baffi)
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 5:
+                    if (listPersona[IDtuoPersonaggio - 1].nasoGrande)
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 6:
+                    if (listPersona[IDtuoPersonaggio - 1].guanceRosse)
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 7:
+                    if (listPersona[IDtuoPersonaggio - 1].capelli)
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 8:
+                    if (listPersona[IDtuoPersonaggio - 1].coloreCapelli == "biondo")
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 9:
+                    if (listPersona[IDtuoPersonaggio - 1].coloreCapelli == "marrone")
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 10:
+                    if (listPersona[IDtuoPersonaggio - 1].coloreCapelli == "nero")
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 11:
+                    if (listPersona[IDtuoPersonaggio - 1].coloreCapelli == "rosso")
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 12:
+                    if (listPersona[IDtuoPersonaggio - 1].coloreCapelli == "bianco")
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 13:
+                    if (listPersona[IDtuoPersonaggio - 1].coloreOcchi == "azzurro")
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 14:
+                    if (listPersona[IDtuoPersonaggio - 1].coloreOcchi == "marrone")
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
+                case 15:
+                    if (listPersona[IDtuoPersonaggio - 1].coloreOcchi == "verde")
+                    {
+                        return "Y";
+                    }
+                    else
+                    {
+                        return "N";
+                    }
             }
             return "";
         }

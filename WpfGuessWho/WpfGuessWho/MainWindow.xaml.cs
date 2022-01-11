@@ -29,9 +29,15 @@ namespace WpfGuessWho
         ThreadServer th;
         Thread t1;
         Thread t2;
+        int[] variabile;
 
         public MainWindow()
         {
+            variabile = new int[24];
+            for (int i = 0; i < 24; i++)
+            {
+                variabile[i] = 1;
+            }
             dati = new DatiCondivisi();
             file = new CFile("filePersone.csv", dati);
             file.toListPersona();
@@ -68,7 +74,7 @@ namespace WpfGuessWho
 
             file.setFileName("fileDomande.csv");
             file.toListDomande();
-            lblDomanda.Content = "il tuo personaggio " + dati.listDomande[0].domanda;
+            lblDomanda.Content = "il tuo personaggio " + dati.listDomande[0].testo;
             message("Choose your character", "ATTENTION");
         }
 
@@ -77,7 +83,8 @@ namespace WpfGuessWho
             if (selected != 0)
             {
                 imgSelezionato.Source = imgSelectedPerson.Source;
-                dati.tuoPersonaggio = dati.listPersona[selected-1].nome;
+                dati.tuoPersonaggio = dati.listPersona[selected - 1].nome;
+                dati.IDtuoPersonaggio = dati.listPersona[selected - 1].id;
                 selected = 0;
                 c.toCSV("c", dati.Utente);
                 btnPronto.Background = new SolidColorBrush(Color.FromArgb(255, 15, 193, 15));
@@ -121,45 +128,50 @@ namespace WpfGuessWho
 
         private void btnForward_Click(object sender, RoutedEventArgs e)
         {
-            lblDomanda.Content = "Your Character ";
+            lblDomanda.Content = "Il tuo personaggio ";
             if (domSelezionata < dati.listDomande.Count - 1)
             {
                 domSelezionata++;
-                lblDomanda.Content += dati.listDomande[domSelezionata].domanda;
+                lblDomanda.Content += dati.listDomande[domSelezionata].testo;
             }
             else
             {
                 domSelezionata=0;
-                lblDomanda.Content = dati.listDomande[domSelezionata].domanda;
+                lblDomanda.Content += dati.listDomande[domSelezionata].testo;
             }
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            lblDomanda.Content = "Your Character ";
+            lblDomanda.Content = "Il tuo personaggio ";
             if (domSelezionata > 0)
             {
                 domSelezionata--;
-                lblDomanda.Content += dati.listDomande[domSelezionata].domanda;
+                lblDomanda.Content += dati.listDomande[domSelezionata].testo;
             }
             else
             {
                 domSelezionata = dati.listDomande.Count - 1;
-                lblDomanda.Content += dati.listDomande[domSelezionata].domanda;
+                lblDomanda.Content += dati.listDomande[domSelezionata].testo;
             }
         }
 
         private void btnConferma_Click(object sender, RoutedEventArgs e)
         {
-            c.toCSV(domSelezionata.ToString(),dati.listDomande[domSelezionata].domanda);
-            
-            if (dati.risposta == "y")
+            c.toCSV(domSelezionata.ToString(),dati.listDomande[domSelezionata].testo);
+            while (dati.Utility == 0)
+            {
+            }
+            dati.Utility = 0;
+            if (dati.risposta == "Y")
             {
                 lblRisposta.Content = "Esatto!";
+                nascondi();
             }
             else
             {
                 lblRisposta.Content = "Sbagliato";
+                nascondi();
             }
         }
 
@@ -197,6 +209,63 @@ namespace WpfGuessWho
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             dati.closeThread = true;
+        }
+
+        private void nascondi()
+        {
+                switch (/*sistemare il metodo prima*/)
+                {
+                    //se non presente e dati.risposta == "N" allora lo cancella
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    case 7:
+                        break;
+                    case 8:
+                        break;
+                    case 9:
+                        break;
+                    case 10:
+                        break;
+                    case 11:
+                        break;
+                    case 12:
+                        break;
+                    case 13:
+                        break;
+                    case 14:
+                        break;
+                    case 15:
+                        break;
+                    case 16:
+                        break;
+                    case 17:
+                        break;
+                    case 18:
+                        break;
+                    case 19:
+                        break;
+                    case 20:
+                        break;
+                    case 21:
+                        break;
+                    case 22:
+                        break;
+                    case 23:
+                        break;
+                    case 24:
+                        break;
+                }
+            }
         }
     }
 }

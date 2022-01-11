@@ -10,7 +10,6 @@ namespace WpfGuessWho
     {
         DatiCondivisi condi;
         Client c;
-        string[] domanda;
         CDomanda dom;
 
         public CElaborazioneDati(DatiCondivisi condi, Client c, CDomanda dom)
@@ -25,9 +24,9 @@ namespace WpfGuessWho
             while (!condi.closeThread)
             {
                 string a = condi.getLastDomandeRicevute();
-                if (a != "")
+                if (a != "" && a != null)
                 {
-                    domanda = a.Split(';');
+                    string[] domanda = a.Split(';');
 
                     switch (domanda[0])
                     {
@@ -61,14 +60,20 @@ namespace WpfGuessWho
                         default: //domanda "base"
                             switch (domanda[1])
                             {
-                                case "q":
-                                    dom.setSelezionata(int.Parse(domanda[2]));
-                                    //invia risposta
+                                case "Y":
+                                    condi.risposta = "Y";
+                                    condi.Utility = 1;
                                     break;
-                                case "a":
-                                    condi.risposta = domanda[2];
+                                case "N":
+                                    condi.risposta = "N";
+                                    condi.Utility = 1;
                                     break;
-
+                                default:
+                                    //dom.setSelezionata(int.Parse(domanda[0]));
+                                    condi.indiceSelezionata = int.Parse(domanda[0]);
+                                    string risposta = condi.y_n();
+                                    c.toCSV(domanda[1], risposta);
+                                    break;
                             }
                             break;
                         case "v": //domanda "vincente"
@@ -102,6 +107,7 @@ namespace WpfGuessWho
                     }
                 }
             }
+
             return;
         }
     }

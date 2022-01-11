@@ -39,7 +39,6 @@ namespace WpfGuessWho
             {
                 try
                 {
-
                     byte[] dataReceived = server.Receive(ref riceveEP);
                     String risposta = Encoding.ASCII.GetString(dataReceived);
                     if (risposta == "")

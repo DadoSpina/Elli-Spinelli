@@ -55,7 +55,7 @@
         <Image x:Name="img12" HorizontalAlignment="Left" Height="195" Margin="1141,243,0,0" VerticalAlignment="Top" Width="220" Source="12.jpg" Stretch="Fill"/>
         <Button x:Name="btnPersona12" Content="12" HorizontalAlignment="Left" Margin="1141,243,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
         <Image x:Name="img13" HorizontalAlignment="Left" Height="195" Margin="14,445,0,0" VerticalAlignment="Top" Width="220" Source="13.jpg" Stretch="Fill"/>
-        <Button x:Name="btnPersona113" Content="13" HorizontalAlignment="Left" Margin="14,445,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
+        <Button x:Name="btnPersona13" Content="13" HorizontalAlignment="Left" Margin="14,445,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
         <Image x:Name="img14" HorizontalAlignment="Left" Height="195" Margin="240,445,0,0" VerticalAlignment="Top" Width="220" Source="14.jpg" Stretch="Fill"/>
         <Button x:Name="btnPersona14" Content="14" HorizontalAlignment="Left" Margin="239,445,0,0" VerticalAlignment="Top" Width="221" Height="195" Click="btnPersona_Click" Opacity="0"/>
         <Image x:Name="img15" HorizontalAlignment="Left" Height="195" Margin="465,445,0,0" VerticalAlignment="Top" Width="220" Source="15.jpg" Stretch="Fill"/>
