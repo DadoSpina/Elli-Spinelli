@@ -265,7 +265,7 @@ namespace WpfGuessWho
                     case 24:
                         break;
                 }
-            }
+            
         }
     }
 }

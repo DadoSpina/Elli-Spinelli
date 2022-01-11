@@ -361,5 +361,164 @@ namespace WpfGuessWho
             }
             return "";
         }
+
+        public void findDomandaGiusta(int s)
+        {
+            int[] vett = new int[25];
+            int j = 0;
+            switch (s)
+            {
+                case 1:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].occhiali)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].barba)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].cappello)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 4:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].baffi && listPersona[i].barba == false)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 5:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].nasoGrande)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 6:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].guanceRosse)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 7:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].capelli)
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 8:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].coloreCapelli != "biondi")
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 9:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].coloreCapelli == "castani")
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 10:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].coloreCapelli == "neri")
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 11:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].coloreCapelli == "rossi")
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 12:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].coloreCapelli == "bianchi")
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 13:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].coloreOcchi == "azzurri")
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 14:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].coloreOcchi == "marroni")
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+                case 15:
+                    for (int i = 0; i < listPersona.Count; i++)
+                    {
+                        if (listPersona[i].coloreOcchi == "verdi")
+                        {
+                            vett[j] = listPersona[i].id;
+                            j++;
+                        }
+                    }
+                    break;
+            }
+        }
     }
 }
