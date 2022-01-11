@@ -166,13 +166,13 @@ namespace WpfGuessWho
             if (dati.risposta == "Y")
             {
                 lblRisposta.Content = "Esatto!";
-                nascondi();
             }
             else
             {
                 lblRisposta.Content = "Sbagliato";
-                nascondi();
+                dati.findDomandaGiusta(dati.listDomande[domSelezionata].ID);
             }
+            nascondi();
         }
 
         private void btnIndovina_Click(object sender, RoutedEventArgs e)
@@ -213,58 +213,119 @@ namespace WpfGuessWho
 
         private void nascondi()
         {
-                switch (/*sistemare il metodo prima*/)
+
+            int[] vett;
+            if (dati.risposta == "Y")
+            {
+                vett = dati.findDomandaSbagliata(dati.listDomande[domSelezionata].ID);
+            }
+            else
+            {
+                vett = dati.findDomandaGiusta(dati.listDomande[domSelezionata].ID);
+            }
+            foreach (var item in vett)
+            {
+                switch (item)
                 {
                     //se non presente e dati.risposta == "N" allora lo cancella
                     case 1:
+                        btnPersona1.Visibility = Visibility.Hidden;
+                        img1.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 2:
+                        btnPersona2.Visibility = Visibility.Hidden;
+                        img2.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 3:
+                        btnPersona3.Visibility = Visibility.Hidden;
+                        img3.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 4:
+                        btnPersona4.Visibility = Visibility.Hidden;
+                        img4.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 5:
+                        btnPersona5.Visibility = Visibility.Hidden;
+                        img5.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 6:
+                        btnPersona6.Visibility = Visibility.Hidden;
+                        img6.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 7:
+                        btnPersona7.Visibility = Visibility.Hidden;
+                        img7.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 8:
+                        btnPersona8.Visibility = Visibility.Hidden;
+                        img8.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 9:
+                        btnPersona9.Visibility = Visibility.Hidden;
+                        img9.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 10:
+                        btnPersona10.Visibility = Visibility.Hidden;
+                        img10.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 11:
+                        btnPersona11.Visibility = Visibility.Hidden;
+                        img11.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 12:
+                        btnPersona12.Visibility = Visibility.Hidden;
+                        img12.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 13:
+                        btnPersona13.Visibility = Visibility.Hidden;
+                        img13.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 14:
+                        btnPersona14.Visibility = Visibility.Hidden;
+                        img14.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 15:
+                        btnPersona15.Visibility = Visibility.Hidden;
+                        img15.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 16:
+                        btnPersona16.Visibility = Visibility.Hidden;
+                        img16.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 17:
+                        btnPersona17.Visibility = Visibility.Hidden;
+                        img17.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 18:
+                        btnPersona18.Visibility = Visibility.Hidden;
+                        img18.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 19:
+                        btnPersona19.Visibility = Visibility.Hidden;
+                        img19.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 20:
+                        btnPersona20.Visibility = Visibility.Hidden;
+                        img20.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 21:
+                        btnPersona21.Visibility = Visibility.Hidden;
+                        img21.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 22:
+                        btnPersona22.Visibility = Visibility.Hidden;
+                        img22.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 23:
+                        btnPersona23.Visibility = Visibility.Hidden;
+                        img23.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 24:
+                        btnPersona24.Visibility = Visibility.Hidden;
+                        img24.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                 }
+            }
             
         }
     }

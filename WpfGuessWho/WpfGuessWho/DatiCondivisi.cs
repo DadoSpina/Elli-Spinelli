@@ -123,7 +123,7 @@ namespace WpfGuessWho
                 case 8:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli != "biondi")
+                        if (listPersona[i].coloreCapelli != "biondo")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -133,7 +133,7 @@ namespace WpfGuessWho
                 case 9:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli != "castani")
+                        if (listPersona[i].coloreCapelli != "castano")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -143,7 +143,7 @@ namespace WpfGuessWho
                 case 10:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli != "neri")
+                        if (listPersona[i].coloreCapelli != "nero")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -153,7 +153,7 @@ namespace WpfGuessWho
                 case 11:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli != "rossi")
+                        if (listPersona[i].coloreCapelli != "rosso")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -163,7 +163,7 @@ namespace WpfGuessWho
                 case 12:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli != "bianchi")
+                        if (listPersona[i].coloreCapelli != "bianco")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -173,7 +173,7 @@ namespace WpfGuessWho
                 case 13:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreOcchi != "azzurri")
+                        if (listPersona[i].coloreOcchi != "azzurro")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -183,7 +183,7 @@ namespace WpfGuessWho
                 case 14:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreOcchi != "marroni")
+                        if (listPersona[i].coloreOcchi != "marrone")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -193,7 +193,7 @@ namespace WpfGuessWho
                 case 15:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreOcchi != "verdi")
+                        if (listPersona[i].coloreOcchi != "verde")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -362,7 +362,7 @@ namespace WpfGuessWho
             return "";
         }
 
-        public void findDomandaGiusta(int s)
+        public int[] findDomandaGiusta(int s)
         {
             int[] vett = new int[25];
             int j = 0;
@@ -401,7 +401,7 @@ namespace WpfGuessWho
                 case 4:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].baffi && listPersona[i].barba == false)
+                        if (listPersona[i].baffi && !listPersona[i].barba)
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -441,7 +441,7 @@ namespace WpfGuessWho
                 case 8:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli != "biondi")
+                        if (listPersona[i].coloreCapelli != "biondo")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -451,7 +451,7 @@ namespace WpfGuessWho
                 case 9:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli == "castani")
+                        if (listPersona[i].coloreCapelli == "castano")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -461,7 +461,7 @@ namespace WpfGuessWho
                 case 10:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli == "neri")
+                        if (listPersona[i].coloreCapelli == "nero")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -471,7 +471,7 @@ namespace WpfGuessWho
                 case 11:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli == "rossi")
+                        if (listPersona[i].coloreCapelli == "rosso")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -481,7 +481,7 @@ namespace WpfGuessWho
                 case 12:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli == "bianchi")
+                        if (listPersona[i].coloreCapelli == "bianco")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -491,7 +491,7 @@ namespace WpfGuessWho
                 case 13:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreOcchi == "azzurri")
+                        if (listPersona[i].coloreOcchi == "azzurro")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -501,7 +501,7 @@ namespace WpfGuessWho
                 case 14:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreOcchi == "marroni")
+                        if (listPersona[i].coloreOcchi == "marrone")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -511,7 +511,7 @@ namespace WpfGuessWho
                 case 15:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreOcchi == "verdi")
+                        if (listPersona[i].coloreOcchi == "verde")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -519,6 +519,7 @@ namespace WpfGuessWho
                     }
                     break;
             }
+            return vett;
         }
     }
 }
