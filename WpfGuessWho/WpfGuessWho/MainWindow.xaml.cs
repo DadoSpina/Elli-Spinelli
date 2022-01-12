@@ -36,7 +36,7 @@ namespace WpfGuessWho
 
         public MainWindow()
         {
-
+            InitializeComponent();
             dati = new DatiCondivisi();
             c = new Client(dati);
             th = new ThreadServer(dati);
@@ -44,8 +44,11 @@ namespace WpfGuessWho
             file = new CFile("filePersone.csv", dati);
             window = new WStart(dati, c);
             elab = new CElaborazioneDati(dati, c, cdomanda, window);
+            t1 = new Thread(th.riceviPacchetto);
+            t2 = new Thread(elab.valutaTipo);
+            t1.Start();
+            t2.Start();
             file.toListPersona();
-            InitializeComponent();
             GraphicReset();
         }
 
@@ -54,10 +57,6 @@ namespace WpfGuessWho
             variabile = new int[24];
             window = new WStart(dati, c);
 
-            t1 = new Thread(th.riceviPacchetto);
-            t2 = new Thread(elab.valutaTipo);
-            t1.Start();
-            t2.Start();
 
             for (int i = 0; i < 24; i++)
             {
@@ -137,9 +136,9 @@ namespace WpfGuessWho
                 Close();
                 return;
             }
-            Show();
-            imgUser.Source = new BitmapImage(dati.sourceOfTheImage);
-            MessageBox.Show("Choose your character", "GUESS WHO");
+                Show();
+                imgUser.Source = new BitmapImage(dati.sourceOfTheImage);
+                MessageBox.Show("Choose your character", "GUESS WHO");
         }
 
         private void btnPronto_Click(object sender, RoutedEventArgs e)

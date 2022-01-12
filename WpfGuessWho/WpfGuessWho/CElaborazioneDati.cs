@@ -46,7 +46,7 @@ namespace WpfGuessWho
                                     else
                                     {
 
-                                        MessageBoxResult ris = MessageBox.Show("connetti", "connettiti con ...", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                                        MessageBoxResult ris = MessageBox.Show("connettiti con ...", "GUESS WHO", MessageBoxButton.YesNo, MessageBoxImage.Question);
                                         if (ris == MessageBoxResult.Yes)
                                         {
                                             if (condi.aCaso)
@@ -164,7 +164,6 @@ namespace WpfGuessWho
                 }
 
             }
-
             return;
         }
     }

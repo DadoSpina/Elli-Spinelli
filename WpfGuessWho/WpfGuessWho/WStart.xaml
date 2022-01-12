@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfGuessWho"
         mc:Ignorable="d"
-        Title="WStart" Height="192.576" Width="274.345">
+        Title="WStart" Height="192.576" Width="274.345" Closing="Window_Closing">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="background.jpg"/>
