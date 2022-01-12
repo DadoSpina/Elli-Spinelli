@@ -38,12 +38,41 @@ namespace WpfGuessWho
             }
             else
             {
-                condi.ip = txtIP.Text;
+                if (condi.connesso == 1)
+                {
                     condi.Utente = txtUtente.Text;
                     condi.sourceOfTheImage = sourceOfTheImage;
-                    c.toCSV("r", txtUtente.Text); /*invia il messaggio di richiesta connessione*/
+                    Close();
+                }
+                else
+                {
+                int conta = 0;
+                condi.ip = txtIP.Text; /*invia il messaggio di richiesta connessione*/
                     while (condi.connesso == 0)
                     {
+                    if (conta == 0)
+                    {
+                        condi.Utente = txtUtente.Text;
+                        condi.sourceOfTheImage = sourceOfTheImage;
+                        c.toCSV("r", txtUtente.Text);
+                    }
+                    if (conta == 100)
+                    {
+                        condi.Utente = txtUtente.Text;
+                        condi.sourceOfTheImage = sourceOfTheImage;
+                        c.toCSV("r", txtUtente.Text);
+                    }
+                    if (conta == 200)
+                    {
+                        condi.Utente = txtUtente.Text;
+                        condi.sourceOfTheImage = sourceOfTheImage;
+                        c.toCSV("r", txtUtente.Text);
+                    }
+                    if (conta == 300)
+                    {
+                        break;
+                    }
+                    conta++;
                     }
                     if (condi.connesso == 1)
                     {
@@ -55,7 +84,9 @@ namespace WpfGuessWho
                         condi.connesso = 0;
                         condi.Utente = "";
                         condi.sourceOfTheImage = new Uri("", UriKind.Relative);
-                    
+
+                    }
+
                 }
             }
         }

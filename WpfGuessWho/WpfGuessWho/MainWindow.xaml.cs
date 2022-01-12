@@ -33,6 +33,7 @@ namespace WpfGuessWho
 
         public MainWindow()
         {
+            c = new Client(dati);
             variabile = new int[24];
             for (int i = 0; i < 24; i++)
             {
@@ -170,7 +171,6 @@ namespace WpfGuessWho
             else
             {
                 lblRisposta.Content = "Sbagliato";
-                dati.findDomandaGiusta(dati.listDomande[domSelezionata].ID);
             }
             nascondi();
         }

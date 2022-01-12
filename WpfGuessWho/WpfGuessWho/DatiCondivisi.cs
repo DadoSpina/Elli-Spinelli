@@ -39,7 +39,7 @@ namespace WpfGuessWho
             Utente = "";
             connesso = 0;
             pronto = false;
-            ip = "192.168.1.2";
+            ip = "localhost";
             porta = 666;
             tuoPersonaggio = "";
             closeThread = false;
