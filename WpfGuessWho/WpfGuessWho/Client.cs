@@ -25,6 +25,9 @@ namespace WpfGuessWho
 
         public Client(DatiCondivisi dati)
         {
+            client = new UdpClient();
+            data = Encoding.ASCII.GetBytes("");
+            riceveEP = new IPEndPoint(IPAddress.Any, 0);
             this.dati = dati;
         }
         public void toCSV(string tipoMess, string contenuti)

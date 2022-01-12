@@ -33,18 +33,19 @@ namespace WpfGuessWho
 
         public MainWindow()
         {
-            c = new Client(dati);
             variabile = new int[24];
             for (int i = 0; i < 24; i++)
             {
                 variabile[i] = 1;
             }
             dati = new DatiCondivisi();
+            c = new Client(dati);
             file = new CFile("filePersone.csv", dati);
             file.toListPersona();
             th = new ThreadServer(dati);
             cdomanda = new CDomanda(dati);
-            elab = new CElaborazioneDati(dati, c, cdomanda);
+            WStart window = new WStart(dati, c);
+            elab = new CElaborazioneDati(dati, c, cdomanda, window);
 
             t1 = new Thread(th.riceviPacchetto);
             t2 = new Thread(elab.valutaTipo);
@@ -60,7 +61,6 @@ namespace WpfGuessWho
             lblRisposta.Visibility = Visibility.Hidden;
             rectDomanda.Visibility = Visibility.Hidden;
             rectRisposta.Visibility = Visibility.Hidden;
-            WStart window = new WStart(dati,c);
             Hide();
             window.ShowDialog();
             if (dati.Utente == "")

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WpfGuessWho
 {
@@ -11,12 +12,14 @@ namespace WpfGuessWho
         DatiCondivisi condi;
         Client c;
         CDomanda dom;
+        WStart start;
 
-        public CElaborazioneDati(DatiCondivisi condi, Client c, CDomanda dom)
+        public CElaborazioneDati(DatiCondivisi condi, Client c, CDomanda dom, WStart start)
         {
             this.condi = condi;
             this.c = c;
             this.dom = dom;
+            this.start = start;
         }
 
         public void valutaTipo()
@@ -40,8 +43,27 @@ namespace WpfGuessWho
                                     }
                                     else
                                     {
-                                        c.toCSV("r", "Y");
-                                        condi.connesso = 1;
+
+                                        MessageBoxResult ris = MessageBox.Show("connetti", "connettiti con ...", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                                        if (ris == MessageBoxResult.Yes)
+                                        {
+                                            if (condi.aCaso)
+                                            {
+                                                c.toCSV("r", "Y");
+                                                condi.connesso = 1;
+                                                //condi.Utente = start.txtUtente.Text;
+                                                start.closing();
+                                            }
+                                            else
+                                            {
+                                                c.toCSV("r", "N");
+                                                condi.aCaso = true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            c.toCSV("r", "N");
+                                        }
                                     }
                                     break;
                                 case "Y":

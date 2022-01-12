@@ -9,6 +9,7 @@ namespace WpfGuessWho
 {
     public class DatiCondivisi
     {
+        public bool aCaso { get; set; }
         public int Utility { get; set; }
         public string nomeAvversario { get; set; }
         public string risposta { get; set; }
@@ -43,6 +44,7 @@ namespace WpfGuessWho
             porta = 666;
             tuoPersonaggio = "";
             closeThread = false;
+            aCaso = true;
         }
         public int[] findDomandaSbagliata(int s)
         {

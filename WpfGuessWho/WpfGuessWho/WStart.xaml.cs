@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,10 +30,25 @@ namespace WpfGuessWho
             this.condi = condi;
             this.c = c;
         }
-
+        public void closing()
+        {
+            Dispatcher.Invoke(() =>
+            {
+                if (txtUtente.Text != "" && txtUtente.Text != null)
+                {
+                    condi.Utente = txtUtente.Text;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username", "ATTENTION");
+                    condi.aCaso = false;
+                }
+            });
+        }
         private void btnPartita_Click(object sender, RoutedEventArgs e)
         {
-            if (txtUtente.Text == "")
+            if (txtUtente.Text == "" || txtUtente.Text != null)
             {
                 MessageBox.Show("Invalid username", "ATTENTION");
             }
@@ -46,33 +62,13 @@ namespace WpfGuessWho
                 }
                 else
                 {
-                int conta = 0;
-                condi.ip = txtIP.Text; /*invia il messaggio di richiesta connessione*/
+                    condi.ip = txtIP.Text; /*invia il messaggio di richiesta connessione*/
+                    condi.Utente = txtUtente.Text;
+                    condi.sourceOfTheImage = sourceOfTheImage;
+                    c.toCSV("r", txtUtente.Text);
                     while (condi.connesso == 0)
                     {
-                    if (conta == 0)
-                    {
-                        condi.Utente = txtUtente.Text;
-                        condi.sourceOfTheImage = sourceOfTheImage;
-                        c.toCSV("r", txtUtente.Text);
-                    }
-                    if (conta == 100)
-                    {
-                        condi.Utente = txtUtente.Text;
-                        condi.sourceOfTheImage = sourceOfTheImage;
-                        c.toCSV("r", txtUtente.Text);
-                    }
-                    if (conta == 200)
-                    {
-                        condi.Utente = txtUtente.Text;
-                        condi.sourceOfTheImage = sourceOfTheImage;
-                        c.toCSV("r", txtUtente.Text);
-                    }
-                    if (conta == 300)
-                    {
-                        break;
-                    }
-                    conta++;
+                        Thread.Sleep(100);
                     }
                     if (condi.connesso == 1)
                     {

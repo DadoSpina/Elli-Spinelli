@@ -16,7 +16,7 @@
         <Image x:Name="imgProfilePicture" HorizontalAlignment="Left" Height="100" Margin="151,27,0,0" VerticalAlignment="Top" Width="100" Source="maleProfilePicture.jpg"/>
         <Button x:Name="btnNext" Content="&gt;" HorizontalAlignment="Left" Margin="205,132,0,0" VerticalAlignment="Top" Width="46" Click="btnNext_Click"/>
         <Button x:Name="btnPrevious" Content="&lt;" HorizontalAlignment="Left" Margin="151,132,0,0" VerticalAlignment="Top" Width="49" Click="btnPrevious_Click"/>
-        <TextBox x:Name="txtIP" HorizontalAlignment="Left" Height="24" Margin="10,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="192.168.1.2"/>
+        <TextBox x:Name="txtIP" HorizontalAlignment="Left" Height="24" Margin="10,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="localhost"/>
         <Label Content="IP Giocatore" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top"/>
 
     </Grid>
