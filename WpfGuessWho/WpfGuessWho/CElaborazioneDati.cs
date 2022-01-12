@@ -26,6 +26,8 @@ namespace WpfGuessWho
         {
             while (!condi.closeThread)
             {
+                lock (this)
+                {
                 string a = condi.getLastDomandeRicevute();
                 if (a != "" && a != null)
                 {
@@ -50,7 +52,7 @@ namespace WpfGuessWho
                                             if (condi.aCaso)
                                             {
                                                 c.toCSV("r", "Y");
-                                                condi.connesso = 1;
+                                                    condi.connesso = 1;
                                                 //condi.Utente = start.txtUtente.Text;
                                                 start.closing();
                                             }
@@ -67,10 +69,10 @@ namespace WpfGuessWho
                                     }
                                     break;
                                 case "Y":
-                                    condi.connesso = 1;
+                                        condi.connesso = 1;
                                     break;
                                 case "N":
-                                    condi.connesso = -1;
+                                        condi.connesso = -1;
                                     break;
 
                             }
@@ -126,8 +128,10 @@ namespace WpfGuessWho
                             condi.connesso = 0;
                             condi.pronto = false;
                             break;
+                        }
                     }
                 }
+
             }
 
             return;

@@ -33,22 +33,23 @@ namespace WpfGuessWho
         public void closing()
         {
             Dispatcher.Invoke(() =>
+        {
+            if (txtUtente.Text != "" && txtUtente.Text != null)
             {
-                if (txtUtente.Text != "" && txtUtente.Text != null)
-                {
-                    condi.Utente = txtUtente.Text;
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Invalid username", "ATTENTION");
-                    condi.aCaso = false;
-                }
-            });
+                condi.Utente = txtUtente.Text;
+                condi.sourceOfTheImage = sourceOfTheImage;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid username", "ATTENTION");
+                condi.aCaso = false;
+            }
+        });
         }
         private void btnPartita_Click(object sender, RoutedEventArgs e)
         {
-            if (txtUtente.Text == "" || txtUtente.Text != null)
+            if (txtUtente.Text == "" && txtUtente.Text != null)
             {
                 MessageBox.Show("Invalid username", "ATTENTION");
             }

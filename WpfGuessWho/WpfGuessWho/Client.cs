@@ -46,8 +46,8 @@ namespace WpfGuessWho
 
         private void inviaPacchetto(UdpClient client, string s)
         {
-            byte[] buffer = Encoding.ASCII.GetBytes(s);
-            client.Send(buffer, buffer.Length, dati.ip, dati.porta);
-        } 
+                byte[] buffer = Encoding.ASCII.GetBytes(s);
+                client.Send(buffer, buffer.Length, dati.ip, dati.porta);
+        }
     }
 }
