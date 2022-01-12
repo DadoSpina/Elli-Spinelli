@@ -65,7 +65,7 @@ namespace WpfGuessWho
                 {
                     if (txtIP1.Text != "" && txtIP2.Text != "" && txtIP3.Text != "" && txtIP4.Text != "")
                     {
-                        condi.ip = txtIP1.Text; /*invia il messaggio di richiesta connessione*/
+                        condi.ip = txtIP1.Text + "." + txtIP2.Text + "." + txtIP3.Text + "." + txtIP4.Text; /*invia il messaggio di richiesta connessione*/
                         condi.Utente = txtUtente.Text;
                         condi.sourceOfTheImage = sourceOfTheImage;
                         c.toCSV("r", txtUtente.Text);
