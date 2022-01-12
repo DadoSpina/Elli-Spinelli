@@ -26,7 +26,7 @@ namespace WpfGuessWho
         public ThreadServer(DatiCondivisi condi)
         {
             server = new UdpClient(666);
-            server.Client.ReceiveTimeout = 2000;
+            server.Client.ReceiveTimeout = 1000;
             data = Encoding.ASCII.GetBytes("");
             riceveEP = new IPEndPoint(IPAddress.Any, 0);
             this.condi = condi;

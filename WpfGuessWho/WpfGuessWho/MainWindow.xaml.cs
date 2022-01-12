@@ -18,6 +18,8 @@ namespace WpfGuessWho
 {
     public partial class MainWindow : Window
     {
+        int punteggio = 0;
+        int domandeGiàFatte = 0;
         Random rand = new Random();
         DatiCondivisi dati;
         Client c = new Client();
@@ -58,9 +60,7 @@ namespace WpfGuessWho
             btnForward.Visibility = Visibility.Hidden;
             btnIndovina.Visibility = Visibility.Hidden;
             lblDomanda.Visibility = Visibility.Hidden;
-            lblRisposta.Visibility = Visibility.Hidden;
             rectDomanda.Visibility = Visibility.Hidden;
-            rectRisposta.Visibility = Visibility.Hidden;
             Hide();
             window.ShowDialog();
             if (dati.Utente == "")
@@ -75,8 +75,8 @@ namespace WpfGuessWho
 
             file.setFileName("fileDomande.csv");
             file.toListDomande();
-            lblDomanda.Content = "il tuo personaggio " + dati.listDomande[0].testo;
-            message("Choose your character", "ATTENTION");
+            lblDomanda.Content = "Il personaggio avversario " + dati.listDomande[0].testo;
+            MessageBox.Show("Choose your character", "GUESS WHO");
         }
 
         private void btnPronto_Click(object sender, RoutedEventArgs e)
@@ -86,23 +86,15 @@ namespace WpfGuessWho
                 imgSelezionato.Source = imgSelectedPerson.Source;
                 dati.tuoPersonaggio = dati.listPersona[selected - 1].nome;
                 dati.IDtuoPersonaggio = dati.listPersona[selected - 1].id;
-                selected = 0;
                 c.toCSV("c", dati.Utente);
                 btnPronto.Background = new SolidColorBrush(Color.FromArgb(255, 15, 193, 15));
 
                 while (!dati.pronto)
                 {
-                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    //random di DEBUG da rimuovere appena sia possibile ricevere i messaggi
-                    int r = rand.Next(1000);
-                    if (r == 1)
-                    {
-                        dati.pronto = true;
-                    }
-                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 }
 
                 //change buttons
+                selected = 0;
                 imgSelectedPerson.Source = null;
                 btnPronto.Visibility = Visibility.Collapsed;
                 btnBack.Visibility = Visibility.Visible;
@@ -110,13 +102,12 @@ namespace WpfGuessWho
                 btnForward.Visibility = Visibility.Visible;
                 btnIndovina.Visibility = Visibility.Visible;
                 lblDomanda.Visibility = Visibility.Visible;
-                lblRisposta.Visibility = Visibility.Visible;
                 rectDomanda.Visibility = Visibility.Visible;
-                rectRisposta.Visibility = Visibility.Visible;
+
             }
             else
             {
-                message("Choose your character", "ATTENTION");
+                MessageBox.Show("Choose your character", "ATTENTION");
             }
         }
 
@@ -129,7 +120,7 @@ namespace WpfGuessWho
 
         private void btnForward_Click(object sender, RoutedEventArgs e)
         {
-            lblDomanda.Content = "Il tuo personaggio ";
+            lblDomanda.Content = "Il personaggio avversario ";
             if (domSelezionata < dati.listDomande.Count - 1)
             {
                 domSelezionata++;
@@ -144,7 +135,7 @@ namespace WpfGuessWho
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            lblDomanda.Content = "Il tuo personaggio ";
+            lblDomanda.Content = "Il personaggio avversario ";
             if (domSelezionata > 0)
             {
                 domSelezionata--;
@@ -159,51 +150,65 @@ namespace WpfGuessWho
 
         private void btnConferma_Click(object sender, RoutedEventArgs e)
         {
-            c.toCSV(domSelezionata.ToString(),dati.listDomande[domSelezionata].testo);
-            while (dati.Utility == 0)
+            if (domandeGiàFatte == dati.listDomande.Count)
             {
-            }
-            dati.Utility = 0;
-            if (dati.risposta == "Y")
-            {
-                lblRisposta.Content = "Esatto!";
+                MessageBox.Show("hai terminato le domande", "GUESS WHO");
             }
             else
             {
-                lblRisposta.Content = "Sbagliato";
+                c.toCSV(domSelezionata.ToString(), dati.listDomande[domSelezionata].testo);
+                while (dati.Utility == 0)
+                {
+                }
+                dati.Utility = 0;
+                if (dati.risposta == "Y")
+                {
+                    MessageBox.Show("Sì", "GUESS WHO");
+                }
+                else
+                {
+                    MessageBox.Show("No", "GUESS WHO");
+                }
+                nascondi();
+                selected = 0;
+                imgSelectedPerson.Source = null;
+                domandeGiàFatte++;
             }
-            nascondi();
         }
 
         private void btnIndovina_Click(object sender, RoutedEventArgs e)
         {
-            if (selected != 0)
+            if (domandeGiàFatte > 0)
             {
-                c.toCSV("v",dati.listPersona[selected-1].nome);
-                
-
-                //modificare questo if + "dati.risposta" per adattarsi al nuovo protocollo (la risposta si deve trovare in corrispondenza della lettera v cosicchè il programma sappia sia quella giusta per lui)
-                if (dati.risposta == "y")
+                if (selected != 0)
                 {
-                    lblRisposta.Content = "HAI VINTO!!";
-                    c.toCSV("d","");
-                    //calcolo punteggio
+                    c.toCSV("v", dati.listPersona[selected - 1].nome);
+                    Thread.Sleep(1000);
+                    if (dati.vinto == 1)
+                    {
+                        punteggio = (dati.listDomande.Count + 1) * 100;
+                        punteggio -= (domandeGiàFatte * 100);
+                        MessageBox.Show("HAI VINTO!! \ncon " + punteggio.ToString() + " punti", "GUESS WHO");
+                        c.toCSV("d", "");
+                        Close();
+                    }
+                    else if (dati.vinto == -1)
+                    {
+                        MessageBox.Show("hai perso. \nmi spiace ha vinto " + dati.nomeAvversario,"GUESS WHO");
+                        c.toCSV("d", "");
+                        Close();
+                    }
+                    //salva su file di tipo .csv "nome vincitore";"punteggio"
                 }
                 else
                 {
-                    lblRisposta.Content = "Sbagliato";
-                    //calcolo punteggio
+                    MessageBox.Show("select who you want to guess first", "GUESS WHO");
                 }
             }
             else
             {
-                message("select who you want to guess first", "ATTENTION");
+                MessageBox.Show("Chiedi almeno 1 domanda prima", "GUESS WHO");
             }
-        }
-
-        private void message(string content, string name)
-        {
-            MessageBox.Show(content,name);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -230,103 +235,104 @@ namespace WpfGuessWho
                     //se non presente e dati.risposta == "N" allora lo cancella
                     case 1:
                         btnPersona1.Visibility = Visibility.Hidden;
-                        img1.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img1X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 2:
                         btnPersona2.Visibility = Visibility.Hidden;
-                        img2.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img2X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 3:
                         btnPersona3.Visibility = Visibility.Hidden;
-                        img3.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img3X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 4:
                         btnPersona4.Visibility = Visibility.Hidden;
-                        img4.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img4X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 5:
                         btnPersona5.Visibility = Visibility.Hidden;
-                        img5.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img5X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 6:
                         btnPersona6.Visibility = Visibility.Hidden;
-                        img6.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img6X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 7:
                         btnPersona7.Visibility = Visibility.Hidden;
-                        img7.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img7X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 8:
                         btnPersona8.Visibility = Visibility.Hidden;
-                        img8.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img8X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 9:
                         btnPersona9.Visibility = Visibility.Hidden;
-                        img9.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img9X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 10:
                         btnPersona10.Visibility = Visibility.Hidden;
-                        img10.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img10X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 11:
                         btnPersona11.Visibility = Visibility.Hidden;
-                        img11.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img11X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 12:
                         btnPersona12.Visibility = Visibility.Hidden;
-                        img12.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img12X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 13:
                         btnPersona13.Visibility = Visibility.Hidden;
-                        img13.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img13X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 14:
                         btnPersona14.Visibility = Visibility.Hidden;
-                        img14.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img14X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 15:
                         btnPersona15.Visibility = Visibility.Hidden;
-                        img15.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img15X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 16:
                         btnPersona16.Visibility = Visibility.Hidden;
-                        img16.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img16X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 17:
                         btnPersona17.Visibility = Visibility.Hidden;
-                        img17.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img17X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 18:
                         btnPersona18.Visibility = Visibility.Hidden;
-                        img18.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img18X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 19:
                         btnPersona19.Visibility = Visibility.Hidden;
-                        img19.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img19X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 20:
                         btnPersona20.Visibility = Visibility.Hidden;
-                        img20.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img20X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 21:
                         btnPersona21.Visibility = Visibility.Hidden;
-                        img21.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img21X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 22:
                         btnPersona22.Visibility = Visibility.Hidden;
-                        img22.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img22X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 23:
                         btnPersona23.Visibility = Visibility.Hidden;
-                        img23.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img23X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                     case 24:
                         btnPersona24.Visibility = Visibility.Hidden;
-                        img24.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        img24X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
                         break;
                 }
             }
             
         }
+
     }
 }

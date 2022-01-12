@@ -1,16 +1,16 @@
 id;testo;caraterristica;dettagli
-1;Ha gli occhiali?;occhiali;n
-2;Ha la barba?;barba;n
-3;Ha il cappello?;cappello;n
-4;Ha i baffi? (senza barba);baffi;n
-5;Ha il naso grande?;nasoGrande;n
-6;Ha le guance rosse?;guanceRosse;n
-7;Ha i capelli?;capelli;n
-8;Ha i capelli biondi?;coloreCapelli;biondo
-9;Ha i capelli castani?;coloreCapelli;marrone
-10;Ha i capelli neri?;coloreCapelli;nero
-11;Ha i capelli rossi?;coloreCapelli;rosso
-12;Ha i capelli bianchi?;coloreCapelli;bianco
-13;Ha gli occhi azzurri?;coloreOcchi;azzurro
-14;Ha gli occhi marroni?;coloreOcchi;marrone
-15;Ha gli occhi verdi?;coloreOcchi;verde
+1;ha gli occhiali?;occhiali;n
+2;ha la barba?;barba;n
+3;ha il cappello?;cappello;n
+4;ha i baffi? (senza barba);baffi;n
+5;ha il naso grande?;nasoGrande;n
+6;ha le guance rosse?;guanceRosse;n
+7;ha i capelli?;capelli;n
+8;ha i capelli biondi?;coloreCapelli;biondo
+9;ha i capelli castani?;coloreCapelli;marrone
+10;ha i capelli neri?;coloreCapelli;nero
+11;ha i capelli rossi?;coloreCapelli;rosso
+12;ha i capelli bianchi?;coloreCapelli;bianco
+13;ha gli occhi azzurri?;coloreOcchi;azzurro
+14;ha gli occhi marroni?;coloreOcchi;marrone
+15;ha gli occhi verdi?;coloreOcchi;verde

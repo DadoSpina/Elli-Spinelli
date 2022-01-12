@@ -10,14 +10,17 @@
         <Grid.Background>
             <ImageBrush ImageSource="background.jpg"/>
         </Grid.Background>
-        <TextBox x:Name="txtUtente" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="nome"/>
+        <TextBox x:Name="txtUtente" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Utente"/>
         <Button x:Name="btnPartita" Content="Cerca Partita" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Width="75" Click="btnPartita_Click"/>
         <Label Content="Choose a name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Image x:Name="imgProfilePicture" HorizontalAlignment="Left" Height="100" Margin="151,27,0,0" VerticalAlignment="Top" Width="100" Source="maleProfilePicture.jpg"/>
         <Button x:Name="btnNext" Content="&gt;" HorizontalAlignment="Left" Margin="205,132,0,0" VerticalAlignment="Top" Width="46" Click="btnNext_Click"/>
         <Button x:Name="btnPrevious" Content="&lt;" HorizontalAlignment="Left" Margin="151,132,0,0" VerticalAlignment="Top" Width="49" Click="btnPrevious_Click"/>
-        <TextBox x:Name="txtIP" HorizontalAlignment="Left" Height="24" Margin="10,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="localhost"/>
+        <TextBox x:Name="txtIP1" HorizontalAlignment="Left" Height="24" Margin="10,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" MaxLength="3" TextChanged="txtIP1_TextChanged"/>
         <Label Content="IP Giocatore" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtIP4" HorizontalAlignment="Left" Height="24" Margin="100,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" MaxLength="3"/>
+        <TextBox x:Name="txtIP2" HorizontalAlignment="Left" Height="24" Margin="40,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" MaxLength="3" TextChanged="txtIP2_TextChanged"/>
+        <TextBox x:Name="txtIP3" HorizontalAlignment="Left" Height="24" Margin="70,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" MaxLength="3" TextChanged="txtIP3_TextChanged"/>
 
     </Grid>
 </Window>

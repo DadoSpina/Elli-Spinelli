@@ -58,7 +58,6 @@
     <Compile Include="CDomanda.cs" />
     <Compile Include="CElaborazioneDati.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="Grafica.cs" />
     <Compile Include="ThreadServer.cs" />
     <Compile Include="WStart.xaml.cs">
       <DependentUpon>WStart.xaml</DependentUpon>

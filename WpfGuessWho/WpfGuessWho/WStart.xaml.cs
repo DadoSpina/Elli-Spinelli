@@ -63,27 +63,51 @@ namespace WpfGuessWho
                 }
                 else
                 {
-                    condi.ip = txtIP.Text; /*invia il messaggio di richiesta connessione*/
-                    condi.Utente = txtUtente.Text;
-                    condi.sourceOfTheImage = sourceOfTheImage;
-                    c.toCSV("r", txtUtente.Text);
-                    while (condi.connesso == 0)
+                    if (txtIP1.Text != "" && txtIP2.Text != "" && txtIP3.Text != "" && txtIP4.Text != "")
                     {
-                        Thread.Sleep(100);
-                    }
-                    if (condi.connesso == 1)
-                    {
-                        Close();
+                        condi.ip = txtIP1.Text; /*invia il messaggio di richiesta connessione*/
+                        condi.Utente = txtUtente.Text;
+                        condi.sourceOfTheImage = sourceOfTheImage;
+                        c.toCSV("r", txtUtente.Text);
+                        while (condi.connesso == 0)
+                        {
+                            Thread.Sleep(100);
+                        }
+                        if (condi.connesso == 1)
+                        {
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("CONNECTION FAILED", "ERROR");
+                            condi.connesso = 0;
+                            condi.Utente = "";
+                            condi.sourceOfTheImage = new Uri("", UriKind.Relative);
+
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("CONNECTION FAILED", "ERROR");
-                        condi.connesso = 0;
-                        condi.Utente = "";
-                        condi.sourceOfTheImage = new Uri("", UriKind.Relative);
+                        condi.Utente = txtUtente.Text;
+                        condi.sourceOfTheImage = sourceOfTheImage;
+                        c.toCSV("r", txtUtente.Text);
+                        while (condi.connesso == 0)
+                        {
+                            Thread.Sleep(100);
+                        }
+                        if (condi.connesso == 1)
+                        {
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("CONNECTION FAILED", "ERROR");
+                            condi.connesso = 0;
+                            condi.Utente = "";
+                            condi.sourceOfTheImage = new Uri("", UriKind.Relative);
 
+                        }
                     }
-
                 }
             }
         }
@@ -120,6 +144,30 @@ namespace WpfGuessWho
                 sourceOfTheImage = new Uri("maleProfilePicture.jpg", UriKind.Relative);
             }
             imgProfilePicture.Source = new BitmapImage(sourceOfTheImage);
+        }
+
+        private void txtIP1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtIP1.Text, "[^0-9]"))
+            {
+                txtIP1.Text = "";
+            }
+        }
+
+        private void txtIP2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtIP2.Text, "[^0-9]"))
+            {
+                txtIP2.Text = "";
+            }
+        }
+
+        private void txtIP3_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtIP3.Text, "[^0-9]"))
+            {
+                txtIP3.Text = "";
+            }
         }
     }
 }

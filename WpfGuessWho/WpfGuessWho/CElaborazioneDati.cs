@@ -96,8 +96,40 @@ namespace WpfGuessWho
                                     //dom.setSelezionata(int.Parse(domanda[0]));
                                     condi.indiceSelezionata = int.Parse(domanda[0]);
                                     string risposta = condi.y_n();
-                                    c.toCSV(domanda[1], risposta);
-                                    break;
+                                    int i = 0;
+                                        if (risposta == "Y")
+                                        {
+                                            while (i == 0)
+                                            {
+                                                MessageBoxResult ris = MessageBox.Show("il tuo personaggio " + domanda[1], "GUESS WHO", MessageBoxButton.YesNo);
+                                                if (ris == MessageBoxResult.Yes)
+                                                {
+                                                    c.toCSV(domanda[1], risposta);
+                                                    i = 1;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("rispondi correttamente!", "GUESS WHO");
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            while (i == 0)
+                                            {
+                                                MessageBoxResult ris = MessageBox.Show("il tuo personaggio " + domanda[1], "GUESS WHO", MessageBoxButton.YesNo);
+                                                if (ris == MessageBoxResult.No)
+                                                {
+                                                    c.toCSV(domanda[1], risposta);
+                                                    i = 1;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("rispondi correttamente!", "GUESS WHO");
+                                                }
+                                            }
+                                        }
+                                        break;
                             }
                             break;
                         case "v": //domanda "vincente"
@@ -107,17 +139,16 @@ namespace WpfGuessWho
                                     if (domanda[1] == condi.tuoPersonaggio)
                                     {
                                         c.toCSV("v", "Y");
-                                        condi.vinto = 0;
-                                        c.toCSV("d", "");
+                                        condi.vinto = -1;
                                     }
                                     else
                                     {
                                         c.toCSV("v", "N");
-                                    }
+                                        condi.vinto = 1;
+                                        }
                                     break;
                                 case "Y":
                                     condi.vinto = 1;
-                                    c.toCSV("d", "");
                                     break;
                                 case "N":
                                     condi.vinto = -1;

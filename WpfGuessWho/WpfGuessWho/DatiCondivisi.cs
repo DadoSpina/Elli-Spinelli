@@ -20,10 +20,8 @@ namespace WpfGuessWho
         public string ip { get; set; }
         public int porta { get; set; }
         public List<CPersona> listPersona { get; set; }
-        public List<CDomanda> listDomande { get; set; }
-
-        //lista che verrà usata dal client per capire quale domanda ha ricevuto
-        public List<string> domandeRicevute { get; set; }
+        public List<CDomanda> listDomande { get; set; } 
+        public List<string> domandeRicevute { get; set; } //lista che verrà usata dal client per capire quale domanda ha ricevuto
         public string Utente { get; set; }
         public int connesso { get; set; }
         public bool pronto { get; set; }
@@ -209,7 +207,6 @@ namespace WpfGuessWho
         {
             domandeRicevute.Add(domanda);
         }
-
         public string getLastDomandeRicevute()
         {
             if (domandeRicevute.Count > 0)
@@ -220,7 +217,6 @@ namespace WpfGuessWho
             }
             return "";
         }
-
         public string y_n()
         {
             switch (listDomande[indiceSelezionata].ID)
@@ -363,7 +359,6 @@ namespace WpfGuessWho
             }
             return "";
         }
-
         public int[] findDomandaGiusta(int s)
         {
             int[] vett = new int[25];
@@ -443,7 +438,7 @@ namespace WpfGuessWho
                 case 8:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli != "biondo")
+                        if (listPersona[i].coloreCapelli == "biondo")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
@@ -453,7 +448,7 @@ namespace WpfGuessWho
                 case 9:
                     for (int i = 0; i < listPersona.Count; i++)
                     {
-                        if (listPersona[i].coloreCapelli == "castano")
+                        if (listPersona[i].coloreCapelli == "marrone")
                         {
                             vett[j] = listPersona[i].id;
                             j++;
