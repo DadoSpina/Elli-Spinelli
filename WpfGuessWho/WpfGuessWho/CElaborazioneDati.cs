@@ -102,7 +102,7 @@ namespace WpfGuessWho
                                 case "N":
                                     condi.risposta = "N";
                                     condi.Utility = 1;
-                                    break;
+                                        break;
                                 default:
                                     //dom.setSelezionata(int.Parse(domanda[0]));
                                     condi.indiceSelezionata = int.Parse(domanda[0]);
@@ -123,6 +123,7 @@ namespace WpfGuessWho
                                                     MessageBox.Show("rispondi correttamente!", "GUESS WHO");
                                                 }
                                             }
+                                            condi.turno = true;
                                         }
                                         else
                                         {
@@ -139,6 +140,7 @@ namespace WpfGuessWho
                                                     MessageBox.Show("rispondi correttamente!", "GUESS WHO");
                                                 }
                                             }
+                                            condi.turno = true;
                                         }
                                         break;
                             }
@@ -152,12 +154,14 @@ namespace WpfGuessWho
                                         c.toCSV("v", "Y");
                                         condi.vinto = -1;
                                         MessageBox.Show("hai perso. \nmi spiace ha vinto " + condi.nomeAvversario, "GUESS WHO");
-                                        
+                                            
                                         }
                                     else
                                     {
                                         c.toCSV("v", "N");
                                         condi.vinto = 1;
+                                        MessageBox.Show("hai perso. \nmi spiace ha vinto " + condi.nomeAvversario, "GUESS WHO");
+                                        
                                         }
                                     break;
                                 case "Y":

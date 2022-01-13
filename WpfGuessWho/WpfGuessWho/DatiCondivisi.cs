@@ -29,6 +29,7 @@ namespace WpfGuessWho
         public bool closeThread { get; set; }
         public Uri sourceOfTheImage { get; set; }
         public int indiceSelezionata { get; set; }
+        public bool turno { get; set; }
         public DatiCondivisi()
         {
             Utility = 0;
@@ -45,6 +46,7 @@ namespace WpfGuessWho
             tuoPersonaggio = "";
             closeThread = false;
             aCaso = true;
+            turno = true;
         }
         public int[] findDomandaSbagliata(int s)
         {

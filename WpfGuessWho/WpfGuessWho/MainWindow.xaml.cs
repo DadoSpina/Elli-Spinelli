@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 
 namespace WpfGuessWho
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window 
     {
         int punteggio = 0;
         int domandeGiàFatte = 0;
@@ -55,91 +55,94 @@ namespace WpfGuessWho
 
         private void GraphicReset()
         {
-            variabile = new int[24];
-            window = new WStart(dati, c);
-
-
-            for (int i = 0; i < 24; i++)
+            Dispatcher.Invoke(() =>
             {
-                variabile[i] = 1;
-            }
-            btnBack.Visibility = Visibility.Hidden;
-            btnConferma.Visibility = Visibility.Hidden;
-            btnForward.Visibility = Visibility.Hidden;
-            btnIndovina.Visibility = Visibility.Hidden;
-            lblDomanda.Visibility = Visibility.Hidden;
-            rectDomanda.Visibility = Visibility.Hidden;
-            btnPronto.Visibility = Visibility.Visible;
-            dati.IDtuoPersonaggio = 0;
-            dati.tuoPersonaggio = "";
-            dati.Utente = "";
-            file.setFileName("fileDomande.csv");
-            file.toListDomande();
-            lblDomanda.Content = "Il personaggio avversario " + dati.listDomande[0].testo;
-            selected = 0;
-            imgSelectedPerson.Source = null;
-            domandeGiàFatte++;
-            imgSelezionato.Source = null;
-            btnPersona1.Visibility = Visibility.Visible;
-            img1X.Source = null;
-            btnPersona2.Visibility = Visibility.Visible;
-            img2X.Source = null;
-            btnPersona3.Visibility = Visibility.Visible;
-            img3X.Source = null;
-            btnPersona4.Visibility = Visibility.Visible;
-            img4X.Source = null;
-            btnPersona5.Visibility = Visibility.Visible;
-            img5X.Source = null;
-            btnPersona6.Visibility = Visibility.Visible;
-            img6X.Source = null;
-            btnPersona7.Visibility = Visibility.Visible;
-            img7X.Source = null;
-            btnPersona8.Visibility = Visibility.Visible;
-            img8X.Source = null;
-            btnPersona9.Visibility = Visibility.Visible;
-            img9X.Source = null;
-            btnPersona10.Visibility = Visibility.Visible;
-            img10X.Source = null;
-            btnPersona11.Visibility = Visibility.Visible;
-            img11X.Source = null;
-            btnPersona12.Visibility = Visibility.Visible;
-            img12X.Source = null;
-            btnPersona13.Visibility = Visibility.Visible;
-            img13X.Source = null;
-            btnPersona14.Visibility = Visibility.Visible;
-            img14X.Source = null;
-            btnPersona15.Visibility = Visibility.Visible;
-            img15X.Source = null;
-            btnPersona16.Visibility = Visibility.Visible;
-            img16X.Source = null;
-            btnPersona17.Visibility = Visibility.Visible;
-            img17X.Source = null;
-            btnPersona18.Visibility = Visibility.Visible;
-            img18X.Source = null;
-            btnPersona19.Visibility = Visibility.Visible;
-            img19X.Source = null;
-            btnPersona20.Visibility = Visibility.Visible;
-            img20X.Source = null;
-            btnPersona21.Visibility = Visibility.Visible;
-            img21X.Source = null;
-            btnPersona22.Visibility = Visibility.Visible;
-            img22X.Source = null;
-            btnPersona23.Visibility = Visibility.Visible;
-            img23X.Source = null;
-            btnPersona24.Visibility = Visibility.Visible;
-            img24X.Source = null;
+                variabile = new int[24];
+                window = new WStart(dati, c);
 
-            Hide();
-            window.ShowDialog();
-            if (dati.Utente == "")
-            {
-                dati.closeThread = true;
-                Close();
-                return;
-            }
+
+                for (int i = 0; i < 24; i++)
+                {
+                    variabile[i] = 1;
+                }
+                btnBack.Visibility = Visibility.Hidden;
+                btnConferma.Visibility = Visibility.Hidden;
+                btnForward.Visibility = Visibility.Hidden;
+                btnIndovina.Visibility = Visibility.Hidden;
+                lblDomanda.Visibility = Visibility.Hidden;
+                rectDomanda.Visibility = Visibility.Hidden;
+                btnPronto.Visibility = Visibility.Visible;
+                dati.IDtuoPersonaggio = 0;
+                dati.tuoPersonaggio = "";
+                dati.Utente = "";
+                file.setFileName("fileDomande.csv");
+                file.toListDomande();
+                lblDomanda.Content = "Il personaggio avversario " + dati.listDomande[0].testo;
+                selected = 0;
+                imgSelectedPerson.Source = null;
+                domandeGiàFatte++;
+                imgSelezionato.Source = null;
+                btnPersona1.Visibility = Visibility.Visible;
+                img1X.Source = null;
+                btnPersona2.Visibility = Visibility.Visible;
+                img2X.Source = null;
+                btnPersona3.Visibility = Visibility.Visible;
+                img3X.Source = null;
+                btnPersona4.Visibility = Visibility.Visible;
+                img4X.Source = null;
+                btnPersona5.Visibility = Visibility.Visible;
+                img5X.Source = null;
+                btnPersona6.Visibility = Visibility.Visible;
+                img6X.Source = null;
+                btnPersona7.Visibility = Visibility.Visible;
+                img7X.Source = null;
+                btnPersona8.Visibility = Visibility.Visible;
+                img8X.Source = null;
+                btnPersona9.Visibility = Visibility.Visible;
+                img9X.Source = null;
+                btnPersona10.Visibility = Visibility.Visible;
+                img10X.Source = null;
+                btnPersona11.Visibility = Visibility.Visible;
+                img11X.Source = null;
+                btnPersona12.Visibility = Visibility.Visible;
+                img12X.Source = null;
+                btnPersona13.Visibility = Visibility.Visible;
+                img13X.Source = null;
+                btnPersona14.Visibility = Visibility.Visible;
+                img14X.Source = null;
+                btnPersona15.Visibility = Visibility.Visible;
+                img15X.Source = null;
+                btnPersona16.Visibility = Visibility.Visible;
+                img16X.Source = null;
+                btnPersona17.Visibility = Visibility.Visible;
+                img17X.Source = null;
+                btnPersona18.Visibility = Visibility.Visible;
+                img18X.Source = null;
+                btnPersona19.Visibility = Visibility.Visible;
+                img19X.Source = null;
+                btnPersona20.Visibility = Visibility.Visible;
+                img20X.Source = null;
+                btnPersona21.Visibility = Visibility.Visible;
+                img21X.Source = null;
+                btnPersona22.Visibility = Visibility.Visible;
+                img22X.Source = null;
+                btnPersona23.Visibility = Visibility.Visible;
+                img23X.Source = null;
+                btnPersona24.Visibility = Visibility.Visible;
+                img24X.Source = null;
+
+                Hide();
+                window.ShowDialog();
+                if (dati.Utente == "")
+                {
+                    dati.closeThread = true;
+                    Close();
+                    return;
+                }
                 Show();
                 imgUser.Source = new BitmapImage(dati.sourceOfTheImage);
                 MessageBox.Show("Choose your character", "GUESS WHO");
+            });
         }
 
         private void btnPronto_Click(object sender, RoutedEventArgs e)
@@ -212,29 +215,37 @@ namespace WpfGuessWho
 
         private void btnConferma_Click(object sender, RoutedEventArgs e)
         {
-            if (domandeGiàFatte == dati.listDomande.Count)
+            if (dati.turno)
             {
-                MessageBox.Show("hai terminato le domande", "GUESS WHO");
-            }
-            else
-            {
-                c.toCSV(domSelezionata.ToString(), dati.listDomande[domSelezionata].testo);
-                while (dati.Utility == 0)
+                dati.turno = false;
+                if (domandeGiàFatte == dati.listDomande.Count)
                 {
-                }
-                dati.Utility = 0;
-                if (dati.risposta == "Y")
-                {
-                    MessageBox.Show("Sì", "GUESS WHO");
+                    MessageBox.Show("hai terminato le domande", "GUESS WHO");
                 }
                 else
                 {
-                    MessageBox.Show("No", "GUESS WHO");
+                    c.toCSV(domSelezionata.ToString(), dati.listDomande[domSelezionata].testo);
+                    while (dati.Utility == 0)
+                    {
+                    }
+                    dati.Utility = 0;
+                    if (dati.risposta == "Y")
+                    {
+                        MessageBox.Show("Sì", "GUESS WHO");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No", "GUESS WHO");
+                    }
+                    nascondi();
+                    selected = 0;
+                    imgSelectedPerson.Source = null;
+                    domandeGiàFatte++;
                 }
-                nascondi();
-                selected = 0;
-                imgSelectedPerson.Source = null;
-                domandeGiàFatte++;
+            }
+            else
+            {
+                MessageBox.Show("aspetta il tuo turno", "GUESS WHO");
             }
         }
 
