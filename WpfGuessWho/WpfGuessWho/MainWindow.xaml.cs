@@ -43,6 +43,7 @@ namespace WpfGuessWho
             cdomanda = new CDomanda(dati);
             file = new CFile("filePersone.csv", dati);
             window = new WStart(dati, c);
+            window.Close();
             elab = new CElaborazioneDati(dati, c, cdomanda, window);
             t1 = new Thread(th.riceviPacchetto);
             t2 = new Thread(elab.valutaTipo);
