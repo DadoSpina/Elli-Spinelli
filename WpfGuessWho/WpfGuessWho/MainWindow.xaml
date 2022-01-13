@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfGuessWho"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1075.661" Width="1941.325" Closing="Window_Closing" WindowStyle="None">
+        Title="MainWindow" Height="1075.661" Width="1941.325" Closing="Window_Closing" WindowStyle="None" WindowState="Maximized" ResizeMode="NoResize">
     <Window.Background>
         <ImageBrush ImageSource="background.jpg"/>
     </Window.Background>
@@ -20,15 +20,14 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="809" Margin="10,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="1355" Opacity="0.4"/>
-        <Rectangle x:Name="rectDomanda" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="55" Margin="252,0,797,101" Stroke="Black" VerticalAlignment="Bottom" Width="884" Opacity="0.4"/>
-        <Label x:Name="lblDomanda" Content="" HorizontalAlignment="Center" Margin="252,0,797,101" VerticalAlignment="Bottom" Height="55" Width="884" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="btnForward" Content="&gt;" HorizontalAlignment="Center" Margin="1155,0,677,101" VerticalAlignment="Bottom" Width="101" Height="55" Background="#FF6640B3" Foreground="White" FontSize="24" Click="btnForward_Click"/>
-        <Button x:Name="btnBack" Content="&lt;" HorizontalAlignment="Center" Margin="136,0,1696,101" VerticalAlignment="Bottom" Width="101" Height="55" Background="#FF6640B3" Foreground="White" FontSize="24" Click="btnBack_Click"/>
-        <Button x:Name="btnConferma" Content="conferma domanda" HorizontalAlignment="Center" Margin="252,0,1245,60" VerticalAlignment="Bottom" Width="436" Background="#FF6640B3" Foreground="White" Height="33" FontSize="22" Click="btnConferma_Click"/>
-        <Button x:Name="btnIndovina" Content="indovina persona selezionata" HorizontalAlignment="Center" Margin="700,0,797,60" VerticalAlignment="Bottom" Width="436" Background="#FF6640B3" Foreground="White" Height="33" FontSize="22" Click="btnIndovina_Click"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="134" Margin="1739,911,0,0" Stroke="Black" VerticalAlignment="Top" Width="194"/>
-        <Image x:Name="imgLogo" Height="139" Margin="0,0,10,10" Width="174" Source="logo.png" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-        <Image x:Name="imgUser" HorizontalAlignment="Left" Height="84" VerticalAlignment="Top" Width="100" Source="maleProfilePicture.jpg" Margin="10,952,0,0"/>
+        <Rectangle x:Name="rectDomanda" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="55" Margin="313,0,744,78" Stroke="Black" VerticalAlignment="Bottom" Width="884" Opacity="0.4"/>
+        <Label x:Name="lblDomanda" Content="" HorizontalAlignment="Center" Margin="313,0,744,78" VerticalAlignment="Bottom" Height="55" Width="884" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnForward" Content="&gt;" HorizontalAlignment="Center" Margin="1215,0,624,78" VerticalAlignment="Bottom" Width="102" Height="55" Background="#FF6640B3" Foreground="White" FontSize="24" Click="btnForward_Click"/>
+        <Button x:Name="btnBack" Content="&lt;" HorizontalAlignment="Center" Margin="197,0,1644,78" VerticalAlignment="Bottom" Width="100" Height="55" Background="#FF6640B3" Foreground="White" FontSize="24" Click="btnBack_Click"/>
+        <Button x:Name="btnConferma" Content="conferma domanda" HorizontalAlignment="Center" Margin="313,0,1192,37" VerticalAlignment="Bottom" Width="436" Background="#FF6640B3" Foreground="White" Height="33" FontSize="22" Click="btnConferma_Click"/>
+        <Button x:Name="btnIndovina" Content="indovina persona selezionata" HorizontalAlignment="Center" Margin="761,0,744,37" VerticalAlignment="Bottom" Width="436" Background="#FF6640B3" Foreground="White" Height="33" FontSize="22" Click="btnIndovina_Click"/>
+        <Image x:Name="imgLogo" Height="139" Margin="0,0,11,10" Width="174" Source="logo.png" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Image x:Name="imgUser" HorizontalAlignment="Left" Height="84" VerticalAlignment="Top" Width="100" Source="maleProfilePicture.jpg" Margin="10,982,0,0"/>
         <Image x:Name="img1" HorizontalAlignment="Left" Height="195" Margin="14,42,0,0" VerticalAlignment="Top" Width="220" Source="1.jpg" Stretch="Fill"/>
         <Image x:Name="img1X" HorizontalAlignment="Left" Height="195" Margin="14,42,0,0" VerticalAlignment="Top" Width="220" Stretch="Fill"/>
         <Button x:Name="btnPersona1" HorizontalAlignment="Left" Margin="14,41,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Content="1" Opacity="0"/>
@@ -101,13 +100,13 @@
         <Image x:Name="img24" HorizontalAlignment="Left" Height="195" Margin="1141,646,0,0" VerticalAlignment="Top" Width="220" Source="24.jpg" Stretch="Fill"/>
         <Image x:Name="img24X" HorizontalAlignment="Left" Height="195" Margin="1141,646,0,0" VerticalAlignment="Top" Width="220" Stretch="Fill"/>
         <Button x:Name="btnPersona24" Content="24" HorizontalAlignment="Left" Margin="1141,646,0,0" VerticalAlignment="Top" Width="220" Height="195" Click="btnPersona_Click" Opacity="0"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="491" Margin="0,42,10,0" Stroke="Black" VerticalAlignment="Top" Width="537" Opacity="0.4"/>
-        <Image x:Name="imgSelectedPerson" HorizontalAlignment="Right" Height="491" Margin="0,42,10,0" VerticalAlignment="Top" Width="537" Stretch="Fill"/>
-        <Button x:Name="btnPronto" Content="Pronto" Margin="855,889,797,75" Width="281" Click="btnPronto_Click" Background="#FFEE0606" VerticalContentAlignment="Center" Height="81" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White"/>
-        <Image HorizontalAlignment="Right" Height="242" Margin="0,671,10,0" VerticalAlignment="Top" Width="252"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="332" Margin="0,581,10,0" Stroke="Black" VerticalAlignment="Top" Width="252" Opacity="0.4"/>
-        <Image x:Name="imgSelezionato" HorizontalAlignment="Right" Height="242" Margin="0,671,10,0" VerticalAlignment="Top" Width="252" Stretch="Fill"/>
-        <Label x:Name="lblSelectedCharacter" Content="Your Character" HorizontalAlignment="Right" Margin="0,581,10,0" VerticalAlignment="Top" Height="90" Width="252" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="491" Margin="0,42,11,0" Stroke="Black" VerticalAlignment="Top" Width="537" Opacity="0.4"/>
+        <Image x:Name="imgSelectedPerson" HorizontalAlignment="Right" Height="491" Margin="0,42,11,0" VerticalAlignment="Top" Width="537" Stretch="Fill"/>
+        <Button x:Name="btnPronto" Content="Pronto" Margin="915,927,744,67" Width="282" Click="btnPronto_Click" Background="#FFEE0606" VerticalContentAlignment="Center" Height="82" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White"/>
+        <Image HorizontalAlignment="Right" Height="242" Margin="0,671,11,0" VerticalAlignment="Top" Width="252"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="332" Margin="0,581,11,0" Stroke="Black" VerticalAlignment="Top" Width="252" Opacity="0.4"/>
+        <Image x:Name="imgSelezionato" HorizontalAlignment="Right" Height="242" Margin="0,671,11,0" VerticalAlignment="Top" Width="252" Stretch="Fill"/>
+        <Label x:Name="lblSelectedCharacter" Content="Your Character" HorizontalAlignment="Right" Margin="0,581,11,0" VerticalAlignment="Top" Height="90" Width="252" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
 
     </Grid>
 </Window>

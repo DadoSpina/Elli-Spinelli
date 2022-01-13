@@ -87,7 +87,6 @@ namespace WpfGuessWho
                         condi.connesso = 0;
                         condi.Utente = "";
                         condi.sourceOfTheImage = new Uri("", UriKind.Relative);
-
                     }
                 }
             }
