@@ -53,6 +53,7 @@ namespace WpfGuessWho
                                             {
                                                 c.toCSV("r", "Y");
                                                     condi.connesso = 1;
+                                                    condi.ip = condi.IpTemporary;
                                                 //condi.Utente = start.txtUtente.Text;
                                                 start.closing();
                                             }

@@ -12,14 +12,14 @@ namespace WpfGuessWho
     {
         UdpClient server;
         byte[] data;
-        IPEndPoint riceveEP;
+        IPEndPoint reciveEP;
         DatiCondivisi condi;
 
         public ThreadServer()
         {
             server = new UdpClient(666);
             data = Encoding.ASCII.GetBytes("");
-            riceveEP = new IPEndPoint(IPAddress.Any, 0);
+            reciveEP = new IPEndPoint(IPAddress.Any, 0);
             condi = new DatiCondivisi();
         }
 
@@ -28,7 +28,7 @@ namespace WpfGuessWho
             server = new UdpClient(666);
             server.Client.ReceiveTimeout = 1000;
             data = Encoding.ASCII.GetBytes("");
-            riceveEP = new IPEndPoint(IPAddress.Any, 0);
+            reciveEP = new IPEndPoint(IPAddress.Any, 0);
             this.condi = condi;
         }
 
@@ -39,7 +39,8 @@ namespace WpfGuessWho
             {
                 try
                 {
-                    byte[] dataReceived = server.Receive(ref riceveEP);
+                    byte[] dataReceived = server.Receive(ref reciveEP);
+                    condi.IpTemporary = reciveEP.Address.ToString();
                     String risposta = Encoding.ASCII.GetString(dataReceived);
                     if (risposta == "")
                     {

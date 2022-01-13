@@ -9,6 +9,7 @@ namespace WpfGuessWho
 {
     public class DatiCondivisi
     {
+        public string IpTemporary { get; set; }
         public bool aCaso { get; set; }
         public int Utility { get; set; }
         public string nomeAvversario { get; set; }
@@ -39,6 +40,7 @@ namespace WpfGuessWho
             connesso = 0;
             pronto = false;
             ip = "localhost";
+            IpTemporary = "localhost";
             porta = 666;
             tuoPersonaggio = "";
             closeThread = false;
