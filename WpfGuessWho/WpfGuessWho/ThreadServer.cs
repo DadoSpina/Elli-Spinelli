@@ -15,20 +15,20 @@ namespace WpfGuessWho
         IPEndPoint reciveEP;
         DatiCondivisi condi;
 
-        public ThreadServer()
-        {
-            server = new UdpClient(666);
-            data = Encoding.ASCII.GetBytes("");
-            reciveEP = new IPEndPoint(IPAddress.Any, 0);
-            condi = new DatiCondivisi();
-        }
+        //public ThreadServer()
+        //{
+        //    server = new UdpClient(666);
+        //    data = Encoding.ASCII.GetBytes("");
+        //    reciveEP = new IPEndPoint(IPAddress.Any, 666);
+        //    condi = new DatiCondivisi();
+        //}
 
         public ThreadServer(DatiCondivisi condi)
         {
             server = new UdpClient(666);
             server.Client.ReceiveTimeout = 1000;
             data = Encoding.ASCII.GetBytes("");
-            reciveEP = new IPEndPoint(IPAddress.Any, 0);
+            reciveEP = new IPEndPoint(IPAddress.Any, 666);
             this.condi = condi;
         }
 

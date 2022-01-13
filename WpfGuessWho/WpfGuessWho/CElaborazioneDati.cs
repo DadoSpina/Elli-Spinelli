@@ -76,9 +76,13 @@ namespace WpfGuessWho
                                     }
                                     break;
                                 case "Y":
+                                        temp = condi.ip;
+                                        condi.ip = condi.IpTemporary;
                                         condi.connesso = 1;
                                     break;
                                 case "N":
+                                        temp = condi.ip;
+                                        condi.ip = condi.IpTemporary;
                                         condi.connesso = -1;
                                     break;
 
