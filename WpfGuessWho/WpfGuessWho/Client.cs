@@ -19,7 +19,7 @@ namespace WpfGuessWho
         {
             client = new UdpClient();
             data = Encoding.ASCII.GetBytes("");
-            riceveEP = new IPEndPoint(IPAddress.Any, 0);
+            riceveEP = new IPEndPoint(IPAddress.Any, 666);
             dati = new DatiCondivisi();
         }
 
@@ -27,7 +27,7 @@ namespace WpfGuessWho
         {
             client = new UdpClient();
             data = Encoding.ASCII.GetBytes("");
-            riceveEP = new IPEndPoint(IPAddress.Any, 0);
+            riceveEP = new IPEndPoint(IPAddress.Any, 666);
             this.dati = dati;
         }
         public void toCSV(string tipoMess, string contenuti)

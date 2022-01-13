@@ -15,13 +15,6 @@ namespace WpfGuessWho
         IPEndPoint reciveEP;
         DatiCondivisi condi;
 
-        //public ThreadServer()
-        //{
-        //    server = new UdpClient(666);
-        //    data = Encoding.ASCII.GetBytes("");
-        //    reciveEP = new IPEndPoint(IPAddress.Any, 666);
-        //    condi = new DatiCondivisi();
-        //}
 
         public ThreadServer(DatiCondivisi condi)
         {
