@@ -13,6 +13,7 @@ namespace WpfGuessWho
         Client c;
         CDomanda dom;
         WStart start;
+        string temp;
 
         public CElaborazioneDati(DatiCondivisi condi, Client c, CDomanda dom, WStart start)
         {
@@ -20,6 +21,7 @@ namespace WpfGuessWho
             this.c = c;
             this.dom = dom;
             this.start = start;
+            temp = "";
         }
 
         public void valutaTipo()
@@ -33,39 +35,43 @@ namespace WpfGuessWho
                 {
                     string[] domanda = a.Split(';');
 
-                    switch (domanda[0])
+                        switch (domanda[0])
                     {
                         case "r": //richiesta connessione
                             switch (domanda[1])
                             {
                                 default:
-                                    if (condi.connesso == 1)
+                                        temp = condi.ip;
+                                        condi.ip = condi.IpTemporary;
+                                        if (condi.connesso == 1)
                                     {
                                         c.toCSV("r", "N");
+                                            condi.ip = temp;
                                     }
-                                    else
+                                        else
                                     {
 
                                         MessageBoxResult ris = MessageBox.Show("connettiti con ...", "GUESS WHO", MessageBoxButton.YesNo, MessageBoxImage.Question);
                                         if (ris == MessageBoxResult.Yes)
-                                        {
-                                            if (condi.aCaso)
                                             {
-                                                c.toCSV("r", "Y");
+                                                if (condi.aCaso)
+                                            {
                                                     condi.connesso = 1;
-                                                    condi.ip = condi.IpTemporary;
-                                                //condi.Utente = start.txtUtente.Text;
-                                                start.closing();
+                                                    c.toCSV("r", "Y");
+                                                    //condi.Utente = start.txtUtente.Text;
+                                                    start.closing();
                                             }
                                             else
-                                            {
-                                                c.toCSV("r", "N");
-                                                condi.aCaso = true;
+                                               {
+                                                    c.toCSV("r", "N");
+                                                    condi.ip = temp;
+                                                    condi.aCaso = true;
                                             }
                                         }
                                         else
                                         {
                                             c.toCSV("r", "N");
+                                            condi.ip = temp;
                                         }
                                     }
                                     break;
