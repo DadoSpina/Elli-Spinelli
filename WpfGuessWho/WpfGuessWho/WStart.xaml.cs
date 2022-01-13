@@ -38,7 +38,7 @@ namespace WpfGuessWho
             {
                 condi.Utente = txtUtente.Text;
                 condi.sourceOfTheImage = sourceOfTheImage;
-                this.Close();
+                Hide();
             }
             else
             {

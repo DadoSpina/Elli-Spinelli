@@ -42,14 +42,13 @@ namespace WpfGuessWho
             th = new ThreadServer(dati);
             cdomanda = new CDomanda(dati);
             file = new CFile("filePersone.csv", dati);
-            window = new WStart(dati, c);
-            window.Close();
+            file.toListPersona();
+            //window.Close();
             elab = new CElaborazioneDati(dati, c, cdomanda, window, this);
             t1 = new Thread(th.riceviPacchetto);
             t2 = new Thread(elab.valutaTipo);
             t1.Start();
             t2.Start();
-            file.toListPersona();
             GraphicReset();
         }
 
@@ -59,6 +58,7 @@ namespace WpfGuessWho
             {
                 variabile = new int[24];
                 window = new WStart(dati, c);
+                elab.start = window;
 
 
                 for (int i = 0; i < 24; i++)

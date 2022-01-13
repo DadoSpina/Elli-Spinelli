@@ -12,7 +12,7 @@ namespace WpfGuessWho
         DatiCondivisi condi;
         Client c;
         CDomanda dom;
-        WStart start;
+        public WStart start;
         string temp;
         MainWindow window;
 
@@ -60,8 +60,13 @@ namespace WpfGuessWho
                                             {
                                                     condi.connesso = 1;
                                                     c.toCSV("r", "Y");
-                                                    start.closing();
-                                            }
+                                                    //start.closing();
+                                                    start.Dispatcher.Invoke(delegate {
+                                                        condi.Utente = start.txtUtente.Text;
+                                                        condi.sourceOfTheImage = start.sourceOfTheImage;
+                                                        start.Close();
+                                                    });
+                                                }
                                             else
                                                {
                                                     c.toCSV("r", "N");
@@ -153,15 +158,14 @@ namespace WpfGuessWho
                                     if (domanda[1] == condi.tuoPersonaggio)
                                     {
                                         c.toCSV("v", "Y");
-                                        condi.vinto = -1;
-                                        MessageBox.Show("hai perso. \nmi spiace ha vinto " + condi.nomeAvversario, "GUESS WHO");
-                                            
+                                            window.Dispatcher.Invoke(delegate { MessageBox.Show(window, "hai perso. \nmi spiace ha vinto " + condi.nomeAvversario, "GUESS WHO"); });
+                                            condi.vinto = -1;
                                         }
                                     else
                                     {
                                         c.toCSV("v", "N");
-                                        condi.vinto = 1;
-                                        MessageBox.Show("hai perso. \nmi spiace ha vinto " + condi.nomeAvversario, "GUESS WHO");
+                                        window.Dispatcher.Invoke(delegate { MessageBox.Show(window, "HAI VINTO! \n con " + condi.nomeAvversario, "GUESS WHO"); });
+                                            condi.vinto = 1;
                                         }
                                         window.GraphicReset();
                                         //deve avviare metodo della main window reset();
