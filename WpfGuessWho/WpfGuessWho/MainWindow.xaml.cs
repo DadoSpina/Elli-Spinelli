@@ -44,7 +44,7 @@ namespace WpfGuessWho
             file = new CFile("filePersone.csv", dati);
             window = new WStart(dati, c);
             window.Close();
-            elab = new CElaborazioneDati(dati, c, cdomanda, window);
+            elab = new CElaborazioneDati(dati, c, cdomanda, window, this);
             t1 = new Thread(th.riceviPacchetto);
             t2 = new Thread(elab.valutaTipo);
             t1.Start();
@@ -53,9 +53,9 @@ namespace WpfGuessWho
             GraphicReset();
         }
 
-        private void GraphicReset()
+        public void GraphicReset()
         {
-            Dispatcher.Invoke(() =>
+            Dispatcher.Invoke(delegate
             {
                 variabile = new int[24];
                 window = new WStart(dati, c);
@@ -251,36 +251,43 @@ namespace WpfGuessWho
 
         private void btnIndovina_Click(object sender, RoutedEventArgs e)
         {
-            if (domandeGiàFatte > 0)
+            if (dati.turno)
             {
-                if (selected != 0)
+                if (domandeGiàFatte > 0)
                 {
-                    c.toCSV("v", dati.listPersona[selected - 1].nome);
-                    Thread.Sleep(1000);
-                    if (dati.vinto == 1)
+                    if (selected != 0)
                     {
-                        punteggio = (dati.listDomande.Count + 1) * 100;
-                        punteggio -= (domandeGiàFatte * 100);
-                        MessageBox.Show("HAI VINTO!! \ncon " + punteggio.ToString() + " punti", "GUESS WHO");
-                        c.toCSV("d", "");
-                        GraphicReset();
+                        c.toCSV("v", dati.listPersona[selected - 1].nome);
+                        Thread.Sleep(1000);
+                        if (dati.vinto == 1)
+                        {
+                            punteggio = (dati.listDomande.Count + 1) * 100;
+                            punteggio -= (domandeGiàFatte * 100);
+                            MessageBox.Show("HAI VINTO!! \ncon " + punteggio.ToString() + " punti", "GUESS WHO");
+                            c.toCSV("d", "");
+                            GraphicReset();
+                        }
+                        else if (dati.vinto == -1)
+                        {
+                            MessageBox.Show("hai perso. \nmi spiace ha vinto " + dati.nomeAvversario, "GUESS WHO");
+                            c.toCSV("d", "");
+                            GraphicReset();
+                        }
+                        //salva su file di tipo .csv "nome vincitore";"punteggio"
                     }
-                    else if (dati.vinto == -1)
+                    else
                     {
-                        MessageBox.Show("hai perso. \nmi spiace ha vinto " + dati.nomeAvversario,"GUESS WHO");
-                        c.toCSV("d", "");
-                        GraphicReset();
+                        MessageBox.Show("select who you want to guess first", "GUESS WHO");
                     }
-                    //salva su file di tipo .csv "nome vincitore";"punteggio"
                 }
                 else
                 {
-                    MessageBox.Show("select who you want to guess first", "GUESS WHO");
+                    MessageBox.Show("Chiedi almeno 1 domanda prima", "GUESS WHO");
                 }
             }
             else
             {
-                MessageBox.Show("Chiedi almeno 1 domanda prima", "GUESS WHO");
+                MessageBox.Show("aspetta il tuo turno", "GUESS WHO");
             }
         }
 

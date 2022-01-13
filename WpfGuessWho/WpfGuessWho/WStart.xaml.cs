@@ -32,8 +32,8 @@ namespace WpfGuessWho
         }
         public void closing()
         {
-            Dispatcher.Invoke(() =>
-        {
+            Dispatcher.Invoke(delegate
+            {
             if (txtUtente.Text != "" && txtUtente.Text != null)
             {
                 condi.Utente = txtUtente.Text;

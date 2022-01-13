@@ -14,14 +14,16 @@ namespace WpfGuessWho
         CDomanda dom;
         WStart start;
         string temp;
+        MainWindow window;
 
-        public CElaborazioneDati(DatiCondivisi condi, Client c, CDomanda dom, WStart start)
+        public CElaborazioneDati(DatiCondivisi condi, Client c, CDomanda dom, WStart start, MainWindow window)
         {
             this.condi = condi;
             this.c = c;
             this.dom = dom;
             this.start = start;
             temp = "";
+            this.window = window;
         }
 
         public void valutaTipo()
@@ -123,7 +125,6 @@ namespace WpfGuessWho
                                                     MessageBox.Show("rispondi correttamente!", "GUESS WHO");
                                                 }
                                             }
-                                            condi.turno = true;
                                         }
                                         else
                                         {
@@ -140,8 +141,8 @@ namespace WpfGuessWho
                                                     MessageBox.Show("rispondi correttamente!", "GUESS WHO");
                                                 }
                                             }
-                                            condi.turno = true;
                                         }
+                                        condi.turno = true;
                                         break;
                             }
                             break;
@@ -161,9 +162,10 @@ namespace WpfGuessWho
                                         c.toCSV("v", "N");
                                         condi.vinto = 1;
                                         MessageBox.Show("hai perso. \nmi spiace ha vinto " + condi.nomeAvversario, "GUESS WHO");
-                                        
                                         }
-                                    break;
+                                        window.GraphicReset();
+                                        //deve avviare metodo della main window reset();
+                                        break;
                                 case "Y":
                                     condi.vinto = 1;
                                     break;
