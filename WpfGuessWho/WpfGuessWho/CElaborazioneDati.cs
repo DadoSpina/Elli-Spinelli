@@ -51,14 +51,13 @@ namespace WpfGuessWho
                                         else
                                     {
 
-                                        MessageBoxResult ris = MessageBox.Show("connettiti con ...", "GUESS WHO", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                                        MessageBoxResult ris = MessageBox.Show("connettiti con " + domanda[1], "GUESS WHO", MessageBoxButton.YesNo, MessageBoxImage.Question);
                                         if (ris == MessageBoxResult.Yes)
                                             {
                                                 if (condi.aCaso)
                                             {
                                                     condi.connesso = 1;
                                                     c.toCSV("r", "Y");
-                                                    //condi.Utente = start.txtUtente.Text;
                                                     start.closing();
                                             }
                                             else
@@ -79,7 +78,8 @@ namespace WpfGuessWho
                                         temp = condi.ip;
                                         condi.ip = condi.IpTemporary;
                                         condi.connesso = 1;
-                                    break;
+                                        start.closing();
+                                        break;
                                 case "N":
                                         temp = condi.ip;
                                         condi.ip = condi.IpTemporary;
@@ -151,7 +151,9 @@ namespace WpfGuessWho
                                     {
                                         c.toCSV("v", "Y");
                                         condi.vinto = -1;
-                                    }
+                                        MessageBox.Show("hai perso. \nmi spiace ha vinto " + condi.nomeAvversario, "GUESS WHO");
+                                        
+                                        }
                                     else
                                     {
                                         c.toCSV("v", "N");
@@ -169,6 +171,7 @@ namespace WpfGuessWho
                         case "d": //richiesta disconnessione
                             condi.connesso = 0;
                             condi.pronto = false;
+
                             break;
                         }
                     }
