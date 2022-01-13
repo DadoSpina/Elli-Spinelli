@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 
 namespace WpfGuessWho
@@ -197,18 +198,27 @@ namespace WpfGuessWho
                                         //deve avviare metodo della main window reset();
                                         break;
                                 case "Y":
-                                            MessageBox.Show("HAI VINTO!! \ncon " + condi.punteggio.ToString() + " punti", "GUESS WHO");
-                                            c.toCSV("d", "");
                                         condi.connesso = 0;
                                         condi.pronto = false;
-                                        window.GraphicReset(); 
+                                        MessageBox.Show("HAI VINTO!! \ncon " + condi.punteggio.ToString() + " punti", "GUESS WHO");
+                                            c.toCSV("d", "");
+                                        Timer t = new Timer();
+                                        t.AutoReset = false;
+                                        t.Interval = 10;
+                                        t.Elapsed += T_Elapsed;
+                                        t.Start();
+                                        
                                         break;
                                 case "N":
-                                        MessageBox.Show("hai perso. \nmi spiace ha vinto " + condi.nomeAvversario, "GUESS WHO");
-                                        c.toCSV("d", "");
                                         condi.connesso = 0;
                                         condi.pronto = false;
-                                        window.GraphicReset(); 
+                                        MessageBox.Show("hai perso. \nmi spiace ha vinto " + condi.nomeAvversario, "GUESS WHO");
+                                        c.toCSV("d", "");
+                                        Timer u = new Timer();
+                                        u.AutoReset = false;
+                                        u.Interval = 10;
+                                        u.Elapsed += T_Elapsed;
+                                        u.Start();
                                         break;
                             }
                             break;
@@ -223,6 +233,11 @@ namespace WpfGuessWho
 
             }
             return;
+        }
+
+        private void T_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            window.GraphicReset();
         }
     }
 }

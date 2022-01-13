@@ -302,6 +302,7 @@ namespace WpfGuessWho
                     case 1:
                         btnPersona1.Visibility = Visibility.Hidden;
                         img1X.Source = new BitmapImage(new Uri("x.png", UriKind.Relative));
+                        
                         break;
                     case 2:
                         btnPersona2.Visibility = Visibility.Hidden;
@@ -400,5 +401,9 @@ namespace WpfGuessWho
             
         }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            dati.closeThread = true;
+        }
     }
 }
