@@ -10,6 +10,7 @@ namespace WpfGuessWho
     public class DatiCondivisi
     {
         public string IpTemporary { get; set; }
+        public int punteggio { get; set; }
         public bool aCaso { get; set; }
         public int Utility { get; set; }
         public string nomeAvversario { get; set; }
@@ -32,6 +33,7 @@ namespace WpfGuessWho
         public bool turno { get; set; }
         public DatiCondivisi()
         {
+            punteggio = 0;
             Utility = 0;
             vinto = -1;
             listPersona = new List<CPersona>();

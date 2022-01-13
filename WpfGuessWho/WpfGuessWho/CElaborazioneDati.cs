@@ -156,15 +156,41 @@ namespace WpfGuessWho
                             {
                                 default:
                                     if (domanda[1] == condi.tuoPersonaggio)
-                                    {
-                                        c.toCSV("v", "Y");
+                                        {
+                                            int i = 0;
+                                            while (i == 0)
+                                            {
+                                                MessageBoxResult ris = MessageBox.Show("il tuo personaggio è" + domanda[1] + "?", "GUESS WHO", MessageBoxButton.YesNo);
+                                                if (ris == MessageBoxResult.Yes)
+                                                {
+                                                    c.toCSV("v", "Y");
+                                                    i = 1;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("rispondi correttamente!", "GUESS WHO");
+                                                }
+                                            }
                                             window.Dispatcher.Invoke(delegate { MessageBox.Show(window, "hai perso. \nmi spiace ha vinto " + condi.nomeAvversario, "GUESS WHO"); });
                                             condi.vinto = -1;
                                         }
                                     else
-                                    {
-                                        c.toCSV("v", "N");
-                                        window.Dispatcher.Invoke(delegate { MessageBox.Show(window, "HAI VINTO! \n con " + condi.nomeAvversario, "GUESS WHO"); });
+                                        {
+                                            int i = 0;
+                                            while (i == 0)
+                                            {
+                                                MessageBoxResult ris = MessageBox.Show("il tuo personaggio è" + domanda[1] + "?", "GUESS WHO", MessageBoxButton.YesNo);
+                                                if (ris == MessageBoxResult.No)
+                                                {
+                                                    c.toCSV("v", "N");
+                                                    i = 1;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("rispondi correttamente!", "GUESS WHO");
+                                                }
+                                            }
+                                        window.Dispatcher.Invoke(delegate { MessageBox.Show(window, "HAI VINTO! \n con " + condi.punteggio.ToString() + " punti", "GUESS WHO"); });
                                             condi.vinto = 1;
                                         }
                                         window.GraphicReset();

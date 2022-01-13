@@ -18,7 +18,7 @@ namespace WpfGuessWho
 {
     public partial class MainWindow : Window 
     {
-        int punteggio = 0;
+        
         int domandeGiàFatte = 0;
         Random rand = new Random();
         DatiCondivisi dati;
@@ -65,6 +65,8 @@ namespace WpfGuessWho
                 {
                     variabile[i] = 1;
                 }
+                domandeGiàFatte = 0;
+                dati.turno = true;
                 btnBack.Visibility = Visibility.Hidden;
                 btnConferma.Visibility = Visibility.Hidden;
                 btnForward.Visibility = Visibility.Hidden;
@@ -261,9 +263,9 @@ namespace WpfGuessWho
                         Thread.Sleep(1000);
                         if (dati.vinto == 1)
                         {
-                            punteggio = (dati.listDomande.Count + 1) * 100;
-                            punteggio -= (domandeGiàFatte * 100);
-                            MessageBox.Show("HAI VINTO!! \ncon " + punteggio.ToString() + " punti", "GUESS WHO");
+                            dati.punteggio = (dati.listDomande.Count + 1) * 100;
+                            dati.punteggio -= (domandeGiàFatte * 100);
+                            MessageBox.Show("HAI VINTO!! \ncon " + dati.punteggio.ToString() + " punti", "GUESS WHO");
                             c.toCSV("d", "");
                             GraphicReset();
                         }
