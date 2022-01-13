@@ -61,6 +61,7 @@ namespace WpfGuessWho
                 elab.start = window;
 
 
+
                 for (int i = 0; i < 24; i++)
                 {
                     variabile[i] = 1;
@@ -261,20 +262,8 @@ namespace WpfGuessWho
                     {
                         c.toCSV("v", dati.listPersona[selected - 1].nome);
                         Thread.Sleep(1000);
-                        if (dati.vinto == 1)
-                        {
-                            dati.punteggio = (dati.listDomande.Count + 1) * 100;
-                            dati.punteggio -= (domandeGiàFatte * 100);
-                            MessageBox.Show("HAI VINTO!! \ncon " + dati.punteggio.ToString() + " punti", "GUESS WHO");
-                            c.toCSV("d", "");
-                            GraphicReset();
-                        }
-                        else if (dati.vinto == -1)
-                        {
-                            MessageBox.Show("hai perso. \nmi spiace ha vinto " + dati.nomeAvversario, "GUESS WHO");
-                            c.toCSV("d", "");
-                            GraphicReset();
-                        }
+                        dati.punteggio = (dati.listDomande.Count + 1) * 100;
+                        dati.punteggio -= (domandeGiàFatte * 100);
                         //salva su file di tipo .csv "nome vincitore";"punteggio"
                     }
                     else
@@ -291,11 +280,6 @@ namespace WpfGuessWho
             {
                 MessageBox.Show("aspetta il tuo turno", "GUESS WHO");
             }
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            dati.closeThread = true;
         }
 
         private void nascondi()

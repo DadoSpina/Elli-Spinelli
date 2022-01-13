@@ -160,7 +160,7 @@ namespace WpfGuessWho
                                             int i = 0;
                                             while (i == 0)
                                             {
-                                                MessageBoxResult ris = MessageBox.Show("il tuo personaggio è" + domanda[1] + "?", "GUESS WHO", MessageBoxButton.YesNo);
+                                                MessageBoxResult ris = MessageBox.Show("il tuo personaggio è " + domanda[1] + "?", "GUESS WHO", MessageBoxButton.YesNo);
                                                 if (ris == MessageBoxResult.Yes)
                                                 {
                                                     c.toCSV("v", "Y");
@@ -179,7 +179,7 @@ namespace WpfGuessWho
                                             int i = 0;
                                             while (i == 0)
                                             {
-                                                MessageBoxResult ris = MessageBox.Show("il tuo personaggio è" + domanda[1] + "?", "GUESS WHO", MessageBoxButton.YesNo);
+                                                MessageBoxResult ris = MessageBox.Show("il tuo personaggio è " + domanda[1] + "?", "GUESS WHO", MessageBoxButton.YesNo);
                                                 if (ris == MessageBoxResult.No)
                                                 {
                                                     c.toCSV("v", "N");
@@ -197,11 +197,19 @@ namespace WpfGuessWho
                                         //deve avviare metodo della main window reset();
                                         break;
                                 case "Y":
-                                    condi.vinto = 1;
-                                    break;
+                                            MessageBox.Show("HAI VINTO!! \ncon " + condi.punteggio.ToString() + " punti", "GUESS WHO");
+                                            c.toCSV("d", "");
+                                        condi.connesso = 0;
+                                        condi.pronto = false;
+                                        window.GraphicReset(); 
+                                        break;
                                 case "N":
-                                    condi.vinto = -1;
-                                    break;
+                                        MessageBox.Show("hai perso. \nmi spiace ha vinto " + condi.nomeAvversario, "GUESS WHO");
+                                        c.toCSV("d", "");
+                                        condi.connesso = 0;
+                                        condi.pronto = false;
+                                        window.GraphicReset(); 
+                                        break;
                             }
                             break;
                         case "d": //richiesta disconnessione
