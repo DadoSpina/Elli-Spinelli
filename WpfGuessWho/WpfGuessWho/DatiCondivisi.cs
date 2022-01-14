@@ -48,7 +48,7 @@ namespace WpfGuessWho
             tuoPersonaggio = "";
             closeThread = false;
             aCaso = true;
-            turno = true;
+            turno = false;
         }
         public int[] findDomandaSbagliata(int s)
         {

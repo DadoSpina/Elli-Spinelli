@@ -34,18 +34,18 @@ namespace WpfGuessWho
         {
             Dispatcher.Invoke(delegate
             {
-            if (txtUtente.Text != "" && txtUtente.Text != null)
-            {
-                condi.Utente = txtUtente.Text;
-                condi.sourceOfTheImage = sourceOfTheImage;
-                Hide();
-            }
-            else
-            {
-                MessageBox.Show("Invalid username", "GUESS WHO");
-                condi.aCaso = false;
-            }
-        });
+                if (txtUtente.Text != "" && txtUtente.Text != null)
+                {
+                    condi.Utente = txtUtente.Text;
+                    condi.sourceOfTheImage = sourceOfTheImage;
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username", "GUESS WHO");
+                    condi.aCaso = false;
+                }
+            });
         }
 
 
@@ -65,27 +65,28 @@ namespace WpfGuessWho
             }
             else
             {
-                    if (txtIP1.Text != "" && txtIP2.Text != "" && txtIP3.Text != "" && txtIP4.Text != "")
-                    {
-                        condi.ip = txtIP1.Text + "." + txtIP2.Text + "." + txtIP3.Text + "." + txtIP4.Text; 
-                    }
-                    c.toCSV("r", txtUtente.Text);
+                if (txtIP1.Text != "" && txtIP2.Text != "" && txtIP3.Text != "" && txtIP4.Text != "")
+                {
+                    condi.ip = txtIP1.Text + "." + txtIP2.Text + "." + txtIP3.Text + "." + txtIP4.Text;
+                }
+                c.toCSV("r", txtUtente.Text);
 
-                    await WaitConnessione();
-                    
-                    if (condi.connesso == 1)
+                await WaitConnessione();
+
+                if (condi.connesso == 1)
                 {
                     condi.Utente = txtUtente.Text;
                     condi.sourceOfTheImage = sourceOfTheImage;
+                    condi.turno = true;
                     Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("CONNECTION FAILED", "ERROR");
-                        condi.connesso = 0;
-                        condi.Utente = "";
-                        condi.sourceOfTheImage = new Uri("", UriKind.Relative);
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("CONNECTION FAILED", "ERROR");
+                    condi.connesso = 0;
+                    condi.Utente = "";
+                    condi.sourceOfTheImage = new Uri("", UriKind.Relative);
+                }
             }
         }
 

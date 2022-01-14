@@ -67,7 +67,7 @@ namespace WpfGuessWho
                     variabile[i] = 1;
                 }
                 domandeGiàFatte = 0;
-                dati.turno = true;
+                dati.turno = false;
                 btnBack.Visibility = Visibility.Hidden;
                 btnConferma.Visibility = Visibility.Hidden;
                 btnForward.Visibility = Visibility.Hidden;
@@ -404,6 +404,15 @@ namespace WpfGuessWho
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             dati.closeThread = true;
+            c.toCSV("d","") ;
+        }
+
+        public void closeWindow()
+        {
+            Dispatcher.Invoke(delegate
+            {
+                Close();
+            });
         }
     }
 }

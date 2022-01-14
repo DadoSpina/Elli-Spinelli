@@ -33,90 +33,90 @@ namespace WpfGuessWho
             {
                 lock (this)
                 {
-                string a = condi.getLastDomandeRicevute();
-                if (a != "" && a != null)
-                {
-                    string[] domanda = a.Split(';');
+                    string a = condi.getLastDomandeRicevute();
+                    if (a != "" && a != null)
+                    {
+                        string[] domanda = a.Split(';');
 
                         switch (domanda[0])
-                    {
-                        case "r": //richiesta connessione
-                            switch (domanda[1])
-                            {
-                                default:
+                        {
+                            case "r": //richiesta connessione
+                                switch (domanda[1])
+                                {
+                                    default:
                                         temp = condi.ip;
                                         condi.ip = condi.IpTemporary;
                                         if (condi.connesso == 1)
-                                    {
-                                        c.toCSV("r", "N");
+                                        {
+                                            c.toCSV("r", "N");
                                             condi.ip = temp;
-                                    }
+                                        }
                                         else
-                                    {
+                                        {
 
-                                        MessageBoxResult ris = MessageBox.Show("connettiti con " + domanda[1], "GUESS WHO", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                                        if (ris == MessageBoxResult.Yes)
+                                            MessageBoxResult ris = MessageBox.Show("connettiti con " + domanda[1], "GUESS WHO", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                                            if (ris == MessageBoxResult.Yes)
                                             {
-                                                condi.turno = false;
                                                 if (condi.aCaso)
-                                            {
+                                                {
                                                     condi.connesso = 1;
                                                     c.toCSV("r", "Y");
                                                     //start.closing();
-                                                    start.Dispatcher.Invoke(delegate {
+                                                    start.Dispatcher.Invoke(delegate
+                                                    {
                                                         condi.Utente = start.txtUtente.Text;
                                                         condi.sourceOfTheImage = start.sourceOfTheImage;
                                                         start.Close();
                                                     });
                                                 }
-                                            else
-                                               {
+                                                else
+                                                {
                                                     c.toCSV("r", "N");
                                                     condi.ip = temp;
                                                     condi.aCaso = true;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                c.toCSV("r", "N");
+                                                condi.ip = temp;
                                             }
                                         }
-                                        else
-                                        {
-                                            c.toCSV("r", "N");
-                                            condi.ip = temp;
-                                        }
-                                    }
-                                    break;
-                                case "Y":
+                                        break;
+                                    case "Y":
                                         temp = condi.ip;
                                         condi.ip = condi.IpTemporary;
                                         condi.connesso = 1;
                                         start.closing();
                                         break;
-                                case "N":
+                                    case "N":
                                         temp = condi.ip;
                                         condi.ip = condi.IpTemporary;
                                         condi.connesso = -1;
-                                    break;
-
-                            }
-                            break;
-                        case "c":
-                            condi.pronto = true;
-                            condi.nomeAvversario = domanda[1];
-                            break;
-                        default: //domanda "base"
-                            switch (domanda[1])
-                            {
-                                case "Y":
-                                    condi.risposta = "Y";
-                                    condi.Utility = 1;
-                                    break;
-                                case "N":
-                                    condi.risposta = "N";
-                                    condi.Utility = 1;
                                         break;
-                                default:
-                                    //dom.setSelezionata(int.Parse(domanda[0]));
-                                    condi.indiceSelezionata = int.Parse(domanda[0]);
-                                    string risposta = condi.y_n();
-                                    int i = 0;
+
+                                }
+                                break;
+                            case "c":
+                                condi.pronto = true;
+                                condi.nomeAvversario = domanda[1];
+                                break;
+                            default: //domanda "base"
+                                switch (domanda[1])
+                                {
+                                    case "Y":
+                                        condi.risposta = "Y";
+                                        condi.Utility = 1;
+                                        break;
+                                    case "N":
+                                        condi.risposta = "N";
+                                        condi.Utility = 1;
+                                        break;
+                                    default:
+                                        //dom.setSelezionata(int.Parse(domanda[0]));
+                                        condi.indiceSelezionata = int.Parse(domanda[0]);
+                                        string risposta = condi.y_n();
+                                        int i = 0;
                                         if (risposta == "Y")
                                         {
                                             while (i == 0)
@@ -151,13 +151,13 @@ namespace WpfGuessWho
                                         }
                                         condi.turno = true;
                                         break;
-                            }
-                            break;
-                        case "v": //domanda "vincente"
-                            switch (domanda[1])
-                            {
-                                default:
-                                    if (domanda[1] == condi.tuoPersonaggio)
+                                }
+                                break;
+                            case "v": //domanda "vincente"
+                                switch (domanda[1])
+                                {
+                                    default:
+                                        if (domanda[1] == condi.tuoPersonaggio)
                                         {
                                             int i = 0;
                                             while (i == 0)
@@ -176,7 +176,7 @@ namespace WpfGuessWho
                                             window.Dispatcher.Invoke(delegate { MessageBox.Show(window, "hai perso. \nmi spiace ha vinto " + condi.nomeAvversario, "GUESS WHO"); });
                                             condi.vinto = -1;
                                         }
-                                    else
+                                        else
                                         {
                                             int i = 0;
                                             while (i == 0)
@@ -192,42 +192,30 @@ namespace WpfGuessWho
                                                     MessageBox.Show("rispondi correttamente!", "GUESS WHO");
                                                 }
                                             }
-                                        window.Dispatcher.Invoke(delegate { MessageBox.Show(window, "HAI VINTO! \n con " + condi.punteggio.ToString() + " punti", "GUESS WHO"); });
+                                            window.Dispatcher.Invoke(delegate { MessageBox.Show(window, "HAI VINTO! \n con " + condi.punteggio.ToString() + " punti", "GUESS WHO"); });
                                             condi.vinto = 1;
                                         }
-                                        window.GraphicReset();
-                                        //deve avviare metodo della main window reset();
+                                        window.closeWindow();
                                         break;
-                                case "Y":
+                                    case "Y":
                                         condi.connesso = 0;
                                         condi.pronto = false;
                                         MessageBox.Show("HAI VINTO!! \ncon " + condi.punteggio.ToString() + " punti", "GUESS WHO");
-                                            c.toCSV("d", "");
-                                        Timer t = new Timer();
-                                        t.AutoReset = false;
-                                        t.Interval = 10;
-                                        t.Elapsed += T_Elapsed;
-                                        t.Start();
-                                        
+                                        window.closeWindow();
                                         break;
-                                case "N":
+                                    case "N":
                                         condi.connesso = 0;
                                         condi.pronto = false;
                                         MessageBox.Show("hai perso. \nmi spiace ha vinto " + condi.nomeAvversario, "GUESS WHO");
-                                        c.toCSV("d", "");
-                                        Timer u = new Timer();
-                                        u.AutoReset = false;
-                                        u.Interval = 10;
-                                        u.Elapsed += T_Elapsed;
-                                        u.Start();
+                                        window.closeWindow();
                                         break;
-                            }
-                            break;
-                        case "d": //richiesta disconnessione
-                            condi.connesso = 0;
-                            condi.pronto = false;
-
-                            break;
+                                }
+                                break;
+                            case "d": //richiesta disconnessione
+                                condi.connesso = 0;
+                                condi.pronto = false;
+                                window.GraphicReset();
+                                break;
                         }
                     }
                 }
