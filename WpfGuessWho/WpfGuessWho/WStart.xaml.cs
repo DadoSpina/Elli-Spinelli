@@ -47,7 +47,17 @@ namespace WpfGuessWho
             }
         });
         }
-        private void btnPartita_Click(object sender, RoutedEventArgs e)
+
+
+        async Task WaitConnessione()
+        {
+            while (condi.connesso == 0)
+            {
+                await Task.Delay(100);
+            }
+            return;
+        }
+        async private void btnPartita_Click(object sender, RoutedEventArgs e)
         {
             if (txtUtente.Text == "" && txtUtente.Text != null)
             {
@@ -55,31 +65,19 @@ namespace WpfGuessWho
             }
             else
             {
-                if (condi.connesso == 1)
-                {
-                    condi.Utente = txtUtente.Text;
-                    condi.sourceOfTheImage = sourceOfTheImage;
-                    Close();
-                }
-                else
-                {
                     if (txtIP1.Text != "" && txtIP2.Text != "" && txtIP3.Text != "" && txtIP4.Text != "")
                     {
                         condi.ip = txtIP1.Text + "." + txtIP2.Text + "." + txtIP3.Text + "." + txtIP4.Text; 
                     }
-                    else
-                    {
-                    }
+                    c.toCSV("r", txtUtente.Text);
+
+                    await WaitConnessione();
+                    
+                    if (condi.connesso == 1)
+                {
                     condi.Utente = txtUtente.Text;
                     condi.sourceOfTheImage = sourceOfTheImage;
-                    c.toCSV("r", txtUtente.Text);
-                    while (condi.connesso == 0)
-                    {
-                        Thread.Sleep(100);
-                    }
-                    if (condi.connesso == 1)
-                    {
-                        Close();
+                    Close();
                     }
                     else
                     {
@@ -88,7 +86,6 @@ namespace WpfGuessWho
                         condi.Utente = "";
                         condi.sourceOfTheImage = new Uri("", UriKind.Relative);
                     }
-                }
             }
         }
 

@@ -57,6 +57,7 @@ namespace WpfGuessWho
                                         MessageBoxResult ris = MessageBox.Show("connettiti con " + domanda[1], "GUESS WHO", MessageBoxButton.YesNo, MessageBoxImage.Question);
                                         if (ris == MessageBoxResult.Yes)
                                             {
+                                                condi.turno = false;
                                                 if (condi.aCaso)
                                             {
                                                     condi.connesso = 1;
