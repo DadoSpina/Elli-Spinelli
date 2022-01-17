@@ -11,7 +11,7 @@
             <ImageBrush ImageSource="background.jpg"/>
         </Grid.Background>
         <TextBox x:Name="txtUtente" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Utente"/>
-        <Button x:Name="btnPartita" Content="Cerca Partita" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Width="75" Click="btnPartita_Click"/>
+        <Button x:Name="btnPartita" Content="Cerca Partita" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Width="75" Click="btnPartita_Click" Background="#FF0F8B0F"/>
         <Label Content="Choose a name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Image x:Name="imgProfilePicture" HorizontalAlignment="Left" Height="100" Margin="151,27,0,0" VerticalAlignment="Top" Width="100" Source="maleProfilePicture.jpg"/>
         <Button x:Name="btnNext" Content="&gt;" HorizontalAlignment="Left" Margin="205,132,0,0" VerticalAlignment="Top" Width="46" Click="btnNext_Click"/>

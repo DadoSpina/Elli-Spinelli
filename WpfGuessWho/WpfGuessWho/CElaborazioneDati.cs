@@ -214,7 +214,15 @@ namespace WpfGuessWho
                             case "d": //richiesta disconnessione
                                 condi.connesso = 0;
                                 condi.pronto = false;
-                                window.GraphicReset();
+                                if (condi.nomeAvversario == "")
+                                {
+                                    MessageBox.Show("L'avversario si è disconnesso", "GUESS WHO");
+                                }
+                                else
+                                {
+                                    MessageBox.Show(condi.nomeAvversario + " si è disconnesso", "GUESS WHO");
+                                }
+                                window.closeWindow();
                                 break;
                         }
                     }

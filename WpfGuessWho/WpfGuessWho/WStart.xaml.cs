@@ -59,34 +59,44 @@ namespace WpfGuessWho
         }
         async private void btnPartita_Click(object sender, RoutedEventArgs e)
         {
-            if (txtUtente.Text == "" && txtUtente.Text != null)
+            if (condi.Utente == "")
             {
-                MessageBox.Show("Invalid username", "GUESS WHO");
-            }
-            else
-            {
-                if (txtIP1.Text != "" && txtIP2.Text != "" && txtIP3.Text != "" && txtIP4.Text != "")
-                {
-                    condi.ip = txtIP1.Text + "." + txtIP2.Text + "." + txtIP3.Text + "." + txtIP4.Text;
-                }
-                c.toCSV("r", txtUtente.Text);
 
-                await WaitConnessione();
-
-                if (condi.connesso == 1)
+                if (txtUtente.Text == "" && txtUtente.Text != null)
                 {
-                    condi.Utente = txtUtente.Text;
-                    condi.sourceOfTheImage = sourceOfTheImage;
-                    condi.turno = true;
-                    Close();
+                    MessageBox.Show("Invalid username", "GUESS WHO");
                 }
                 else
                 {
-                    MessageBox.Show("CONNECTION FAILED", "ERROR");
-                    condi.connesso = 0;
-                    condi.Utente = "";
-                    condi.sourceOfTheImage = new Uri("", UriKind.Relative);
+                    if (txtIP1.Text != "" && txtIP2.Text != "" && txtIP3.Text != "" && txtIP4.Text != "")
+                    {
+                        condi.ip = txtIP1.Text + "." + txtIP2.Text + "." + txtIP3.Text + "." + txtIP4.Text;
+                    }
+                    c.toCSV("r", txtUtente.Text);
+
+                    condi.Utente = txtUtente.Text;
+                    condi.sourceOfTheImage = sourceOfTheImage;
+                    condi.turno = true;
+                    btnPartita.Background = new SolidColorBrush(Color.FromArgb(255, 238, 6, 6));
+                    await WaitConnessione();
+
+                    if (condi.connesso == 1)
+                    {
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("CONNECTION FAILED", "ERROR");
+                        condi.connesso = 0;
+                        condi.Utente = "";
+                        condi.sourceOfTheImage = new Uri("", UriKind.Relative);
+                        condi.turno = false;
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Sei già in attesa", "ATTENTION");
             }
         }
 

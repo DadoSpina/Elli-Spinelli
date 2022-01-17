@@ -49,6 +49,7 @@ namespace WpfGuessWho
             closeThread = false;
             aCaso = true;
             turno = false;
+            nomeAvversario = "";
         }
         public int[] findDomandaSbagliata(int s)
         {

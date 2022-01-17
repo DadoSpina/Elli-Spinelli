@@ -73,7 +73,8 @@ namespace WpfGuessWho
                 btnForward.Visibility = Visibility.Hidden;
                 btnIndovina.Visibility = Visibility.Hidden;
                 lblDomanda.Visibility = Visibility.Hidden;
-                rectDomanda.Visibility = Visibility.Hidden;
+                rectDomanda.Visibility = Visibility.Hidden; 
+                btnPronto.Background = new SolidColorBrush(Color.FromArgb(255, 15, 193, 15));
                 btnPronto.Visibility = Visibility.Visible;
                 dati.IDtuoPersonaggio = 0;
                 dati.tuoPersonaggio = "";
@@ -147,35 +148,48 @@ namespace WpfGuessWho
                 MessageBox.Show("Choose your character", "GUESS WHO");
             });
         }
-
-        private void btnPronto_Click(object sender, RoutedEventArgs e)
+        async Task WaitPronto()
         {
-            if (selected != 0)
+            while (!dati.pronto)
             {
-                imgSelezionato.Source = imgSelectedPerson.Source;
-                dati.tuoPersonaggio = dati.listPersona[selected - 1].nome;
-                dati.IDtuoPersonaggio = dati.listPersona[selected - 1].id;
-                c.toCSV("c", dati.Utente);
-
-                while (!dati.pronto)
+                await Task.Delay(100);
+            }
+            return;
+        }
+        async private void btnPronto_Click(object sender, RoutedEventArgs e)
+        {
+            if (dati.tuoPersonaggio == "")
+            {
+                if (selected != 0)
                 {
+                    imgSelezionato.Source = imgSelectedPerson.Source;
+                    dati.tuoPersonaggio = dati.listPersona[selected - 1].nome;
+                    dati.IDtuoPersonaggio = dati.listPersona[selected - 1].id;
+                    c.toCSV("c", dati.Utente);
+
+                    btnPronto.Background = new SolidColorBrush(Color.FromArgb(255, 238, 6, 6));
+                    await WaitPronto();
+
+                    //change buttons
+                    selected = 0;
+                    imgSelectedPerson.Source = null;
+                    btnPronto.Visibility = Visibility.Collapsed;
+                    btnBack.Visibility = Visibility.Visible;
+                    btnConferma.Visibility = Visibility.Visible;
+                    btnForward.Visibility = Visibility.Visible;
+                    btnIndovina.Visibility = Visibility.Visible;
+                    lblDomanda.Visibility = Visibility.Visible;
+                    rectDomanda.Visibility = Visibility.Visible;
+
                 }
-
-                //change buttons
-                selected = 0;
-                imgSelectedPerson.Source = null;
-                btnPronto.Visibility = Visibility.Collapsed;
-                btnBack.Visibility = Visibility.Visible;
-                btnConferma.Visibility = Visibility.Visible;
-                btnForward.Visibility = Visibility.Visible;
-                btnIndovina.Visibility = Visibility.Visible;
-                lblDomanda.Visibility = Visibility.Visible;
-                rectDomanda.Visibility = Visibility.Visible;
-
+                else
+                {
+                    MessageBox.Show("Choose your character", "ATTENTION");
+                }
             }
             else
             {
-                MessageBox.Show("Choose your character", "ATTENTION");
+                MessageBox.Show("Sei già in attesa", "ATTENTION");
             }
         }
 
